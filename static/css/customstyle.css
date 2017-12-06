@@ -1,0 +1,43 @@
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+#customNav {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  font-weight: 900;
+  background-color: #B23030!important;
+  font-family: 'Rubik', sans-serif; }
+  #customNav .navbar-brand {
+    color: #fff;
+    font-size: 2em;
+    letter-spacing: 0.15rem; }
+  #customNav .navbar-nav {
+    font-size: 1.25em;
+    letter-spacing: 0.11rem; }
+    #customNav .navbar-nav li.nav-item a.nav-link {
+      color: #fff;
+      -o-transition:.5s ease-in-out;
+      -ms-transition:.5s ease-in-out;
+      -moz-transition:.5s ease-in-out;
+      -webkit-transition:.5s ease-in-out;
+      transition:.5s  ease-in-out;}
+      #customNav .navbar-nav li.nav-item a.nav-link:hover {
+        color: #000; }
+
+#customFileContent {
+  margin-top: 110px;
+  height: 100%;
+  background-color: #E6E6DC!important; }
+  
+#customFile .custom-file-control:lang(en)::after {
+  content: "Select file..."; }
+#customFile .custom-file-control:lang(en)::before {
+  content: "BROWSE"; }
+/*when a value is selected, this class removes the content */
+.custom-file-control.selected:lang(en)::after {
+  content: "" !important; }
+.custom-file {
+  overflow: hidden; }
+.custom-file-control {
+  white-space: nowrap; }

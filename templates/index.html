@@ -1,0 +1,27 @@
+{% extends "layouts/mainlayout.html" %}
+
+{% block title %}
+Research Abstractor
+{% endblock %}
+
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid" id="customFileContent">
+  <div class="container">
+    <h1 class="display-4">Choose the (.pdf) File</h1>
+    <label class="custom-file" id="customFile">
+      <input type="file" class="custom-file-input" id="exampleInputFile" aria-describedby="fileHelp">
+      <span class="custom-file-control form-control-file"></span>
+    </label>
+
+    <p class="lead">Choose the (.pdf) file of the Research Journal or Research Article that you want to be automatically abstracted.</p>
+  </div>
+</div>
+
+<script>
+  $('.custom-file-input').on('change',function(){
+    $(this).next('form-control-file').addClass("selected").html($(this).val());
+  })
+</script>
+
+{% endblock %}
