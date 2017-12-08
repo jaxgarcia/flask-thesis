@@ -29,4 +29,6 @@ def convert_pdf_to_txt(path):
     return text
 
 
-print(convert_pdf_to_txt('Abstract.pdf'))
+output = convert_pdf_to_txt("research1.pdf")
+with open("output.txt", "w", encoding='utf-8') as text_file:
+    print(output, file=text_file)
