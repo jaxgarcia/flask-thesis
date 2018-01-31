@@ -32,7 +32,7 @@ def convert_pdf_to_txt(path):
 
 
 def importantExtraction(rawStr):
-    with open("output.txt", "w", encoding='utf-8') as text_file:
+    with open("output.txt", "w", encoding="utf-8") as text_file:
         print(rawStr, file=text_file)
 
     outputTxt = open('output.txt', 'r', encoding='utf-8')
