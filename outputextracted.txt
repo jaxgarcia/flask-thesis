@@ -1,459 +1,157 @@
 
+Over 
+the  past  few  years,  many  robots  with  human-like 
+embodiment  have  been  developed.  Currently,  robots  that  “live” 
+with  humans  are  only  used  as  pets.  However,  we  must  consider 
+that humanoid robots will enter our daily lives in the near future. 
+When  humanoid  robots  have  abilities  such  as  human-like 
+behaviors  and  utterances,  how  will  we  be  influenced  by  these 
+robots?  In  particular,  what  effects  will  they  have  on  emotional 
+aspects of human relations and societies? 
+We  consider  that  robots  can  collapse  human  relations  using  the 
+balance theory [1]. Concretely, by controlling a robot’s behavior 
+and utterances, we can control  a  human’s  impression  of  another 
+human in group communication involving robots.  
+
+In  this  paper,  we  performed  an  experiment  to  verify  how  social 
+robots  influence  human  relations.  To  determine  this  effect,  we 
+tried  to  confirm  what  occurs  in  the  human-robot  relationship. 
+When robots take on sociality, these robots might easily construct 
+or collapse human relations. We will examine these possibilities. 
+
+
+An experiment was conducted to verify the effects of the robot’s 
+sociality using the balance theory. 
+
+A robot talked to two participants simultaneously. In this situation, 
+we tried to determine how the robot’s behavior  would  influence 
+the  impressions  of  (A)  one  participant  to  the  robot,  (B)  another 
+participant  to  the  robot  and  (C)  one  participant  to  the  other 
+participant. 
+
+          Interactive Humanoid Robot “Robovie” 
+We  used  the  interactive  humanoid  robot  “Robovie,”  which  is 
+characterized  by  its  human-like  bodily  expressions  and  various 
+sensors [3]. The body consists of eyes, a head, and arms, which 
+generate 
+for 
+communication.  
+
+complex  bodily  movements 
+
+required 
+
+the 
+
+  Conditions 
+
+This  experiment  has  three  conditions.  One  is  an  Agreement 
+condition.  This  condition  states  that  the  robot  agrees  to  each 
+participant’s  opinions.  Next  is  a  Disagreement  condition.  The 
+robot in this condition disagrees with each participant’s opinions. 
+In  these  two  conditions,  the  robot  agrees  or  disagrees  with 
+participant’s opinion without distinction. On  the  other  hand,  the 
+robot in an Unfairness condition agrees to only one participant’s 
+opinion. In this condition, the robot behaves unequally. 
+
+          Participants 
+Forty-six university students participated in the experiment.  They 
+do not have contact with robots on a daily basis. 
+
+          Procedure 
+Before  starting 
+the  experiment,  each  participant  answered 
+questions about their likes and dislikes. These answers were used 
+to control  the  behavior  of  the  robot  during  the  experiment.  The 
+robot acted to use the results of questions appropriately.  
+Two participants interacted with the robot at the same time. This 
+interaction  is  exchanging  questions  and  answers.  After  the 
+experiment,  each  participant  answered  questionnaires.  The 
+experimenter  asked  them  some  questions,  which  participants 
+answered  concurrently  to  confirm  their  impressions  of  the  robot 
+and each other. Finally, participants answered questions about (a) 
+their  impressions  of  the  robot,  (b)  the  other  participant’s 
+impressions  of  the  robot,  and  (c)  their  impressions  of  the  other 
+participant.  From  analysis  of  the  responses,  we  tried  to  confirm 
+whether 
+robot-mediated 
+communication. 
+
+theory  applied 
+
+the  balance 
+
+to 
+
+          Evaluation 
+We  evaluated  this  experiment  with  questionnaires  containing  6 
+items. These items are rated on a 1-to-5 scale, where 5 is the most 
+positive. 
+
+The  results  of  the  experiment  were  determined  by  analyzing  the 
+questionnaire  responses.  Figure  1  illustrates  the  result  of  the 
+participants’  impressions  of  the  other  participants  in  unfairness 
+condition. We distributed three conditions to the plus and minus 
+group  based  on  the  forecast  of  the  balance  theory.  We  consider 
+that participants who were agreed with the robot on the opinion 
+will have good impression to the robot. In the reverse case, they 
+will have bad impression to the robot. In analogy with above two 
+cases,  the  participants  in  clash  of  opinion  will  not  have  good 
+impression  to  each  other.  From  this  forecast,  the  plus  group 
+consists of participants in the Agree and Disagree conditions.  The 
+robot  in  this  condition  agrees  or  disagrees  with  the  participants 
 
-Bangla is one of the most spoken languages in the World
-and the national
-language in Bangladesh. Over time the
-number of Bangla documents is increasing in a large amount.
-Reviewing these documents and evaluating them from any
-speciﬁc perspective is a gigantic task for a reviewer. It would
-take a lot time and efforts. Therefore, a system that automates
-the manual and tiresome process of summarizing documents
-is necessary. It helps saving a lot of time by reviewing the
-documents.
-
-English document summarization systems are already there
-and serving with satisfactory accuracy. But there is no com-
-plete system for Bangla document summarization. This can
-help someone evaluating a large amount of Bangla documents
-or writings and giving necessary information about the content
-of the documents. For example, a blogger posted interesting
-topic in a Bangla blog and got a large number of responses
-from the readers with thousands of comments. But he does not
-have enough time to review all those comments. An automated
-summarization system can help him in this case to get a digest
-of the responses from the readers. The work presented in this
-paper is intended to generate an extraction based summary
-from a Bangla document.
-
-The rest of the paper is organized as follows: In section
-II, we discuss the previous research works in this area. Next
-
-in section III, we describe our proposed method for text
-summarization technique. Sentence scoring and summarization
-with pre-processing has been described in this section. Section
-IV illustrates the experimental results and discussion. Section
-V concludes the paper and provides direction for future work.
-
-
-
-The Bangla document summarizer is a Natural Language
-Processing (NLP) application which is proposed to extract the
-most important information of the document(s). In automatic
-summarization, there are two distinct techniques either text
-extraction or text abstraction. Extraction is a summary con-
-sisting of a number of sentences selected from the input doc-
-ument(s). An abstraction based summary is generated where
-some text units are not present into the input document(s).
-With extraction based summary technique, some more features
-are added based on Information Retrieval. However, the total
-system is alienated into three segments: pre-processing the
-test document, sentence scoring based on text extraction and
-summarization based on sentence ranking.
-
-Input to a summarization process can be one or more text
-documents. When only one document is the input, it is called
-single document text summarization but in multi-document
-summarization the input is a group of related text documents.
-The text summarization can also be classiﬁed based on the
-types of users the summary is wished-for: User focused (query
-focused) summaries are adapted to the requirements of a
-particular user or group of users and generic summaries are
-aimed at a broad community of readers [6].
-
-A. Pre-processing
-
-In Bangla document summarization process, some pre-
-processing is needed before executing the sentence scoring
-algorithm. By the pre-processing, the documents are prepared
-
-Fig. 1. Steps of the proposed text summarization technique
-
-for ranking and summary generation. The pre-processing done
-on the documents are as follows:
-
-Tokenization A document is the combination of sentences
-and a sentence consists of some words. Here every word is
-considered as a token. A document is treated as a chain of
-tokens (marks).
-
-Stop words removal
-
-In Bangla words like এবং(And),
-অথবা(Or), িক(cid:9206)(But), etc. are used frequently in sentences which
-have little significance in the implication of a document. These
-words can simply be removed for classification process.
-
-Stemming – A word can be found in different forms in the
-same document. These words have to be converted to their origi-
-nal form for simplicity. The stemming algorithm is used to trans-
-form words to their canonical forms, like বাংলােদেশ, বাংলােদেশর,
-বাংলােদশেক, বাংলােদেশও,etc. should be converted to their original
-form বাংলােদশ. In this work, we use a lightweight stemmer that
-splits a word into its root form using a predefined suffix list [7].
-
-B. Sentence Ranking and Summarization
-
-After an input document is tokenized and stemmed, it is split
-into a collection of sentences. The sentences are ranked based on
-four important features: Frequency, Position value, Cue words
-and Skeleton of the document.
-
-Frequency – Frequency is the number of times a word occurs
-in a document. If a word’s frequency in a document is high,
-then it can be said that this word has a significant effect on
-the content of the document. The total frequency value of a
-sentence is calculated by sum up the frequency of every word in
-the document. The equation used to estimate the total frequency
-value of a sentence k is:
-
-n∑
-
-ST Fk =
-
-WF
-
-i=1
-
-(1)
-
-Where WF (Word Frequency) is the total frequency of a word
-in the document, n is the number of words in a sentence and STF
-stands for Sentence Total Frequency.
-
-Positional Value – The position of a sentence in a document
-has a considerable influence over the content of the document.
-The positional value of a sentence is computed by assigning the
-highest value to the first sentence and the lowest value to the last
-sentence of the document. The position value PV is calculated
-using the formula:
-
-P Vk =
-
-1p
-k
-
-(2)
-
-Where, k is the actual positional value of a sentence in the
-
-document.
-
-Cue Words - Cue words are connective expressions (such as
-therefore, hence, lastly, ﬁnally, meanwhile or on the other hand)
-that links spans of communication and signals semantic relations
-in a text. This is one of the summarization strategies which
-involve the use of “Cue Words” to select important sentences.
-The examples of “Cue Words” in Bangla are (cid:8891)মাটকথা, অবেশেষ,
-ইিতমেধ(cid:8932), (cid:8891)যেহতু, etc.
-
-Skeleton of the Document - The skeleton of the document
-consists of the words in titles and headers. These words are
-considered having some extra weights in sentence scoring for
-summarization.
-
-Sentence Scoring - The final score is a Linear Combination of
-frequency, positional value, weights of Cue Words and Skeleton
-of the document. The formula used to produce the final score of
-a sentence k is as follows:
-
-summary generated by human professionals for evaluation. Eval-
-uation of a system generated summary is done by comparing it
-to the reference summary.
-
-Although it is difficult to summarize a document automati-
-cally according to human summarization technique, we identi-
-fied and prioritized properties that are required to achieve an
-effective automated summarization technique. In our summa-
-rization technique, the total frequency of a sentence is more
-important than its positional value. If any cue word exists in
-the sentence then we need to consider it with high priority as
-a summary sentence.
-
-For the most excellent results, it needs a fine tune of appro-
-priate threshold value of the coefficient ((cid:11); (cid:12); (cid:13); (cid:21)) factors. We
-have chosen 10 random documents from the 45 test documents
-those we had used to tune these parameters. Initially, we set the
-value of (cid:11) to 0.1 as it only multiply with the total frequency
-of a sentence, so we give this value a little weight whereas the
-cue word feature (cid:13) is primarily given a weight of 0.7. Beside
-this, we also consider that positional co-factor (cid:12) to 0.2 as the
-important sentences are naturally kept in the early portion of the
-document. To include the scoring more efficiently the last co-
-factor (cid:21) is weighted 0.4 as it compare to the documents with the
-headlines structure which generally moves to the most important
-key words of the document.
-
-We implemented our summarization technique on the test
-data sets to tune the parameters by summarizing those documents
-and compared the accuracy with human summarization process.
-Figure 2 shows that the values of the co-factors are changed in
-the range of the primary assigned weight to find the accuracy.
-From the graph it is seen that the (cid:11) curve moves like a sine curve
-where the amplitude is decreasing.
-
-Sk = ((cid:11)(cid:2)ST Fk)+((cid:12)(cid:2)P Vk)+(cid:13) +(cid:21); 0 (cid:20) (cid:11); (cid:12); (cid:13); (cid:21) (cid:20) 1 (3)
-Where, (cid:11) and (cid:12) are two co-factors of Sentence Total Fre-
-quency and Positional Value respectively. On the other hand, (cid:13)
-and (cid:21) symbolizes the weights of Cue Words and Skeleton of the
-documents correspondingly. The values of (cid:11); (cid:12); (cid:13) and (cid:21) are 0 to
-1.
-
-Summary Making - After ranking the sentences based on
-their total score the summary is produced selecting X number
-of top ranked sentences where the value of X is provided by the
-user. For the readers’ convenience, the selected sentences in the
-summary are reordered according to their original positions in
-the document.
-
-
-
-As the text summarization in Bangla is a new field of research,
-there exists no standard dataset in this area. This is why, to
-test the accuracy of our summarization system, we collected 45
-Bangla articles from different Bangla newspapers such as The
-Daily Prothom-alo, The Daily Ittefaq, The daily Jugantor, etc.
-The documents are typed and saved in the text files using UTF-
-8 format. For each document we consider only one reference
-
-Fig. 2. Performance vs Co-factors graph
-
-It means that the Sentence Total Frequency has only 22%
-impact of its total frequency in Bangla text summarization tech-
-nique. In the other hand, (cid:12) factor has not changed much from
-the range and almost saturated in the more accurate points. It has
-also 11% impact of its original positional value corresponding to
-this document. To contrast, the (cid:21) factor was initially changed
-
-WEIGHT OF CO-FACTORS OF SENTENCE SCORING
-
-TABLE I
-
-Co-factor
-(cid:11) (alpha)
-(cid:12) (beta)
-
-(cid:13) (gamma)
-(cid:21) (lambda)
-
-Value
-0.22
-0.11
-0.65
-0.25
-
-ACCURACY MEASUREMENT WITH F1 VALUE
-
-TABLE II
-
-Doc No.
-
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-
-N
-172
-157
-166
-184
-145
-191
-178
-169
-188
-183
-
-kh
-31
-29
-35
-34
-32
-42
-32
-39
-35
-34
-
-km
-35
-32
-34
-37
-29
-39
-36
-34
-38
-37
-
-r
-25
-26
-30
-29
-23
-34
-31
-29
-33
-28
-
-2r
-
-kh+km
-
-F1 = 100
-
-75.76%
-85.25%
-93.75%
-81.69%
-75.41%
-83.95%
-91.18%
-79.45%
-90.42%
-78.87%
-
-due to varieties of documents types but finally in the end point it
-acts like an inundated point. The most frequently changed value
-of co-factor is (cid:13) because weighting the cue words in a small
-dictionary is harsh to determine. The value of (cid:13) is comparatively
-high (0.65) considering with other co-factors because line which
-contains titles and headers’ words has more probability be se-
-lected as a summary sentence. Finally, we have set the weight of
-the co-factors are given in Table I.
-
-We compared our algorithms' summaries with the human
-summaries, computing the following scores. For each document
-we let kh be the length of the human summary, kmthe length
-of the machine generated summary and the r the number of
-sentences they share in common. We defined precision (P),
-recall (R) and F1 as metrics to compare the two summaries by:
-
-P = 100
-
-r
-kh
-
-R = 100
-
-r
-km
-
-F1 = 100
-
-2P R
-P + R
-
-= 100
-
-2r
-
-kh + km
-
-(4)
-
-(5)
-
-(6)
-
-To measure the accuracy of our algorithm we tested on 10
-documents with the above equation of F1. For this we give the
-human summarize sentence line as input to compare with the
-sentences generated by the proposed system to find the F1 value.
-Finally the average accuracy of Bangla text summarization is
-83.57% corresponding with human generated summarization.
-The accuracy on basis of F1 is given Table II where N is the
-number of lines in the document.
-
-A. Example
-
-The system generated and human professional generated sum-
-mary of an example text taken from The Daily Prothom-alo is
-shown below:
-1) Original Text: (cid:8952)ায় চার ঘ(cid:9022)া ব(cid:9067) থাকার পর আজ (cid:8891)সামবার (cid:9201)পুর একটার
-িদেক ঢাকার সে(cid:8997) চ(cid:9016)(cid:8936)াম ও িসেলেটর (cid:8891)রলেযাগােযাগ (cid:9185)াভািবক হেয়েছ। হরতােলর
-সমথ(cid:8893)েন (cid:8891)হফাজেত ইসলােমর (cid:8891)নতা-কম(cid:8893)ীরা (cid:8954)া(cid:9160)ণবািড়য়া ও আখাউড়ায় (cid:8891)রলপথ
-অবেরাধ কের চারিট (cid:8891)(cid:8941)ন আটেক রােখ। এেত সকাল নয়টা (cid:8891)থেক (cid:8891)রলেযাগােযাগ
-ব(cid:9067) হেয় যায়। এ ব(cid:8932)াপাের (cid:8891)জলার অিতির(cid:8970) পুিলশ সুপার জািহ(cid:9201)ল ইসলাম (cid:8952)থম
-আেলা ডটকমেক জানান, (cid:8891)(cid:8941)ন আটেক রাখার িবষয়িট িনেয় পুিলশ (cid:8891)জলা (cid:8891)হফাজেতর
-আিমর মওলানা মিন(cid:9223)(cid:9008)ামান িসরাজীর সে(cid:8997) আেলাচনা কের। পের িতিন কম(cid:8893)ী-
-সমথ(cid:8893)কেদর (cid:8891)রলে(cid:9142)শন অবেরাধ কম(cid:8893)সূিচ (cid:8891)থেক সের যাওয়ার িনেদ(cid:8893)শ (cid:8891)দন। পুিলশ এ
-সময় (cid:8891)রললাইেনর ওপর অবেরাধকােল (cid:8891)ফেল রাখা িজিনসপ(cid:8945) সিরেয় (cid:8891)নয়। এেত (cid:9201)পুর
-একটার িদেক (cid:8891)রলেযাগােযাগ (cid:9185)াভািবক হয়। (cid:8891)রলে(cid:9142)শন ও (cid:8952)ত(cid:8932)(cid:8980)দশ(cid:8893)ী সূ(cid:8945) জানায়,
-সকাল নয়টার িদেক ঢাকা (cid:8891)থেক িসেলটগামী পারাবত এ(cid:8983)ে(cid:8952)স (cid:8891)(cid:8941)নিট (cid:8954)া(cid:9160)ণবািড়য়া
-(cid:8891)(cid:9142)শেনর িদেক যাি(cid:9003)ল। এর আেগ সদর উপেজলার বড়হরণ (cid:8891)রলেগট এলাকায়
-(cid:8891)(cid:8941)েন ইটপাটেকল (cid:8891)ছােড়ন (cid:8891)হফাজেতর কম(cid:8893)ীরা। এেত (cid:8891)(cid:8941)েনর অ(cid:9059)ত পঁাচজন যা(cid:8945)ী
-আহত হন এবং (cid:8891)(cid:8941)েনর একািধক জানালার কাচ (cid:8891)ভেঙ যায়। সকাল (cid:8891)সায়া নয়টার
-িদেক (cid:8891)হফাজেতর সহ(cid:8961)ািধক কম(cid:8893)ী-সমথ(cid:8893)ক লািঠেসঁাটাসহ (cid:8954)া(cid:9160)ণবািড়য়া শহেরর (cid:8891)রলেগট
-এলাকায় অব(cid:9148)ান িনেয় পারাবত (cid:8891)(cid:8941)নিট আটেক (cid:8891)দন। পের তঁারা (cid:8891)রললাইেনর ওপর
-গােছর (cid:9190)ঁিড় ও লাইেনর ি(cid:9156)পার (cid:8891)ফেল (cid:8891)সখােন বেস পেড়ন। এেত ঢাকা-চ(cid:9016)(cid:8936)াম ও ঢাকা-
-িসেলট (cid:8891)রলপেথ (cid:8891)(cid:8941)ন চলাচল ব(cid:9067) হেয় যায়। এ ছাড়া এই (cid:8891)(cid:9142)শেন তঁারা চ(cid:9016)(cid:8936)াম (cid:8891)থেক
-ময়মনিসংহগামী নািছরাবাদ (cid:8891)(cid:8941)নিটও আটেক (cid:8891)দন। এর আেগ আখাউড়া (cid:8891)রলে(cid:9142)শেন
-চ(cid:9016)(cid:8936)াম (cid:8891)থেক িসেলটগামী কুিশয়ারা এ(cid:8983)ে(cid:8952)স এবং কসবায় (cid:8891)নায়াখালী (cid:8891)থেক ঢাকাগামী
-উপকূল এ(cid:8983)ে(cid:8952)স (cid:8891)(cid:8941)ন থািমেয় (cid:8891)দন (cid:8891)হফাজেতর কম(cid:8893)ীরা। (cid:8954)া(cid:9160)ণবািড়য়া (cid:8891)রলে(cid:9142)শেনর
-মা(cid:9142)ার অমৃত লাল (cid:8891)দবনাথ জানান, (cid:8891)হফাজেতর কম(cid:8893)ী-সমথ(cid:8893)েকরা অবেরাধ তুেল িনেল
-চারিট (cid:8891)(cid:8941)নই আবার যা(cid:8945)া কের। এেত ঢাকার সে(cid:8997) চ(cid:9016)(cid:8936)াম ও িসেলেটর (cid:8891)রলেযাগােযাগ
-(cid:9185)াভািবক হয়।
-
-2) Human Generated Summary in ﬁve sentences: (cid:8952)ায় চার ঘ(cid:9022)া
-ব(cid:9067) থাকার পর আজ (cid:8891)সামবার (cid:9201)পুর একটার িদেক ঢাকার সে(cid:8997) চ(cid:9016)(cid:8936)াম ও িসেলেটর
-(cid:8891)রলেযাগােযাগ (cid:9185)াভািবক হেয়েছ। হরতােলর সমথ(cid:8893)েন (cid:8891)হফাজেত ইসলােমর (cid:8891)নতা-
-কম(cid:8893)ীরা (cid:8954)া(cid:9160)ণবািড়য়া ও আখাউড়ায় (cid:8891)রলপথ অবেরাধ কের চারিট (cid:8891)(cid:8941)ন আটেক রােখ।
-(cid:8891)রলে(cid:9142)শন ও (cid:8952)ত(cid:8932)(cid:8980)দশ(cid:8893)ী সূ(cid:8945) জানায়, সকাল নয়টার িদেক ঢাকা (cid:8891)থেক িসেলটগামী
-পারাবত এ(cid:8983)ে(cid:8952)স (cid:8891)(cid:8941)নিট (cid:8954)া(cid:9160)ণবািড়য়া (cid:8891)(cid:9142)শেনর িদেক যাি(cid:9003)ল। সকাল (cid:8891)সায়া নয়টার
-িদেক (cid:8891)হফাজেতর সহ(cid:8961)ািধক কম(cid:8893)ী-সমথ(cid:8893)ক লািঠেসঁাটাসহ (cid:8954)া(cid:9160)ণবািড়য়া শহেরর (cid:8891)রলেগট
-এলাকায় অব(cid:9148)ান িনেয় পারাবত (cid:8891)(cid:8941)নিট আটেক (cid:8891)দন। এর আেগ আখাউড়া (cid:8891)রলে(cid:9142)শেন
-চ(cid:9016)(cid:8936)াম (cid:8891)থেক িসেলটগামী কুিশয়ারা এ(cid:8983)ে(cid:8952)স এবং কসবায় (cid:8891)নায়াখালী (cid:8891)থেক ঢাকাগামী
-উপকূল এ(cid:8983)ে(cid:8952)স (cid:8891)(cid:8941)ন থািমেয় (cid:8891)দন (cid:8891)হফাজেতর কম(cid:8893)ীরা।
-3) System Generated Summary in ﬁve sentences: (cid:8952)ায় চার
-ঘ(cid:9022)া ব(cid:9067) থাকার পর আজ (cid:8891)সামবার (cid:9201)পুর একটার িদেক ঢাকার সে(cid:8997) চ(cid:9016)(cid:8936)াম ও
-িসেলেটর (cid:8891)রলেযাগােযাগ (cid:9185)াভািবক হেয়েছ। এ ব(cid:8932)াপাের (cid:8891)জলার অিতির(cid:8970) পুিলশ সুপার
-জািহ(cid:9201)ল ইসলাম (cid:8952)থম আেলা ডটকমেক জানান, (cid:8891)(cid:8941)ন আটেক রাখার িবষয়িট িনেয়
-পুিলশ (cid:8891)জলা (cid:8891)হফাজেতর আিমর মওলানা মিন(cid:9223)(cid:9008)ামান িসরাজীর সে(cid:8997) আেলাচনা কের।
-(cid:8891)রলে(cid:9142)শন ও (cid:8952)ত(cid:8932)(cid:8980)দশ(cid:8893)ী সূ(cid:8945) জানায়, সকাল নয়টার িদেক ঢাকা (cid:8891)থেক িসেলটগামী
-পারাবত এ(cid:8983)ে(cid:8952)স (cid:8891)(cid:8941)নিট (cid:8954)া(cid:9160)ণবািড়য়া (cid:8891)(cid:9142)শেনর িদেক যাি(cid:9003)ল। সকাল (cid:8891)সায়া নয়টার
-িদেক (cid:8891)হফাজেতর সহ(cid:8961)ািধক কম(cid:8893)ী-সমথ(cid:8893)ক লািঠেসঁাটাসহ (cid:8954)া(cid:9160)ণবািড়য়া শহেরর (cid:8891)রলেগট
-এলাকায় অব(cid:9148)ান িনেয় পারাবত (cid:8891)(cid:8941)নিট আটেক (cid:8891)দন। এর আেগ আখাউড়া (cid:8891)রলে(cid:9142)শেন
-চ(cid:9016)(cid:8936)াম (cid:8891)থেক িসেলটগামী কুিশয়ারা এ(cid:8983)ে(cid:8952)স এবং কসবায় (cid:8891)নায়াখালী (cid:8891)থেক ঢাকাগামী
-উপকূল এ(cid:8983)ে(cid:8952)স (cid:8891)(cid:8941)ন থািমেয় (cid:8891)দন (cid:8891)হফাজেতর কম(cid:8893)ীরা।
-
-
-
-In this paper, we discussed extraction based Bangla text sum-
-marization method in a single document. The system selects
-those sentences which has most influence on the context of
-documents. The biasness of the system is reduced by a rigorous
-
-pre-processing technique. In this pre-processing the total doc-
-ument is divided line by line and then with tokenization and
-word stemming the frequency count is measured. Finally, the
-sentence ranking method is used to measure the importance
-of the sentence comparing with the types of word used in this
-document. The performance of this proposed system is 83.57%
-in generating summaries that agree well with human generated
-summaries, despite using minimal natural language processing
-(NLP) information.
-
-The proposed system performs well while the document is
-completely depends on a particular theme where the document is
-compact of using keyword frequently in the whole document. In
-the future, we would like to integrate multiple themes. Currently
-the values of four parameters or weights for frequency, position,
-cue words, and heading are determined by a trial and error
-process. This process can be automated using any learning model
-e.g. least square method. However, the overall performance of
-the system can be enhanced by adaptively adding more features
-in sentence scoring and ranking. In addition, there is a scope of
-using abstraction based summarization technique so that it will
-much relate to the theme of the document.
+like *
+
+agreement * *
+5.00
+4.00
+3.00
+2.00
+1.00
+0.00
+
+empathy * *
+
+attractiveness * *
+
+affinity * *
+
+good feeling *
+
+plus
+minus
+
+Figure 1: Questionnaire’s result of Unfairness Condition 
+
+without distinction. And the minus group consists of participants 
+in  the  Unfairness  condition.  The  robot  in  this  condition  agrees 
+with one participant. The ANOVA shows that there are significant 
+differences in every question. This means that participants in the 
+unfairness  condition  do  not  show  goodwill  toward  each  other. 
+From these results, we confirmed the balance theory being applied 
+in robot-mediated communication. 
+
+Our  results  show  the  possibility  of  the  balance  theory  in 
+group  communication  being  applied  by  two  humans  and  a 
+humanoid  robot.  Previous  research  [2]  confirmed  that  the 
+balance  theory  applied  by  disallowing  participants  to  talk  each 
+other.  However,  when  participants  were  allowed  to  talk  to  each 
+other, they did not confirm that the balance theory did not apply. 
+In  our  experiment,  we allowed participants to talk each other in 
+the  conversation  with  robot.  In 
+the  balance 
+theory  was  applied.  We  consider  that  the  existence  and  the 
+embodiment are important for the social conversation with robot.  
+
+this  situation, 
+
+
+In this paper, we conducted an experiment to verify whether the 
+balance  theory  applied  to  robot-mediated  communication.  Our 
+results show the balance theory  being  applied  in  robot-mediated 
+communication. From these results, we confirmed that robots may 
+have good or bad influence on human relations. In other words, 
+robots can construct or collapse human relations.  
+
 

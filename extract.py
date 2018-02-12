@@ -31,16 +31,16 @@ def convert_pdf_to_txt(path):
     return text
 
 
-def importantExtraction(rawStr):
+def importantExtraction(output):
     with open("output.txt", "w", encoding="utf-8") as text_file:
-        print(rawStr, file=text_file)
+        print(output, file=text_file)
 
     outputTxt = open('output.txt', 'r', encoding='utf-8')
     outputStr = outputTxt.read()
-    chapter1 = re.findall(r'I. INTRODUCTION(.*?)II. RELATED WORK', outputStr, re.DOTALL)
-    chapter3 = re.findall(r'III. PROPOSED METHOD(.*?)IV. EXPERIMENTAL RESULTS', outputStr, re.DOTALL)
-    chapter4 = re.findall(r'IV. EXPERIMENTAL RESULTS AND DISCUSSION(.*?)V. CONCLUSION AND FUTURE WORK', outputStr, re.DOTALL)
-    chapter5 = re.findall(r'V. CONCLUSION AND FUTURE WORK(.*?)ACKNOWLEDGMENT', outputStr, re.DOTALL)
+    chapter1 = re.findall(r'I. INTRODUCTION(.*?)II. RELATED WORKS', outputStr, re.DOTALL)
+    chapter3 = re.findall(r'III. PROPOSED METHOD(.*?)IV. RESULTS AND DISCUSSION', outputStr, re.DOTALL)
+    chapter4 = re.findall(r'IV. RESULTS AND DISCUSSION(.*?)V. CONCLUSION AND FUTURE WORK', outputStr, re.DOTALL)
+    chapter5 = re.findall(r'V. CONCLUSION AND FUTURE WORK(.*?)REFERENCES', outputStr, re.DOTALL)
     outputExtracted = chapter1 + chapter3 + chapter4 + chapter5
     outputExtractedStr = "".join(outputExtracted).replace('\\n', '\n')
     with open("outputextracted.txt", "w", encoding='utf-8') as text_file:

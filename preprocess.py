@@ -6,10 +6,25 @@ from nltk.stem import WordNetLemmatizer
 referenceDict = {}
 experimentalDict = {}
 sentenceKey = 1
+newTitle = []
+newTitle2 = []
+newTitleStr = ''
 
 extractedTxt = open('outputextracted.txt', 'r', encoding='utf-8')
 extractedStr = extractedTxt.read()
 extractedList = extractedStr.split('.')
+
+with open('output.txt', 'r', encoding='utf-8') as rawOutput:
+    title = [next(rawOutput) for x in range(3)]
+
+for word in title:
+    newTitle.append(word.lower().replace('\n', ' '))
+
+for word2 in newTitle:
+    if(word2 != ' '):
+        newTitleStr += word2
+
+newTitle2 = newTitleStr.split()
 
 for sentence in extractedList:
     referenceSentence = sentence.replace('\n', ' ')
@@ -30,11 +45,17 @@ def tokenization(exDict):
         exSentTokens = word_tokenize(experimentalSentence)
         exDict[sentenceKey] = exSentTokens
 
-    stopwordsRemoval(exDict)
+    stopwordsRemoval(exDict, newTitle2)
 
 
-def stopwordsRemoval(exDict):
+def stopwordsRemoval(exDict, newTitle2):
     stopWords = set(stopwords.words('english'))
+    tempTitle = []
+
+    for word in newTitle2:
+        if word not in stopWords:
+            tempTitle.append(word)
+    newTitle2 = tempTitle
 
     for sentenceKey, experimentalSentence in exDict.items():
         tempSentence = []
@@ -44,10 +65,16 @@ def stopwordsRemoval(exDict):
 
         exDict[sentenceKey] = tempSentence
 
-    specialCharRemoval(exDict)
+    specialCharRemoval(exDict, newTitle2)
 
 
-def specialCharRemoval(exDict):
+def specialCharRemoval(exDict, newTitle2):
+    tempTitle = []
+    for word in newTitle2:
+        if word.isalpha():
+            tempTitle.append(word)
+    newTitle2 = tempTitle
+
     for sentenceKey, experimentalSentence in exDict.items():
         tempSentence = []
         for word in experimentalSentence:
@@ -56,19 +83,43 @@ def specialCharRemoval(exDict):
 
         exDict[sentenceKey] = tempSentence
 
-    posTagging(exDict)
+    posTagging(exDict, newTitle2)
 
 
-def posTagging(exDict):
+def posTagging(exDict, newTitle2):
+    tempTitle = nltk.pos_tag(newTitle2)
+    newTitle2 = tempTitle
+
     for sentenceKey, experimentalSentence in exDict.items():
         tempSentence = nltk.pos_tag(experimentalSentence)
         exDict[sentenceKey] = tempSentence
 
-    lemmatization(exDict)
+    lemmatization(exDict, newTitle2)
 
 
-def lemmatization(exDict):
+def lemmatization(exDict, newTitle2):
     wordLemmatizer = WordNetLemmatizer()
+    tempTitle = []
+
+    for word1 in newTitle2:
+        pos1 = ''
+        titleWordL = list(word1)
+        if titleWordL[1].startswith('N'):
+            pos1 = 'n'
+        elif titleWordL[1].startswith('J'):
+            pos1 = 'a'
+        elif titleWordL[1].startswith('V'):
+            pos1 = 'v'
+        elif titleWordL[1].startswith('R'):
+            pos1 = 'r'
+        else:
+            pos1 = 'n'
+
+        titleWordL[0] = wordLemmatizer.lemmatize(titleWordL[0], pos1)
+        titleWordT = tuple(titleWordL)
+        tempTitle.append(titleWordT)
+
+    newTitle2 = tempTitle
 
     for sentenceKey, experimentalSentence in exDict.items():
         tempSentence = []
@@ -94,6 +145,9 @@ def lemmatization(exDict):
 
     with open('experimentaldictionary.txt', 'w', encoding='utf-8') as text_file:
         print(exDict, file=text_file)
+
+    with open('title.txt', 'w', encoding='utf-8') as text_file:
+        print(newTitle2, file=text_file)
 
 
 tokenization(experimentalDict)
