@@ -38,14 +38,8 @@ def importantExtraction(output):
     outputTxt = open('output.txt', 'r', encoding='utf-8')
     outputStr = outputTxt.read()
     chapter1 = re.findall(r'I. INTRODUCTION(.*?)II. RELATED WORKS', outputStr, re.DOTALL)
-    chapter3 = re.findall(r'III. PROPOSED METHOD(.*?)IV. RESULTS AND DISCUSSION', outputStr, re.DOTALL)
-    chapter4 = re.findall(r'IV. RESULTS AND DISCUSSION(.*?)V. CONCLUSION AND FUTURE WORK', outputStr, re.DOTALL)
     chapter5 = re.findall(r'V. CONCLUSION AND FUTURE WORK(.*?)REFERENCES', outputStr, re.DOTALL)
-    outputExtracted = chapter1 + chapter3 + chapter4 + chapter5
+    outputExtracted = chapter1 + chapter5
     outputExtractedStr = "".join(outputExtracted).replace('\\n', '\n')
     with open("outputextracted.txt", "w", encoding='utf-8') as text_file:
         print(outputExtractedStr, file=text_file)
-
-
-output = convert_pdf_to_txt("research2.pdf")
-importantExtraction(output)

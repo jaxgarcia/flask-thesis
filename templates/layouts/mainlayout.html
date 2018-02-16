@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>{% block title %}{% endblock %}</title>
 
   <!-- Bootstrap CSS Core -->
@@ -14,6 +14,8 @@
 
   <!-- Custom Style -->
   <link href="/static/css/customstyle.css" rel="stylesheet" />
+
+  <script>(function(e,t,n){var r=e.querySelectorAll("html")[0];r.className=r.className.replace(/(^|\s)no-js(\s|$)/,"$1js$2")})(document,window,0);</script>
 </head>
 <body>
   <!-- NavBar -->
@@ -22,13 +24,7 @@
       <a class="navbar-brand" href="#">Research Abstractor</a>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://127.0.0.1:5000/">File</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://127.0.0.1:5000/abstract">Abstract</a>
-        </li>
-        <li class="nav-item mx-0 mx-lg-1">
-          <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#">Scores</a>
+          <a class="nav-link py-3 px-0 px-lg-3 rounded" href="http://127.0.0.1:5000/">Dashboard</a>
         </li>
       </ul>
     </div>
@@ -38,10 +34,10 @@
   {% block content %}
   {% endblock %}
 
-  <!-- Bootstrap core JavaScript --> 
+  <!-- Bootstrap core JavaScript -->
   <script src="/static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Custom JS -->
-
+  <script src="/static/js/customjs.js"></script>
 </body>
 </html>

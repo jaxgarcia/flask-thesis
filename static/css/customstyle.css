@@ -10,10 +10,10 @@ body {
   font-family: 'Rubik', sans-serif; }
   #customNav .navbar-brand {
     color: #fff;
-    font-size: 2em;
+    font-size: 2.5em;
     letter-spacing: 0.15rem; }
   #customNav .navbar-nav {
-    font-size: 1.25em;
+    font-size: 1.5em;
     letter-spacing: 0.11rem; }
     #customNav .navbar-nav li.nav-item a.nav-link {
       color: #fff;
@@ -29,15 +29,155 @@ body {
   margin-top: 110px;
   height: 100%;
   background-color: #E6E6DC!important; }
-  
-#customFile .custom-file-control:lang(en)::after {
-  content: "Select file..."; }
-#customFile .custom-file-control:lang(en)::before {
-  content: "BROWSE"; }
-/*when a value is selected, this class removes the content */
-.custom-file-control.selected:lang(en)::after {
-  content: "" !important; }
-.custom-file {
-  overflow: hidden; }
-.custom-file-control {
-  white-space: nowrap; }
+
+.input-container {
+  padding-top: 2rem;
+  padding-bottom: 1.5rem;
+}
+
+.js .inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  font-size: 2rem;
+  /* 20px */
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0.625rem 1.25rem;
+  /* 10px 20px */
+}
+
+.no-js .inputfile + label {
+    display: none;
+}
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.inputfile + label svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: middle;
+  fill: currentColor;
+  margin-top: -0.25em;
+  /* 4px */
+  margin-right: 0.25em;
+  /* 4px */
+}
+
+.inputfile-custom + label {
+  color: #d3394c;
+}
+
+.inputfile-custom + label {
+  border: 1px solid #d3394c;
+  background-color: #f1e5e6;
+  padding: 0;
+}
+
+.inputfile-custom:focus + label,
+.inputfile-custom.has-focus + label,
+.inputfile-custom + label:hover {
+  border-color: #640E27;
+}
+
+.inputfile-custom + label span,
+.inputfile-custom + label strong {
+  padding: 1.5rem 1.25rem;
+  /* 10px 20px */
+}
+
+.inputfile-custom + label span {
+  width: 780px;
+  min-height: 2em;
+  display: inline-block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.inputfile-custom + label strong {
+  height: 100%;
+  color: #f1e5e6;
+  background-color: #B23030;
+  display: inline-block;
+}
+
+.inputfile-custom:focus + label strong,
+.inputfile-custom.has-focus + label strong,
+.inputfile-custom + label:hover strong {
+  background-color: #640E27;
+}
+
+.mybtn-container {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.mybtn {
+  border: none;
+	font-family: inherit;
+	font-size: inherit;
+	color: inherit;
+	background-color: #E6E6DC;
+	cursor: pointer;
+	padding: 25px 80px;
+	display: inline-block;
+	margin: 15px 30px;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: 700;
+  font-size: 1.2rem;
+	outline: none;
+	position: relative;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.mybtn:after {
+  content: '';
+	position: absolute;
+	z-index: -1;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+}
+
+.mybtn-1 {
+  border: 3px solid #B23030;
+	color: #B23030;
+}
+
+.mybtn-1a:after {
+  width: 0%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: #640E27;
+}
+
+.mybtn-1a:hover,
+.mybtn-1a:active {
+  color: #fff;
+  background-color: #640E27;
+}
+
+.mybtn-1a:hover:after,
+.mybtn-1a:active:after {
+  width: 100%;
+}

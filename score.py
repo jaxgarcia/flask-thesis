@@ -7,6 +7,9 @@ scoreDict = {}
 titleTxt = open('title.txt', 'r', encoding='utf-8').read()
 title = eval(titleTxt)
 
+referenceTxt = open('referencedictionary.txt', 'r', encoding='utf-8').read()
+reDict = eval(referenceTxt)
+
 
 def tfinitialize(exDict):
     for sentenceKey, experimentalSentence in exDict.items():
@@ -195,6 +198,8 @@ def properNoun(scoreDict, exDict):
 
 def scoreEvaluation(scoreDict, exDict):
     finalScore = []
+    finalSentenceKey = []
+    abstract = ''
 
     for sentenceKey, sentenceScores in scoreDict.items():
         currentScore = scoreDict[sentenceKey]
@@ -206,13 +211,35 @@ def scoreEvaluation(scoreDict, exDict):
         senLengthScore = currentScore[3]
         toScore = currentScore[4]
         pnScore = currentScore[5]
-        sentenceScore = ((0.1 * tfisfScore) + (0.2 * toScore) + (0.2 * (senPosScore + pnScore)) + (0.2 * (numTokenScore + senLengthScore)))
+        sentenceScore = ((0.4 * toScore) + (0.2 * (pnScore + senLengthScore)) + (0.1 * (numTokenScore + senPosScore + tfisfScore)))
         sentenceScoreR = round(sentenceScore, 3)
         finalScore.append(sentenceScoreR)
         currentScore.append(sentenceScoreR)
         scoreDict[sentenceKey] = currentScore
 
     finalScore.sort(reverse=True)
+    documentLength = len(reDict)
+    if(documentLength <= 30):
+        scoreRange = 7
+    elif(documentLength <= 90):
+        scoreRange = 10
+    else:
+        scoreRange = 13
+
+    for score in finalScore[:scoreRange]:
+        for scoreKey, sentenceScore in scoreDict.items():
+            currentScoreKey = scoreKey
+            currentScore2 = scoreDict[scoreKey]
+            currentSenScore = currentScore2[6]
+            if(score == currentSenScore):
+                finalSentenceKey.append(currentScoreKey)
+
+    finalSentenceKey.sort()
+    for finalKey in finalSentenceKey:
+        abstract += reDict[finalKey] + '. '
+
+    with open('abstract.txt', 'w', encoding='utf-8') as text_file:
+        print(abstract, file=text_file)
 
     with open('scoredictionary.txt', 'w', encoding='utf-8') as text_file:
         print(scoreDict, file=text_file)

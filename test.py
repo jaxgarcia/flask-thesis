@@ -3,62 +3,66 @@ import math
 
 isf = 0
 isf = 20
-print(math.log10(isf))
 
-for k, v in sample.items():
-    temp = []
-    for w in v:
-        wtl = list(w)
-        wtl.append(0)
-        wtl.append(0)
-        wtt = tuple(wtl)
-        temp.append(wtt)
-    sample[k] = temp
-
-
-for k, v in sample.items():
-    cs = k
-    for k2, v2 in sample.items():
-        temp2 = []
-        os = k2
-        csw = sample[cs]
-        osw = sample[os]
-        if(cs != os):
-            for word in csw:
-                counter = 0
-                ctl = list(word)
-                cw = ctl[0]
-                for word2 in osw:
-                    otl = list(word2)
-                    ow = otl[0]
-                    if(cw == ow):
-                        counter += 1
-                ctl[2] += counter
-                ctt = tuple(ctl)
-                temp2.append(ctt)
-            sample[k] = temp2
+def hays():
+    for k, v in sample.items():
+        temp = []
+        for w in v:
+            wtl = list(w)
+            wtl.append(0)
+            wtl.append(0)
+            wtt = tuple(wtl)
+            temp.append(wtt)
+        sample[k] = temp
 
 
-for k, v in sample.items():
-    cs = v
-    t = []
-    print(len(v))
-    for w in cs:
-        c = 0
-        csl = list(w)
-        cw = csl[0]
-        for w2 in cs:
-            osl = list(w2)
-            ow = osl[0]
-            if(cw == ow):
-                c += 1
-        csl[3] += c - 1
-        cst = tuple(csl)
-        t.append(cst)
-    sample[k] = t
+    for k, v in sample.items():
+        cs = k
+        for k2, v2 in sample.items():
+            temp2 = []
+            os = k2
+            csw = sample[cs]
+            osw = sample[os]
+            if(cs != os):
+                for word in csw:
+                    counter = 0
+                    ctl = list(word)
+                    cw = ctl[0]
+                    for word2 in osw:
+                        otl = list(word2)
+                        ow = otl[0]
+                        if(cw == ow):
+                            counter += 1
+                    ctl[2] += counter
+                    ctt = tuple(ctl)
+                    temp2.append(ctt)
+                sample[k] = temp2
 
-print(sample)
 
+    for k, v in sample.items():
+        cs = v
+        t = []
+        print(len(v))
+        for w in cs:
+            c = 0
+            csl = list(w)
+            cw = csl[0]
+            for w2 in cs:
+                osl = list(w2)
+                ow = osl[0]
+                if(cw == ow):
+                    c += 1
+            csl[3] += c - 1
+            cst = tuple(csl)
+            t.append(cst)
+        sample[k] = t
+
+    print(sample)
+
+def hello():
+    print("wtf")
+
+print("something")
 '''for sentenceKey3, experimentalSentence3 in exDict.items():
     currentSentence2 = experimentalSentence3
     sentenceTemp2 = []
