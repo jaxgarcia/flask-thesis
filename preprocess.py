@@ -3,44 +3,60 @@ from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 
-referenceDict = {}
-experimentalDict = {}
-sentenceKey = 1
-newTitle = []
-newTitle2 = []
-newTitleStr = ''
 
-extractedTxt = open('outputextracted.txt', 'r', encoding='utf-8')
-extractedStr = extractedTxt.read()
-extractedList = extractedStr.split('.')
+def preprocessInitialize(outputExtracted):
+    referenceDict = {}
+    experimentalDict = {}
+    sentenceKey = 1
+    newTitle = []
+    newTitle2 = []
+    originalTitle = []
+    newTitleStr = ''
+    fullTitleStr = ''
 
-with open('output.txt', 'r', encoding='utf-8') as rawOutput:
-    title = [next(rawOutput) for x in range(3)]
+    extractedTxt = open(outputExtracted, 'r', encoding='utf-8')
+    extractedStr = extractedTxt.read()
+    extractedList = extractedStr.split('.')
 
-for word in title:
-    newTitle.append(word.lower().replace('\n', ' '))
+    with open('output.txt', 'r', encoding='utf-8') as rawOutput:
+        title = [next(rawOutput) for x in range(3)]
 
-for word2 in newTitle:
-    if(word2 != ' '):
-        newTitleStr += word2
+    for word in title:
+        newTitle.append(word.lower().replace('\n', ' '))
+        originalTitle.append(word.replace('\n', ' '))
 
-newTitle2 = newTitleStr.split()
+    for word2 in newTitle:
+        if(word2 != ' '):
+            newTitleStr += word2
 
-for sentence in extractedList:
-    referenceSentence = sentence.replace('\n', ' ')
-    experimentalSentence = sentence.lower().replace('\n', ' ')
-    referenceDict[sentenceKey] = referenceSentence
-    experimentalDict[sentenceKey] = experimentalSentence
-    sentenceKey += 1
+    for word3 in originalTitle:
+        if(word3 != ' '):
+            fullTitleStr += word3
 
-with open('referencedictionary.txt', 'w', encoding='utf-8') as text_file:
-    print(referenceDict, file=text_file)
+    newTitle2 = newTitleStr.split()
+    lastIndex = len(extractedList) - 1
 
-with open('experimentaldictionary.txt', 'w', encoding='utf-8') as text_file:
-    print(experimentalDict, file=text_file)
+    for sentence in extractedList:
+        if(sentence != extractedList[lastIndex]):
+            referenceSentence = sentence.replace('\n', ' ')
+            experimentalSentence = sentence.lower().replace('\n', ' ')
+            referenceDict[sentenceKey] = referenceSentence
+            experimentalDict[sentenceKey] = experimentalSentence
+            sentenceKey += 1
+
+    with open('fulltitle.txt', 'w', encoding='utf-8') as text_file:
+        print(fullTitleStr, file=text_file)
+
+    with open('referencedictionary.txt', 'w', encoding='utf-8') as text_file:
+        print(referenceDict, file=text_file)
+
+    with open('experimentaldictionary.txt', 'w', encoding='utf-8') as text_file:
+        print(experimentalDict, file=text_file)
+
+    tokenization(experimentalDict, newTitle2)
 
 
-def tokenization(exDict):
+def tokenization(exDict, newTitle2):
     for sentenceKey, experimentalSentence in exDict.items():
         exSentTokens = word_tokenize(experimentalSentence)
         exDict[sentenceKey] = exSentTokens
@@ -149,5 +165,4 @@ def lemmatization(exDict, newTitle2):
     with open('title.txt', 'w', encoding='utf-8') as text_file:
         print(newTitle2, file=text_file)
 
-
-tokenization(experimentalDict)
+preprocessInitialize("outputextracted.txt")

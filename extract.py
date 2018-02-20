@@ -28,7 +28,8 @@ def convert_pdf_to_txt(path):
     fp.close()
     device.close()
     retstr.close()
-    return text
+
+    importantExtraction(text)
 
 
 def importantExtraction(output):

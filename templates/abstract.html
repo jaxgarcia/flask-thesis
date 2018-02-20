@@ -6,10 +6,68 @@ Research Abstractor
 
 {% block content %}
 
-<div class="jumbotron jumbotron-fluid" id="customFileContent">
+<div class="jumbotron jumbotron-fluid" id="customContainer">
   <div class="container">
-    <h1 class="display-4">My name is jeff</h1>
-
+    <h2 class="titleHeader"><strong> Research Article Title: </strong></h2>
+    <h1 class="titleStyle"> {{titleStr}} </h1>
+    <h2 class="titleHeader"><strong> Generated Abstract: </strong></h2>
+    <p class="abstractStyle"> {{ abstractStr }} </p>
+    <h2 class="titleHeader"><strong> Sentence Evaluation: </strong></h2>
+    <p class="tableStyle">
+      <strong> Table 1. Sentence Rank and Value </strong>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sentence Rank</th>
+            <th>Sentence Number</th>
+            <th>Sentence Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key, value in abstractDict.items() %}
+          <tr>
+            <td data-title="Sentence Rank"> {{ key }} </td>
+            <td data-title="Sentence Number"> {{ value[0] }} </td>
+            <td data-title="Sentence Value"> {{ value[1] }} </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </p>
+    <p class="tableStyle">
+      <strong> Table 2. Sentence Scores </strong>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sentence Rank</th>
+            <th>Sentence Number</th>
+            <th>TFISF Score</th>
+            <th>Sentence Position Score</th>
+            <th>Numerical Token Score</th>
+            <th>Sentence Length Score</th>
+            <th>Title Overlap Score</th>
+            <th>Proper Noun Score</th>
+            <th>Weighted Score</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for key2, value2 in abstractDict.items() %}
+          {% set scores = value2[2] %}
+          <tr>
+            <td data-title="Sentence Rank"> {{ key2 }} </td>
+            <td data-title="Sentence Number"> {{ value2[0] }} </td>
+            <td data-title="TFISF Score"> {{ scores[0] }} </td>
+            <td data-title="Sentence Position Score"> {{ scores[1] }} </td>
+            <td data-title="Numerical Token Score"> {{ scores[2] }} </td>
+            <td data-title="Sentence Length Score"> {{ scores[3] }} </td>
+            <td data-title="Title Overlap Score"> {{ scores[4] }} </td>
+            <td data-title="Proper Noun Score"> {{ scores[5] }} </td>
+            <td data-title="Weighted Score"><strong> {{ scores[6] }} </strong></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
 </div>
 
 {% endblock %}

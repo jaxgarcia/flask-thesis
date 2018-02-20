@@ -1,1 +1,1 @@
-[('sociality', 'NN'), ('robot', 'NNS'), ('construct', 'VBP'), ('collapse', 'NN'), ('human', 'NN')]
+[('game', 'NN'), ('developer', 'NNS'), ('look', 'VBP'), ('new', 'JJ'), ('interview', 'NNS'), ('survey', 'VBP'), ('one', 'CD'), ('game', 'NN'), ('company', 'NN')]

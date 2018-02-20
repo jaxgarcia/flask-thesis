@@ -1,237 +1,968 @@
-Sociality of Robots: Do Robots Construct or Collapse 
+What Game Developers Look for in a New Graduate:
 
-Human Relations? 
-Daisuke Sakamoto, Tetsuo Ono 
+Interviews and Surveys at One Game Company
 
-Graduate School of System Information Science 
+Michael Hewner
 
-Future University-Hakodate 
+Georgia Institute of Technology
+School of Interactive Computing
 
-116-2 Kamedanakano, Hakodate 
+85 5th St. NW
+Atlanta, Georgia
 
-Hokkaido 041-8655 Japan 
+hewner@gatech.edu
 
-{g2104017, tono}@fun.ac.jp 
+Mark Guzdial
+
+Georgia Institute of Technology
+School of Interactive Computing
+
+85 5th St. NW
+Atlanta, Georgia
+
+guzdial@cc.gatech.edu
 
 ABSTRACT
-With  developments  in  robotics,  robots  “living”  with  people  will 
-become a part of daily life in the near future. However, there are 
-many problems with social robots. In particular,  the  behavior  of 
-robots can influence human relations, and societies have not yet 
-clarified  this.  In  this  paper,  we  report  on  an  experiment  we 
-conducted  to  verify  the  influence  of  robot  behavior  on  human 
-relations using the “balance theory.” The results show that robots 
-can  have  both  good  and  bad  influence  on  human  relations.  One 
-person’s impression of another can undergo changes because of a 
-robot.  In  other  words,  robots  can  construct  or  collapse  human 
-relations.  
+Video game development is an attractive career objective
+for many computer science students. Colleges are starting
+degree programs and specializations to serve this interest,
+but faculty may not have an informed idea of what game
+programming is like or how to advise students interested
+in the ﬁeld. This paper describes the results of interviews
+with developers, managers, and artists at one company to
+determine what qualiﬁcations were most signiﬁcant when
+evaluating college hires for jobs in game development. The
+qualiﬁcations we elicited formed the basis of a company-wide
+survey.
 
-Categories and Participant Descriptors
-J.4 [SOCIAL AND BEHAVIORAL SCIENCES]: Psychology. 
+Categories and Subject Descriptors
+K.3.2 [Computers and Education]: Computer and Infor-
+mation Science Education—Curriculum; K.8.0 [Personal
+Computing]: General—Games
 
 General Terms
-Design, Experimentation, Human Factors. 
+Human Factors
 
 Keywords
-Robotic Social Psychology. 
+Game curriculum, Game concentration
 
 I. INTRODUCTION
-Over 
-the  past  few  years,  many  robots  with  human-like 
-embodiment  have  been  developed.  Currently,  robots  that  “live” 
-with  humans  are  only  used  as  pets.  However,  we  must  consider 
-that humanoid robots will enter our daily lives in the near future. 
-When  humanoid  robots  have  abilities  such  as  human-like 
-behaviors  and  utterances,  how  will  we  be  influenced  by  these 
-robots?  In  particular,  what  effects  will  they  have  on  emotional 
-aspects of human relations and societies? 
-We  consider  that  robots  can  collapse  human  relations  using  the 
-balance theory [1]. Concretely, by controlling a robot’s behavior 
-and utterances, we can control  a  human’s  impression  of  another 
-human in group communication involving robots.  
 
-In  this  paper,  we  performed  an  experiment  to  verify  how  social 
-robots  influence  human  relations.  To  determine  this  effect,  we 
-tried  to  confirm  what  occurs  in  the  human-robot  relationship. 
-When robots take on sociality, these robots might easily construct 
-or collapse human relations. We will examine these possibilities. 
+If you want to know how to ‘break into’ video game pro-
+gramming, you can take your pick of popular press books on
+the topic. These books advise aspiring game programmers to
+“explore schools with strong computer science departments”
+and check out game programming books and web tutorials
+[3]. For educators in computer science departments looking
+to advise their students, the question is more diﬃcult—there
+is very little research into what qualiﬁcations the video game
+industry considers important. As many schools establish
+video game specializations and degree programs to attract
+
+new students [9], this lack of research is becoming more of a
+problem. Though the fundamentals of computer science is a
+good starting point, we can better inform curricula for these
+video game programs if we know what game companies are
+really looking for.
+
+This paper describes the results of a series of interviews
+and a survey at one game company. The game company
+(which asked not to be identiﬁed) employs over 100 people
+and produces primarily 1st-person shooter games for main-
+stream consoles. The goal of the research was to understand
+what qualiﬁcations game developers look for when evaluat-
+ing college hires.
 
 II. RELATED WORKS
 
-We will use the balance theory to control a person’s impressions 
-of  the  robot  and  a  third  person  in  group  communication.  The 
-balance theory was formulated by Heider. It assumes that when a 
-system  is  put  into  a  state  of  imbalance,  forces  arise  to  restore 
-balance. For example, the attitude of a person, P, toward another 
-person,  O,  is  positive.  And  the  attitude  of  another  person,  O, 
-toward  a  third  person,  X,  is  positive.  Then  person  P’s  attitude 
-toward the third person, X, will be positive. If P’s attitude toward 
-X  is  negative,  then  the  relationship  among  P,  O  and  X  is 
-imbalance.  In  this  case,  one  of  the  following  cases  will  be 
-occurred  to  balance  the  relationship.  The  person,  P,  changes 
-his/her attitude toward X to positive. Either P’s attitude toward O 
-or O’s attitude toward X will be changed to negative.  
-If  we  replace  person  P  with  the  robot,  we  consider  that  we  can 
-control the attitudes of O and X toward each other by controlling 
-the robot’s behaviors. We consider that the robot can have a good 
-or bad influence on the relationship between persons O and X. 
-We  survey  related  works  briefly.  Nakanishi  et  al.  conducted  an 
-experiment  to  verify  the  balance  theory  in  agent-mediated 
-communication [2]. One agent and two participants joined in this 
-communication.  In  this  experiment,  they  confirmed  that  the 
-balance  theory  applied  in  cases  in  which  participants  could  not 
-talk to each other. However, they did not confirm that the theory 
-did not apply in case in which participants could talk to each other.  
+The most commonly referenced resource in designing video
+game curricula is the International Game Developers Asso-
+ciation (IGDA) Curriculum Framework [5] (see [2] for an ex-
+ample of a program that used this). This document was pro-
+duced by a team of educators and game developers in work-
+shops and other venues. The framework lays out 16 broad
+topics in their “Game Programming” section.
+Included in
+this list are mainstream CS topics like Artiﬁcial Intelligence
+and Networks as well as more game speciﬁc areas like Game
+Engine Design and Design/Technology synthesis. While the
+curriculum framework is a good start, it is diﬃcult to guess
+the relative importance of its items.
 
-III. PROPOSED METHOD
-An experiment was conducted to verify the effects of the robot’s 
-sociality using the balance theory. 
+Monica McGill has published several papers [7][8] on game
+developer qualiﬁcations. Her work is based on content anal-
+ysis of game developer job postings. This research provides
+detailed breakdowns about the use of languages and tools
+in game industry. She also reports that game development
+companies frequently list communication and interpersonal
+as important in their job postings.
 
-A robot talked to two participants simultaneously. In this situation, 
-we tried to determine how the robot’s behavior  would  influence 
-the  impressions  of  (A)  one  participant  to  the  robot,  (B)  another 
-participant  to  the  robot  and  (C)  one  participant  to  the  other 
-participant. 
+In the broader area of IT careers, a variety of diﬀerent
+studies have attempted to understand the needs of industry
+(e.g.
+[6], [10]). These studies employ a similar method: a
+set of focus groups with industry professionals to identify
+categories that are used to build a larger scale survey in-
+strument. These studies have found a signiﬁcant diﬀerence
+between the expectations of academics and industry, with
+a particular lack of education in project management and
+coordination activities. Begel and Simon [1] provide a more
+detailed analysis of this mismatch in their observations of
+newly hired engineers at Microsoft. They found new devel-
+opers had the technical skills to succeed, but had diﬃculty
+using the resources of their team and integrating into the
+company culture.
 
-          Interactive Humanoid Robot “Robovie” 
-We  used  the  interactive  humanoid  robot  “Robovie,”  which  is 
-characterized  by  its  human-like  bodily  expressions  and  various 
-sensors [3]. The body consists of eyes, a head, and arms, which 
-generate 
-for 
-communication.  
+III. PROPOSED METHOD
 
-complex  bodily  movements 
+Our method consisted of two rounds of interviews followed
+by a larger scale survey. We interviewed a cross-section of
+the company: developers of varying seniority and depart-
+ment, developer managers and artists. Altogether nine em-
+ployees participated in the interview process.
 
-required 
+The ﬁrst round of interviews began with the prompt “Say
+you were going to interview some new college hires and you
+decided to put together a document about what was impor-
+tant to look for in a new hire. What would be in that doc-
+ument?” The interview would proceed with the interviewer
+occasionally asking the participant to clarify something that
+was unclear or asking the participant to elaborate on a gen-
+eral category they had identiﬁed.
+In general participants
+had a lot of opinions and little prompting was necessary.
+Near the end of the interview, the participant was invited to
+look over the interviewer’s notes and identify approximately
+ﬁve items they thought were most important in the various
+characteristics they had identiﬁed.
 
-the 
+After the ﬁrst round of interviews we extracted a list of
+qualiﬁcations identiﬁed by our participants. We combined
+commonly mentioned items into single items, but generally
+included even qualiﬁcations just mentioned in passing in our
+ﬁnal list. Where possible we used the wording of our par-
+ticipants rather than our own descriptive categories. The
+result of this was a list of short phrases we felt corresponded
+to the qualiﬁcations that were mentioned in the ﬁrst round.
+The second round of interviews began with each partic-
+ipant from the ﬁrst round going through our qualiﬁcations
+list and ranking their importance. We instructed the par-
+ticipants to think aloud as they did this exercise, especially
+with regard to items that were confusing. Oftentimes as
+part of this process individuals would expand on areas that
+others had mentioned but had been absent from our ﬁrst in-
+terview. Then we showed participants our notes from their
+previous interview and asked them to make sure the points
+they raised were adequately represented in the list. We used
+the feedback to revise and add to the list before presenting
+to the next interviewee.
 
-  Conditions 
+A similar method has been used previously to elicit qual-
+iﬁcations for generalized IT jobs (see [6], [10]). These stud-
+ies generally elicited qualiﬁcations using focus groups rather
+than the two interview process we used. Similar to the fo-
+cus group, participants had the opportunity to reﬂect on
+the written results of others (from the 1st round interviews)
+and revise their qualiﬁcations. Conducting the interviews
+privately allowed participants to express dissenting opinions
+more freely: the responses of their co-workers was anony-
+mous, and therefore there was no social pressure to defer
+to more experienced peers or managers. This allowed us to
+focus on what might have been a touchy subject in a focus
+group: whether there was disagreement within the company
+about what qualiﬁcations were most important.
 
-This  experiment  has  three  conditions.  One  is  an  Agreement 
-condition.  This  condition  states  that  the  robot  agrees  to  each 
-participant’s  opinions.  Next  is  a  Disagreement  condition.  The 
-robot in this condition disagrees with each participant’s opinions. 
-In  these  two  conditions,  the  robot  agrees  or  disagrees  with 
-participant’s opinion without distinction. On  the  other  hand,  the 
-robot in an Unfairness condition agrees to only one participant’s 
-opinion. In this condition, the robot behaves unequally. 
+Using interviews instead of focus groups also allowed us
+to revise the qualiﬁcation list more frequently during the
+second round. When one participant found a particular
+phrasing confusing and suggested a revision, we could re-
+vise the item. Then we would check in a later participants
+think-alouds that they were interpreting the new phrasing
+as intended.
 
-          Participants 
-Forty-six university students participated in the experiment.  They 
-do not have contact with robots on a daily basis. 
+Once the interviews ﬁnished, we used the qualiﬁcation list
+we developed to create a survey. To keep the survey to a
+reasonable length, we could not include every item from our
 
-          Procedure 
-Before  starting 
-the  experiment,  each  participant  answered 
-questions about their likes and dislikes. These answers were used 
-to control  the  behavior  of  the  robot  during  the  experiment.  The 
-robot acted to use the results of questions appropriately.  
-Two participants interacted with the robot at the same time. This 
-interaction  is  exchanging  questions  and  answers.  After  the 
-experiment,  each  participant  answered  questionnaires.  The 
-experimenter  asked  them  some  questions,  which  participants 
-answered  concurrently  to  confirm  their  impressions  of  the  robot 
-and each other. Finally, participants answered questions about (a) 
-their  impressions  of  the  robot,  (b)  the  other  participant’s 
-impressions  of  the  robot,  and  (c)  their  impressions  of  the  other 
-participant.  From  analysis  of  the  responses,  we  tried  to  confirm 
-whether 
-robot-mediated 
-communication. 
+interviews. Qualiﬁcations that were ranked as highly impor-
+tant and provoked disagreement or interesting discussion in
+interviews were included. We removed qualiﬁcations that
+most of our interviewees ranked as less important. Survey
+respondents were recruited by a company-wide email mes-
+sage. The survey was conducted online. In the survey partic-
+ipants ranked each of elicited qualiﬁcations on a Likert-type
+scale ranging from “Not important” to “Essential, would not
+hire without good skills in this area”. The qualiﬁcations
+were presented in a random order.
 
-theory  applied 
-
-the  balance 
-
-to 
-
-          Evaluation 
-We  evaluated  this  experiment  with  questionnaires  containing  6 
-items. These items are rated on a 1-to-5 scale, where 5 is the most 
-positive. 
 IV. RESULTS AND DISCUSSION
-The  results  of  the  experiment  were  determined  by  analyzing  the 
-questionnaire  responses.  Figure  1  illustrates  the  result  of  the 
-participants’  impressions  of  the  other  participants  in  unfairness 
-condition. We distributed three conditions to the plus and minus 
-group  based  on  the  forecast  of  the  balance  theory.  We  consider 
-that participants who were agreed with the robot on the opinion 
-will have good impression to the robot. In the reverse case, they 
-will have bad impression to the robot. In analogy with above two 
-cases,  the  participants  in  clash  of  opinion  will  not  have  good 
-impression  to  each  other.  From  this  forecast,  the  plus  group 
-consists of participants in the Agree and Disagree conditions.  The 
-robot  in  this  condition  agrees  or  disagrees  with  the  participants 
 
-like *
+Table 1 provides a detailed breakdown of the survey re-
+sults, including the complete list of qualiﬁcations we elicited.
+Thirty-two participants completed the online survey. Twenty-
+seven identiﬁed themselves in a software development role,
+four said they manage software developers, and one listed
+himself/herself as a technical artist. Respondents ranged
+between 2 and 18 years experience in the game industry,
+with the average being 8.3 years. Sixty-three percent said
+that they had participated in the interviewing/hiring of a
+software developer in the last two years. The following sec-
+tion provides more details on the qualiﬁcations as they were
+elicited in our developer interviews.
 
-agreement * *
-5.00
-4.00
-3.00
-2.00
-1.00
-0.00
+Programming
 
-empathy * *
+Skill with C++ programming was frequently the ﬁrst skill
+participants would mention in their interviews. They em-
+phasized that knowledge of every language feature was not
+necessary—simple code was considered more eﬃcient and
+easier to maintain. Knowledge about the STL (C++ Stan-
+dard Template Library) was not generally ranked as very
+important. Other languages such as perl, C#, and Lua were
+in use at the company but not mentioned by the participants
+in our interviews.
 
-attractiveness * *
+Ranked even higher than C++ in the survey results was
+data structures. This was something that a few interviewees
+mentioned in passing during the interviews but did not elab-
+orate on. Unfortunately, it’s not clear exactly what aspects
+of data structures were considered most useful for game pro-
+gramming.
 
-affinity * *
+An ambiguous qualiﬁcation that frequently came up in
+interviews was sometimes called “problem solving” by par-
+ticipants. The company’s interview process involved the in-
+terviewee working through tricky algorithm-oriented ques-
+tions. Several participants said that getting the right solu-
+tion was not as important as how an interviewee approached
+the problem:
 
-good feeling *
+The important part is not if you know the answer
+to the question. It’s how you attack a question,
+if you get frustrated with it. If you just stammer
+on and go oﬀ in some complete random direction.
+Or if you can just make...‘hey this is kind of rel-
+evant, this is relevant, and that’s what I know.’
+That’s all anybody is really looking for.
 
-plus
-minus
+Part of the evaluation of these questions focused on how
+well the interviewee interacted with the interviewer and took
+guidance. We revised the description of this qualiﬁcation
+several times during the second round of interviews. The
+ﬁnal version “being able to solve algorithmically challenging
+problems” was ranked highly in the online survey but does
 
-Figure 1: Questionnaire’s result of Unfairness Condition 
+Table 1: Rankings of each qualiﬁcation’s importance from online survey. [n = 32]
 
-without distinction. And the minus group consists of participants 
-in  the  Unfairness  condition.  The  robot  in  this  condition  agrees 
-with one participant. The ANOVA shows that there are significant 
-differences in every question. This means that participants in the 
-unfairness  condition  do  not  show  goodwill  toward  each  other. 
-From these results, we confirmed the balance theory being applied 
-in robot-mediated communication. 
+Sometimes
+useful but
 
-Our  results  show  the  possibility  of  the  balance  theory  in 
-group  communication  being  applied  by  two  humans  and  a 
-humanoid  robot.  Previous  research  [2]  confirmed  that  the 
-balance  theory  applied  by  disallowing  participants  to  talk  each 
-other.  However,  when  participants  were  allowed  to  talk  to  each 
-other, they did not confirm that the balance theory did not apply. 
-In  our  experiment,  we allowed participants to talk each other in 
-the  conversation  with  robot.  In 
-the  balance 
-theory  was  applied.  We  consider  that  the  existence  and  the 
-embodiment are important for the social conversation with robot.  
+not required
+or evaluated
+in interviews
 
-this  situation, 
+Important,
 
-V. CONCLUSION AND FUTURE WORK
-In this paper, we conducted an experiment to verify whether the 
-balance  theory  applied  to  robot-mediated  communication.  Our 
-results show the balance theory  being  applied  in  robot-mediated 
-communication. From these results, we confirmed that robots may 
-have good or bad influence on human relations. In other words, 
-robots can construct or collapse human relations.  
+has an
 
-REFERENCES 
-[1]  Heider, F. The Psychology of Interpersonal Relations, Wiley, 
+impact on
+the hiring
+decision
 
-1958. 
+Very
 
-[2]  Nakanishi, H., Nakazawa, S., Ishida, T., Takanashi, K., and 
+Important,
+has a large
+impact on a
 
-Isbister, K. Can Software Agents Influence Human 
-Relations? – Balance Theory in Agent-mediated 
-Communications -, Int. Joint Conf. on Autonomous Agents 
-and Multiagent Systems (AAMAS2003), pp. 717-724, 2003. 
-[3]  Ishiguro, H., Ono, T., Imai, M., Kanda, T., Development of 
+hiring
+decision
 
-interactive humanoid root “Robovie.” IEEE Int. Conf. on 
-Robotics and Automation, pp. 1848-1855, 2003
+Essential,
+would not
+
+hire without
+good skills
+in this area
+
+Not
+useful
+
+0.0%
+
+0.0%
+
+0.0%
+
+0.0%
+
+0.0%
+
+0.0%
+
+3.1%
+
+0.0%
+
+15.6%
+
+12.5%
+
+19.4%
+
+15.6%
+
+31.3%
+
+25.0%
+
+34.4%
+
+51.6%
+
+43.8%
+
+53.1%
+
+43.8%
+
+46.9%
+
+0.0%
+
+6.3%
+
+31.3%
+
+53.1%
+
+3.1%
+
+0.0%
+
+0.0%
+
+0.0%
+
+0.0%
+
+0.0%
+
+0.0%
+
+0.0%
+9.4%
+15.6%
+3.1%
+
+0.0%
+
+0.0%
+
+0.0%
+
+25.0%
+
+40.6%
+
+25.0%
+
+6.3%
+
+37.5%
+
+46.9%
+
+12.5%
+
+0.0%
+
+34.4%
+
+12.5%
+
+43.8%
+
+34.4%
+50.0%
+62.5%
+56.3%
+
+31.3%
+
+21.9%
+
+0.0%
+
+59.4%
+
+25.0%
+
+15.6%
+
+46.9%
+
+40.6%
+
+43.8%
+
+34.4%
+40.6%
+18.8%
+37.5%
+
+53.1%
+
+50.0%
+
+15.6%
+
+65.6%
+
+9.4%
+
+25.0%
+
+9.4%
+
+31.3%
+0.0%
+3.1%
+3.1%
+
+15.6%
+
+28.1%
+
+9.4%
+
+29.0%
+
+37.5%
+
+15.6%
+
+15.6%
+
+6.3%
+
+9.4%
+
+6.3%
+
+9.4%
+
+3.1%
+
+18.8%
+
+9.4
+
+21.9%
+
+3.1%
+
+0.0%
+0.0%
+0.0%
+0.0%
+
+0.0%
+
+0.0%
+
+75.0%
+
+i
+
+g
+n
+m
+m
+a
+r
+g
+o
+r
+P
+
+e
+z
+i
+m
+
+i
+t
+p
+O
+
+n
+g
+i
+s
+e
+D
+
+s
+n
+o
+i
+t
+a
+z
+i
+l
+a
+i
+c
+e
+p
+S
+
+s
+l
+l
+i
+k
+S
+
+e
+l
+p
+o
+e
+P
+
+Proﬁciency with the C++ language including ba-
+sic knowledge of features like templating
+Knowledge about data structures
+Being able to solve algorithmically challenging
+problems
+Debugging and familiarity with debugging tools
+Professional programming experience of any sort
+(e.g. an internship)
+Understanding the performance implications of
+particular language constructs and hardware
+platforms; familiarity with how to optimize code
+Algorithm analysis using big O (e.g. determining
+an algorithm is O(n log n))
+Ability to build a good object design for a large
+system and understand the implications
+Willingness to write a “good enough” solution,
+rather than spending a long time engineering an
+elegant solution
+Writing clean code
+Basic familiarity with the implementation of ren-
+derers and the graphics pipeline
+Linear Algebra
+Understanding how a compiler works and its lim-
+itations
+Multithreaded Programming
+Newtonian physics and how to simulate it
+Assembly language programming
+Network programming
+Deep knowledge in a particular specialization
+(e.g. AI, Audio)
+Flexibility to work on any part of a game project
+Ability to work with others and check your ego
+at the door
+Ability to work with someone in a diﬀerent part
+of the organization and understand their require-
+ments
+Being able to communicate clearly to both tech-
+nical and nontechnical audiences
+
+y Enthusiasm for building video games
+
+r
+t
+s
+u
+d
+n
+I
+
+e
+m
+a
+G
+
+Modding games as a hobbyist or other extracur-
+ricular game projects
+Willingness to put in extra hours to complete a
+feature on time
+Knowledge about the game industry
+Having contacts within the gaming industry
+A bachelor’s degree in computer science
+
+0.0%
+
+6.3%
+
+31.3%
+
+40.6%
+
+21.9%
+
+0.0%
+
+0.0%
+
+15.6%
+
+6.3%
+
+21.9%
+
+53.1%
+
+0.0%
+
+6.3%
+34.4%
+3.1%
+
+0.0%
+
+56.3%
+56.3%
+25.0%
+
+31.3%
+
+28.1%
+
+15.6%
+
+37.5%
+
+34.4%
+3.1%
+43.8%
+
+37.4%
+
+37.5%
+
+9.4%
+
+43.8%
+
+3.1%
+6.3%
+18.8%
+
+15.6%
+
+28.1%
+
+0.0%
+
+18.8%
+
+0.0%
+0.0%
+9.4%
+
+not express the complex way these questions were evaluated
+by interviewers.
+
+Optimization
+
+speciﬁcally teach performance if you taught peo-
+ple to understand the implications of what they
+are doing. If people really understood that putting
+one little include brings in a whole bunch of code...”
+
+“Performance doesn’t just apply to making a com-
+puter program fast...You wouldn’t even need to
+
+Optimization techniques were mentioned nearly as often
+in our interviews as C++, though they were ranked less
+
+highly. A frequent complaint was that students did not un-
+derstand how the compiler might produce poorly optimized
+code. The performance optimization the participants talked
+about generally focused on improving the speed of frequently
+called functions; this often required a understanding of the
+hardware, operating system or the compiler. Distributing
+work correctly across multiple processors also was mentioned
+as a technique that was becoming more important. Memory
+optimization was also discussed: optimizations focused on
+reducing the size of frequently allocated objects and ﬁnding
+ways to limit the number of objects. Being able to optimize
+C++ code was considered a very important skill although
+participants varied in how much they expected students out
+of college to be able to do this.
+
+One optimization technique that received varying response
+was big-O. This optimization technique did not often come
+up in interviews. When prompted participants frequently
+said that while big-O might be useful under certain circum-
+stances they didn’t think about it frequently. In the online
+survey, big-O was one of two qualiﬁcations that was rated as
+both “not useful” and “essential”. This may reﬂect a divide in
+the game industry as to the usefulness of academic computer
+science—the other qualiﬁcations that similarly spanned all
+rankings was “a bachelor’s degree in Computer Science”.
+
+Design
+
+Being able to develop an object design to solve a particu-
+lar problem was another commonly mentioned skill. Many
+interview participants emphasized that a good designer was
+willing to compromise and build a “good enough” solution
+rather than wasting time overengineering things the “right”
+way. A few mentioned that they were particularly wary of
+overengineering in applicants with advanced CS degrees.
+
+Some interview participants stressed that they considered
+object oriented design questions to be more appropriate for
+more senior interviews. What they expected from college
+students was enough understanding of design to make sense
+of the codebase and the ability to write clean easy to un-
+derstand code. The ability to write clean code was ranked
+more highly by our survey participants than object oriented
+design—85% ranked writing clean code as “very important”
+or “essential”, compared to 56% for design.
+
+Specializations
+
+Computer graphics is often considered to be the computer
+science ﬁeld closest to game programming, and interview
+participants did mention that some familiarity with the way
+the rendering pipeline works could be useful. However, par-
+ticipants generally also agreed that rendering in general was
+handled by a specialized team and not every programmer
+needed to be an expert. Experience with linear algebra was
+also frequently mentioned. Linear algebra was ranked much
+higher on the survey, with 47% ranking it as essential or
+very important, compared to 19% for rendering.
+
+Other subﬁelds of computer science were mentioned by
+interview participants. Compliers, multithreaded program-
+ming, physics, and assembly language were all brought up as
+skills that were useful. However, generally these skills were
+ranked much lower by survey respondents than program-
+ming, design, and optimization. Interview participants also
+did not agree on whether a deep knowledge of a particular
+ﬁeld was useful, or if candidates who could move between
+all areas of game development were valuable. Participants
+
+agreed that when interviewing for a particular specialized
+team deep specialty knowledge was important—beyond that
+there seems to be disagreement.
+
+People Skills
+
+“Many of us don’t have the ability to walk into
+the room with a complete stranger and start up
+a conversation. We don’t necessarily need that
+level of skillset. Just somebody who’s not intim-
+idated to really get in and ﬁgure out the problem
+rather than just implement what’s on the sheet.”
+
+Several kinds of people skills where ranked extremely high
+by the participants—usually higher than C++ and other
+technical skills. Several participants mentioned that assess-
+ing culture ﬁt was what they considered the primary goal
+of interviews, with technical qualiﬁcations being secondary.
+Technical skills could even be learned on the job.
+
+Of the people skills mentioned in interviews, the skill that
+was consistently ranked highest was the ability to work on
+a team without excessive ego. This was the highest ranked
+skill in the online survey, with 75% of respondents ranking it
+as “essential” (by contrast, only 29% ranked C++ proﬁciency
+as essential). Participants individually emphasized that too
+much ego and unwillingness to take advice was against the
+company culture. Since the interviews were only at one com-
+pany, it is diﬃcult to know whether this concern with ego is
+shared across the game industry.
+
+Another area frequently ranked as essential was the abil-
+ity to communicate clearly with coworkers in other depart-
+ments. Developers were frequently in the position of ex-
+plaining game behavior or building tools for testers, artists,
+and game designers. These groups were often quite techni-
+cally sophisticated themselves and would script or use com-
+plex in-house game development software. Participants fre-
+quently talked about how a good developer would design a
+solution that was technically feasible and satisﬁed the other
+stakeholders rather than simply coding from a bug report or
+speciﬁcation document.
+
+A question we asked most of the participants was “Do
+you think that most people at the company agree about the
+kind of game developer candidate that should be hired?”
+Participants who saw competing viewpoints often identiﬁed
+two camps—those who focused on technical skill and those
+who focused on culture ﬁt. Those in the culture ﬁt group
+often commented that the technical aspects of the job was
+learnable while social aspects of the job were not. They felt
+that their peers often attached excessive weight to success
+on algorithm-oriented questions and college degrees.
+
+The Game Industry
+
+Another highly ranked qualiﬁcation was enthusiasm for
+building video games. Video game modding and other
+extracurricular projects were considered evidence of this
+enthusiasm—but not everyone agreed how important a con-
+sideration this was for an applicant. A few participants also
+mentioned a willingness to work extra hours when necessary
+and this was ranked highly in the survey. Long hours are
+part of the mythos of the gaming industry; at this company
+people worked longer days and weekend hours during crunch
+times. The IGDA conducted an industry-wide survey that
+focused on the topic of long hours [4]; their results showed
+that long hours during crunch times are widespread.
+
+Two items that were not highly ranked were knowledge
+about the game industry and having game industry contacts.
+A few participants mentioned that they felt having contacts
+was given inappropriate weight in the hiring process, but this
+does not appear to be a widespread concern given the survey
+results. Some others commented that although contacts are
+not important for a college hire, because the game industry is
+small interviewers often call friends at other game companies
+to check on experienced candidates.
+
+V. CONCLUSION
+
+Although our goal was to discover results that were as
+generalizable as possible, our method has some limitations.
+One obvious limitation is that the interviews and survey oc-
+curred only at one game company. Although some of the
+results we found are similar to other, broader game devel-
+oper studies [8], it is still diﬃcult to extract what may be
+part of this particular company’s culture from the game in-
+dustry as a whole. Similar to this, our eﬀort to get the
+viewpoints of those across the company may not reﬂect the
+real hiring process. Some viewpoints may carry more weight
+than others: this was outside the scope of this study.
+
+Our participants seemed to favor candidates with good
+C++ programming skills and some experience with object
+oriented design. Understanding how to write eﬃcient code
+was also important, which requires abstract topics like data
+structures, compilers, and multithreaded programming. But
+in general our participants stressed that students interested
+in the game industry were better oﬀ building strong general
+coding skills rather than learning deep knowledge of special-
+ized areas like rendering.
+
+Another area almost all our participants agreed on was
+that students interested in the game industry need to be
+able to work on a team.
+Interpersonal skills were ranked
+as highly as technical skills by almost all our participants.
+The idea that developers need strong team skills is echoed
+in McGill’s [8] game developer work and other studies on
+developer qualiﬁcations in general [6][10][1].
+
+Of the game-speciﬁc qualiﬁcations that came up in our
+interviews, a basic familiarity with rendering and linear al-
+gebra was most consistently ranked high. Our participants
+also looked for candidates who could show they were excited
+about building games. But overall one of the most interest-
+ing results of this study is how similar the qualiﬁcations we
+elicited from our participants were to any industry-oriented
+computer science curriculum. Participants did not mention
+things like level design knowledge, experience with particu-
+lar console platforms, or advanced knowledge of rendering
+and computer graphics. One reason for this may be be-
+cause video game companies usually have to recruit from
+traditional CS programs and are used to having to teach
+game speciﬁc skills on the job. But this is good news for
+schools looking to recruit students pursing game program-
+ming careers: if professors focus on coding skills, eﬃciency,
+and team interactions their graduates should be attractive
+to the game industry.
+
+There is a lot of mythology about game programmers.
+Some of it seems to be borne out by our interviews—game
+companies are looking for C++ programmers who can write
+eﬃcient code. Some of the mythology seems to discredited—
+
+you don’t need to have mastered every assembly language
+instruction on your video card’s GPU, nor can you be a
+egotistical recluse who only communicates in code. Some
+seems to be half-true–game developers do favor pragmatic
+programming over theory, but many still value a college de-
+gree.
+
+Although other studies have provided broad surveys of
+industry qualiﬁcations (e.g. [5] [8]) interviews provide more
+nuanced view of what game development companies are look-
+ing for and why. The qualiﬁcations elicited here also provide
+a starting point for research on a larger scale. One of the
+key results is that even at one company building one kind
+of game, there is disagreement about what qualiﬁcations
+are most important. To understand what skills are impor-
+tant across diﬀerent kinds of games and diﬀerent companies
+industry-wide research is necessary. Video game curricula is
+already being developed [9] and students who are attracted
+to game development specializations and degree programs
+expect their professors to prepare them. With larger scale
+research into understanding game developer qualiﬁcations,
+hopefully soon we can live up to our students’ expectations.
+
+REFERENCES
+
+[1] A. Begel and B. Simon. Novice software developers, all
+
+over again. In Proceeding of the fourth international
+workshop on Computing education research, pages
+3–14, 2008.
+
+[2] L. Ficocelli and D. Gregg. B. sc. computer game
+
+development. . . why not? In Changing Views, pages
+16–20. DiGRA (Digital Games Research Association),
+2005.
+
+[3] A. Gershenfeld, M. Loparco, and C. Barajas. Game
+
+Plan. St. Martin’s Griﬃn, 1st edition, May 2003.
+
+[4] International Game Developers Association. Quality of
+
+life in the game industry.
+http://www.igda.org/qol/whitepaper.php\#source,
+2004.
+
+[5] International Game Developers Association.
+
+Curriculum framework v. 3.2 beta. http://www.igda.
+org/academia/curriculum\_framework.php, 2008.
+
+[6] D. Lee, E. M. Trauth, and D. Farwell. Critical skills
+and knowledge requirements of IS professionals. MIS
+Quarterly, 19(3):313–340, 1995.
+
+[7] M. McGill. Critical skills for game developers. In
+
+Proceedings of the 2008 Conference on Future Play,
+pages 89–96, 2008.
+
+[8] M. McGill. Weighted game developer qualiﬁcations for
+
+consideration in curriculum development. In
+Proceedings of SIGCSE 2009, pages 347–351,
+Chattanooga, TN, USA, 2009. ACM.
+
+[9] B. B. Morrison and J. A. Preston. Engagement:
+
+gaming throughout the curriculum. In Proceedings of
+SIGCSE 2009, pages 342–346, Chattanooga, TN,
+USA, 2009. ACM.
+
+[10] E. M. Trauth, D. W. Farwell, and D. Lee. The IS
+
+expectation gap: Industry expectations versus
+academic preparation. MIS Quarterly, pages 293–307,
+1993.
 
 

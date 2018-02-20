@@ -25,7 +25,7 @@ body {
       #customNav .navbar-nav li.nav-item a.nav-link:hover {
         color: #000; }
 
-#customFileContent {
+#customContainer {
   margin-top: 110px;
   height: 100%;
   background-color: #E6E6DC!important; }
@@ -180,4 +180,90 @@ body {
 .mybtn-1a:hover:after,
 .mybtn-1a:active:after {
   width: 100%;
+}
+
+.titleStyle {
+  color: #333;
+  font-size: 48px !important;
+  padding-bottom: 25px;
+}
+
+.titleHeader {
+  font-size: 25px !important;
+  padding-bottom: 3px;
+}
+
+.abstractStyle {
+  font-size: 20px;
+  color: #333;
+  text-shadow: #000 0.5px 0.5px;
+  padding-bottom: 25px;
+}
+
+.tableStyle {
+  font-size: 18px;
+  color: #333;
+  padding-bottom: 3px;
+}
+
+@table-header-font-weight:      400;
+@table-header-font-color:       #757575;
+
+@table-cell-padding:            1.6rem;
+@table-condensed-cell-padding:  @table-cell-padding/2;
+
+
+@table-bg:                      #fff;
+@table-bg-accent:               #f5f5f5;
+@table-border-color:            #333;
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  background-color: @table-bg;
+  > thead,
+  > tbody,
+  > tfoot {
+    > tr {
+      .transition(all .3s ease);
+      > th,
+      > td {
+        text-align: left;
+        padding: @table-cell-padding;
+        vertical-align: top;
+        border-top: 0;
+        .transition(all .3s ease);
+      }
+    }
+  }
+  > thead > tr > th {
+    font-weight: @table-header-font-weight;
+    color: @table-header-font-color;
+    vertical-align: bottom;
+    border-bottom: 1px solid #333;
+  }
+  > caption + thead,
+  > colgroup + thead,
+  > thead:first-child {
+    > tr:first-child {
+      > th,
+      > td {
+        border-top: 0;
+      }
+    }
+  }
+  > tbody + tbody {
+    border-top: 1px solid #333;
+  }
+
+  // Nesting
+  .table {
+    background-color: @table-bg;
+  }
+
+  // Remove border
+  .no-border {
+    border: 0;
+  }
 }

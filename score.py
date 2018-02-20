@@ -1,17 +1,21 @@
 import math
 
-preprocessedTxt = open('experimentaldictionary.txt', 'r', encoding='utf-8').read()
-exDict = eval(preprocessedTxt)
-scoreDict = {}
 
-titleTxt = open('title.txt', 'r', encoding='utf-8').read()
-title = eval(titleTxt)
+def scoreInitialize(experimentaldictionary, title, referenceDictionary):
+    preprocessedTxt = open(experimentaldictionary, 'r', encoding='utf-8').read()
+    exDict = eval(preprocessedTxt)
+    scoreDict = {}
 
-referenceTxt = open('referencedictionary.txt', 'r', encoding='utf-8').read()
-reDict = eval(referenceTxt)
+    titleTxt = open(title, 'r', encoding='utf-8').read()
+    title = eval(titleTxt)
+
+    referenceTxt = open(referenceDictionary, 'r', encoding='utf-8').read()
+    reDict = eval(referenceTxt)
+
+    tfinitialize(exDict, scoreDict, title, reDict)
 
 
-def tfinitialize(exDict):
+def tfinitialize(exDict, scoreDict, title, reDict):
     for sentenceKey, experimentalSentence in exDict.items():
         sentenceTemp = []
         for word in experimentalSentence:
@@ -22,10 +26,10 @@ def tfinitialize(exDict):
         exDict[sentenceKey] = sentenceTemp
         scoreDict[sentenceKey] = []
 
-    tfisf(exDict)
+    tfisf(exDict, scoreDict, title, reDict)
 
 
-def tfisf(exDict):
+def tfisf(exDict, scoreDict, title, reDict):
     for sentenceKey, experimentalSentence in exDict.items():
         currentKey = sentenceKey
         for sentenceKey2, experimentalSentence2 in exDict.items():
@@ -82,10 +86,10 @@ def tfisf(exDict):
     with open('experimentaldictionary2.txt', 'w', encoding='utf-8') as text_file:
         print(exDict, file=text_file)
 
-    sentencePosition(scoreDict, exDict)
+    sentencePosition(exDict, scoreDict, title, reDict)
 
 
-def sentencePosition(scoreDict, exDict):
+def sentencePosition(exDict, scoreDict, title, reDict):
     n = len(exDict)
     th = 0.2 * n
     minv = th * 2
@@ -102,10 +106,10 @@ def sentencePosition(scoreDict, exDict):
         currentScore.append(senPos)
         scoreDict[sentenceKey] = currentScore
 
-    numericToken(scoreDict, exDict)
+    numericToken(exDict, scoreDict, title, reDict)
 
 
-def numericToken(scoreDict, exDict):
+def numericToken(exDict, scoreDict, title, reDict):
     for sentenceKey, experimentalSentence in exDict.items():
         currentSentence = exDict[sentenceKey]
         currentScore = scoreDict[sentenceKey]
@@ -126,10 +130,10 @@ def numericToken(scoreDict, exDict):
         currentScore.append(numTokenScore)
         scoreDict[sentenceKey] = currentScore
 
-    sentenceLength(scoreDict, exDict)
+    sentenceLength(exDict, scoreDict, title, reDict)
 
 
-def sentenceLength(scoreDict, exDict):
+def sentenceLength(exDict, scoreDict, title, reDict):
     maxLength = 0
     for sentenceKey, experimentalSentence in exDict.items():
         currentSentence = exDict[sentenceKey]
@@ -145,10 +149,10 @@ def sentenceLength(scoreDict, exDict):
         currentScore.append(senLengthScore)
         scoreDict[sentenceKey2] = currentScore
 
-    titleOverlap(scoreDict, exDict)
+    titleOverlap(exDict, scoreDict, title, reDict)
 
 
-def titleOverlap(scoreDict, exDict):
+def titleOverlap(exDict, scoreDict, title, reDict):
     for sentenceKey, experimentalSentence in exDict.items():
         currentSentence = exDict[sentenceKey]
         currentScore = scoreDict[sentenceKey]
@@ -169,10 +173,10 @@ def titleOverlap(scoreDict, exDict):
         currentScore.append(toScore)
         scoreDict[sentenceKey] = currentScore
 
-    properNoun(scoreDict, exDict)
+    properNoun(exDict, scoreDict, title, reDict)
 
 
-def properNoun(scoreDict, exDict):
+def properNoun(exDict, scoreDict, title, reDict):
     for sentenceKey, experimentalSentence in exDict.items():
         currentSentence = exDict[sentenceKey]
         currentScore = scoreDict[sentenceKey]
@@ -190,15 +194,14 @@ def properNoun(scoreDict, exDict):
         currentScore.append(pnScore)
         scoreDict[sentenceKey] = currentScore
 
-    scoreEvaluation(scoreDict, exDict)
-
-    with open('scoredictionary.txt', 'w', encoding='utf-8') as text_file:
-        print(scoreDict, file=text_file)
+    scoreEvaluation(exDict, scoreDict, title, reDict)
 
 
-def scoreEvaluation(scoreDict, exDict):
+def scoreEvaluation(exDict, scoreDict, title, reDict):
     finalScore = []
-    finalSentenceKey = []
+    finalSentenceKeys = []
+    finalSentenceDict = {}
+    rankKey = 1
     abstract = ''
 
     for sentenceKey, sentenceScores in scoreDict.items():
@@ -211,7 +214,7 @@ def scoreEvaluation(scoreDict, exDict):
         senLengthScore = currentScore[3]
         toScore = currentScore[4]
         pnScore = currentScore[5]
-        sentenceScore = ((0.4 * toScore) + (0.2 * (pnScore + senLengthScore)) + (0.1 * (numTokenScore + senPosScore + tfisfScore)))
+        sentenceScore = ((0.4 * toScore) + (0.2 * pnScore) + (0.1 * (senPosScore + senLengthScore + tfisfScore)) + (0.025 * numTokenScore))
         sentenceScoreR = round(sentenceScore, 3)
         finalScore.append(sentenceScoreR)
         currentScore.append(sentenceScoreR)
@@ -222,9 +225,9 @@ def scoreEvaluation(scoreDict, exDict):
     if(documentLength <= 30):
         scoreRange = 7
     elif(documentLength <= 90):
-        scoreRange = 10
+        scoreRange = 9
     else:
-        scoreRange = 13
+        scoreRange = 11
 
     for score in finalScore[:scoreRange]:
         for scoreKey, sentenceScore in scoreDict.items():
@@ -232,20 +235,33 @@ def scoreEvaluation(scoreDict, exDict):
             currentScore2 = scoreDict[scoreKey]
             currentSenScore = currentScore2[6]
             if(score == currentSenScore):
-                finalSentenceKey.append(currentScoreKey)
+                if(currentScoreKey not in finalSentenceKeys):
+                    finalSentenceKeys.append(currentScoreKey)
 
-    finalSentenceKey.sort()
-    for finalKey in finalSentenceKey:
+    for finalSentenceKey in finalSentenceKeys:
+        finalSentenceList = []
+        for sentenceKey, sentenceValue in reDict.items():
+            if(finalSentenceKey == sentenceKey):
+                finalSentenceList.append(sentenceKey)
+                finalSentenceList.append(sentenceValue)
+        for scoreKey2, sentenceScore2 in scoreDict.items():
+            if(finalSentenceKey == scoreKey2):
+                finalSentenceList.append(sentenceScore2)
+        finalSentenceDict[rankKey] = finalSentenceList
+        rankKey += 1
+
+    finalSentenceKeys.sort()
+    for finalKey in finalSentenceKeys:
         abstract += reDict[finalKey] + '. '
 
     with open('abstract.txt', 'w', encoding='utf-8') as text_file:
         print(abstract, file=text_file)
+
+    with open('abstractdictionary.txt', 'w', encoding='utf-8') as text_file:
+        print(finalSentenceDict, file=text_file)
 
     with open('scoredictionary.txt', 'w', encoding='utf-8') as text_file:
         print(scoreDict, file=text_file)
 
     with open('finalscore.txt', 'w', encoding='utf-8') as text_file:
         print(finalScore, file=text_file)
-
-
-tfinitialize(exDict)
