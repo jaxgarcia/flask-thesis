@@ -198,6 +198,8 @@ def properNoun(exDict, scoreDict, title, reDict):
 
 
 def scoreEvaluation(exDict, scoreDict, title, reDict):
+    weightedScoreDict = {}
+    weightedScorePercentage = {}
     finalScore = []
     finalSentenceKeys = []
     finalSentenceDict = {}
@@ -205,26 +207,29 @@ def scoreEvaluation(exDict, scoreDict, title, reDict):
     abstract = ''
 
     for sentenceKey, sentenceScores in scoreDict.items():
+        weightedScoreList = []
         currentScore = scoreDict[sentenceKey]
         sentenceScore = 0
         sentenceScoreR = 0
-        tfisfScore = currentScore[0]
-        senPosScore = currentScore[1]
-        numTokenScore = currentScore[2]
-        senLengthScore = currentScore[3]
-        toScore = currentScore[4]
-        pnScore = currentScore[5]
-        sentenceScore = ((0.4 * toScore) + (0.2 * pnScore) + (0.1 * (senPosScore + senLengthScore + tfisfScore)) + (0.025 * numTokenScore))
+        wtfisfScore = round((currentScore[0] * 0.2), 3)
+        wsenPosScore = round((currentScore[1] * 0.2), 3)
+        wnumTokenScore = round((currentScore[2] * 0.05), 3)
+        wsenLengthScore = round((currentScore[3] * 0.1), 3)
+        wtoScore = round((currentScore[4] * 0.4), 3)
+        wpnScore = round((currentScore[5] * 0.05), 3)
+        sentenceScore = (wtfisfScore + wsenPosScore + wnumTokenScore + wsenLengthScore + wtoScore + wpnScore)
         sentenceScoreR = round(sentenceScore, 3)
         finalScore.append(sentenceScoreR)
         currentScore.append(sentenceScoreR)
+        weightedScoreList.extend([wtfisfScore, wsenPosScore, wnumTokenScore, wsenLengthScore, wtoScore, wpnScore, sentenceScoreR])
         scoreDict[sentenceKey] = currentScore
+        weightedScoreDict[sentenceKey] = weightedScoreList
 
     finalScore.sort(reverse=True)
     documentLength = len(reDict)
     if(documentLength <= 30):
         scoreRange = 7
-    elif(documentLength <= 90):
+    elif(documentLength <= 60):
         scoreRange = 9
     else:
         scoreRange = 11
@@ -244,24 +249,54 @@ def scoreEvaluation(exDict, scoreDict, title, reDict):
             if(finalSentenceKey == sentenceKey):
                 finalSentenceList.append(sentenceKey)
                 finalSentenceList.append(sentenceValue)
-        for scoreKey2, sentenceScore2 in scoreDict.items():
+        for scoreKey2, sentenceScore2 in weightedScoreDict.items():
             if(finalSentenceKey == scoreKey2):
                 finalSentenceList.append(sentenceScore2)
         finalSentenceDict[rankKey] = finalSentenceList
         rankKey += 1
 
+    for rankKey2, finalValue in finalSentenceDict.items():
+        wScoreList = finalValue[2]
+        wTotal = wScoreList[6]
+        wPercentageList = []
+        wPercentageTotal = 0
+        for wScore in wScoreList:
+            if(wScore < 0):
+                wScore = abs(wScore)
+                wTotal += wScore
+        for wScore2 in wScoreList:
+            if(wScore > 0):
+                wPercentage = round((wScore2/wTotal) * 100, 1)
+                wPercentageTotal += wPercentage
+                if(wPercentageTotal <= 100):
+                    wPercentageStr = str(wPercentage) + "%"
+                else:
+                    wPercentageDiff = wPercentageTotal - 100
+                    wPercentage = round((wPercentage - wPercentageDiff), 1)
+                    wPercentageStr = str(wPercentage) + "%"
+            else:
+                wPercentageStr = "0%"
+            wPercentageList.append(wPercentageStr)
+        weightedScorePercentage[rankKey2] = wPercentageList
+
     finalSentenceKeys.sort()
     for finalKey in finalSentenceKeys:
         abstract += reDict[finalKey] + '. '
-
-    with open('abstract.txt', 'w', encoding='utf-8') as text_file:
-        print(abstract, file=text_file)
-
-    with open('abstractdictionary.txt', 'w', encoding='utf-8') as text_file:
-        print(finalSentenceDict, file=text_file)
 
     with open('scoredictionary.txt', 'w', encoding='utf-8') as text_file:
         print(scoreDict, file=text_file)
 
     with open('finalscore.txt', 'w', encoding='utf-8') as text_file:
         print(finalScore, file=text_file)
+
+    with open('weightedscoredictionary.txt', 'w', encoding='utf-8') as text_file:
+        print(weightedScoreDict, file=text_file)
+
+    with open('weightedscorepercentage.txt', 'w', encoding='utf-8') as text_file:
+        print(weightedScorePercentage, file=text_file)
+
+    with open('abstract.txt', 'w', encoding='utf-8') as text_file:
+        print(abstract, file=text_file)
+
+    with open('abstractdictionary.txt', 'w', encoding='utf-8') as text_file:
+        print(finalSentenceDict, file=text_file)

@@ -35,7 +35,7 @@ Research Abstractor
       </table>
     </p>
     <p class="tableStyle">
-      <strong> Table 2. Sentence Scores </strong>
+      <strong> Table 2. Sentence Scores (Weighted) </strong>
       <table class="table">
         <thead>
           <tr>
@@ -47,7 +47,7 @@ Research Abstractor
             <th>Sentence Length Score</th>
             <th>Title Overlap Score</th>
             <th>Proper Noun Score</th>
-            <th>Weighted Score</th>
+            <th>Sentence Score</th>
           </tr>
         </thead>
         <tbody>
@@ -62,11 +62,58 @@ Research Abstractor
             <td data-title="Sentence Length Score"> {{ scores[3] }} </td>
             <td data-title="Title Overlap Score"> {{ scores[4] }} </td>
             <td data-title="Proper Noun Score"> {{ scores[5] }} </td>
-            <td data-title="Weighted Score"><strong> {{ scores[6] }} </strong></td>
+            <td data-title="Sentence Score"><strong> {{ scores[6] }} </strong></td>
           </tr>
           {% endfor %}
         </tbody>
       </table>
+    </p>
+    <p class="tableStyle">
+      <strong> Graphical Representation of Feature Score Contribution </strong>
+      <figure>
+        <div class="y-axis">
+          <h3> Sentence Rank </h3>
+        </div>
+        <div class="graphic">
+          {% for key3, value3 in wScorePercentageDict.items() %}
+          <div class="row">
+            <h6> {{ key3 }} </h6>
+            <div class="chart">
+              <span class="block" title="TFISF" style="width: {{ value3[0] }};">
+                <span class="value">{{ value3[0] }}</span>
+              </span>
+              <span class="block" title="Sentence Position" style="width: {{ value3[1] }};">
+                <span class="value">{{ value3[1] }}</span>
+              </span>
+              <span class="block" title="Numerical Token" style="width: {{ value3[2] }};">
+                <span class="value">{{ value3[2] }}</span>
+              </span>
+              <span class="block" title="Sentence Length" style="width: {{ value3[3] }};">
+                <span class="value">{{ value3[3] }}</span>
+              </span>
+              <span class="block" title="Title Overlap" style="width: {{ value3[4] }};">
+                <span class="value">{{ value3[4] }}</span>
+              </span>
+              <span class="block" title="Proper Noun" style="width: {{ value3[5] }};">
+                <span class="value">{{ value3[5] }}</span>
+              </span>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="x-axis">
+          <h3>Features Extracted</h3>
+          <ul class="legend">
+            <li>TFISF</li>
+            <li>Sentence Position</li>
+            <li>Numerical Token</li>
+            <li>Sentence Length</li>
+            <li>Title Overlap</li>
+            <li>Proper Noun</li>
+          </ul>
+        </div>
+      </figure>
+    </p>
   </div>
 </div>
 

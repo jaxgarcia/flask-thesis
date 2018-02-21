@@ -12,6 +12,12 @@ Research Abstractor
     <div class="mybtn-container">
       <a href="http://127.0.0.1:5000/abstract"><button type="submit" class="mybtn mybtn-1 mybtn-1a">GENERATE ABSTRACT</button></a>
     </div>
+    <div class="stepsContainer">
+      <h3><strong>3 Major Steps of the Algorithm:</strong></h3>
+      <h5> 1. <strong>Extract</strong> - the document is extracted and an excerpt of it will be used in creating the summary. </h5>
+      <h5> 2. <strong>Preprocess</strong> - the excerpt will be preprocessed by means of <strong>title extraction</strong>, <strong>sentence segmentation</strong>, <strong>tokenization</strong>, <strong>stop words removal</strong>, <strong>special characters removal</strong>, <strong>POS tagging</strong> and <strong>lemmatization</strong>.</h5>
+      <h5> 3. <strong>Score</strong> - the preprocessed sentences will be scored by the following features: <strong>TFISF</strong>, <strong>Sentence Position</strong>, <strong>Numerical Token</strong>, <strong>Sentence Length</strong>, <strong>Title Overlap</strong>, <strong>Proper Noun</strong>. The sentences feature scores will be weighted and sum up to determine its final sentence score. Top scoring sentences will be used to generate the abstract</h5> 
+    </div>
   </div>
 </div>
 

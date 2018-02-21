@@ -38,11 +38,13 @@ def preprocessInitialize(outputExtracted):
 
     for sentence in extractedList:
         if(sentence != extractedList[lastIndex]):
-            referenceSentence = sentence.replace('\n', ' ')
-            experimentalSentence = sentence.lower().replace('\n', ' ')
-            referenceDict[sentenceKey] = referenceSentence
-            experimentalDict[sentenceKey] = experimentalSentence
-            sentenceKey += 1
+            sentenceTokenize = word_tokenize(sentence)
+            if(len(sentenceTokenize) >= 10):
+                referenceSentence = sentence.replace('\n', ' ')
+                experimentalSentence = sentence.lower().replace('\n', ' ')
+                referenceDict[sentenceKey] = referenceSentence
+                experimentalDict[sentenceKey] = experimentalSentence
+                sentenceKey += 1
 
     with open('fulltitle.txt', 'w', encoding='utf-8') as text_file:
         print(fullTitleStr, file=text_file)
@@ -164,5 +166,3 @@ def lemmatization(exDict, newTitle2):
 
     with open('title.txt', 'w', encoding='utf-8') as text_file:
         print(newTitle2, file=text_file)
-
-preprocessInitialize("outputextracted.txt")

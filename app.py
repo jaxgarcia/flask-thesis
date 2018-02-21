@@ -69,7 +69,10 @@ def abstract():
     abstractDictTxt = open('abstractdictionary.txt', 'r', encoding='utf-8').read()
     abstractDict = eval(abstractDictTxt)
 
-    return render_template("abstract.html", abstractStr=abstractStr, titleStr=titleStr, abstractDict=abstractDict)
+    wScorePercentageTxt = open('weightedscorepercentage.txt', 'r', encoding='utf-8').read()
+    wScorePercentageDict = eval(wScorePercentageTxt)
+
+    return render_template("abstract.html", abstractStr=abstractStr, titleStr=titleStr, abstractDict=abstractDict, wScorePercentageDict=wScorePercentageDict)
 
 
 if __name__ == "__main__":
