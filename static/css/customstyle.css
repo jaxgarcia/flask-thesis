@@ -33,8 +33,8 @@ body {
 
 
 .customFooter {
-  background-color: #81A594;
-  padding: 4rem;
+  background-color: #751a1a;
+  padding: 4.78rem;
 }
 
 .input-container {
@@ -130,6 +130,10 @@ body {
   background-color: #640E27;
 }
 
+.errorHeader {
+  padding-bottom: 6px;
+}
+
 .mybtn-container {
   text-align: center;
   padding-top: 2rem;
@@ -188,6 +192,11 @@ body {
 .mybtn-1a:hover:after,
 .mybtn-1a:active:after {
   width: 100%;
+}
+
+.fa-cog {
+  color: #640E27;
+  margin-bottom: 34px;
 }
 
 .stepsContainer {
@@ -383,7 +392,7 @@ figure {
 	display: block;
 	line-height: 1em;
 	position: absolute;
-	top: 50%;
+	top: 43%;
 	left: 50%;
 	transform: translate(-50%);
 }

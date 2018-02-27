@@ -42,7 +42,7 @@ def upload_file():
             set_filename(filename)
             file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
             return redirect(url_for('generate'))
-    return render_template("abstract.html")
+    return render_template("error.html")
 
 
 @app.route('/generate')

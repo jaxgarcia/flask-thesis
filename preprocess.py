@@ -1,3 +1,4 @@
+import re
 import nltk
 from nltk.corpus import stopwords
 from nltk.tokenize import word_tokenize
@@ -39,7 +40,9 @@ def preprocessInitialize(outputExtracted):
     for sentence in extractedList:
         if(sentence != extractedList[lastIndex]):
             sentenceTokenize = word_tokenize(sentence)
-            if(len(sentenceTokenize) >= 10):
+            if(len(sentenceTokenize) >= 10 and len(sentenceTokenize) <= 50):
+                sentence = re.sub('\d+,|\[|\d+]|\[d+]', '', sentence)
+                sentence = sentence.rstrip()
                 referenceSentence = sentence.replace('\n', ' ')
                 experimentalSentence = sentence.lower().replace('\n', ' ')
                 referenceDict[sentenceKey] = referenceSentence

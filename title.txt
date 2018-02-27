@@ -1,1 +1,1 @@
-[('sociality', 'NN'), ('robot', 'NNS'), ('construct', 'VBP'), ('collapse', 'NN'), ('human', 'NN')]
+[('novel', 'JJ'), ('authentication', 'NN'), ('key', 'JJ'), ('agreement', 'NN'), ('scheme', 'NN'), ('implantable', 'JJ'), ('medical', 'JJ'), ('device', 'NNS')]

@@ -232,7 +232,7 @@ def scoreEvaluation(exDict, scoreDict, title, reDict):
     elif(documentLength <= 60):
         scoreRange = 9
     else:
-        scoreRange = 11
+        scoreRange = 12
 
     for score in finalScore[:scoreRange]:
         for scoreKey, sentenceScore in scoreDict.items():

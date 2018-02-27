@@ -38,8 +38,8 @@ def importantExtraction(output):
 
     outputTxt = open('output.txt', 'r', encoding='utf-8')
     outputStr = outputTxt.read()
-    chapter1 = re.findall(r'I. INTRODUCTION(.*?)II. RELATED WORKS', outputStr, re.DOTALL)
-    chapter5 = re.findall(r'V. CONCLUSION(.*?)REFERENCES', outputStr, re.DOTALL)
+    chapter1 = re.findall(r'INTRODUCTION(.*?)II. REL', outputStr, re.DOTALL) or re.findall(r'INTRODUCTION(.*?)II. ', outputStr, re.DOTALL)
+    chapter5 = re.findall(r'CONCLUSION(.*?)REFERENCES', outputStr, re.DOTALL) or re.findall(r'CONCLUSION(.*?)RE', outputStr, re.DOTALL)
     outputExtracted = chapter1 + chapter5
     outputExtractedStr = "".join(outputExtracted).replace('\\n', '\n')
     with open("outputextracted.txt", "w", encoding='utf-8') as text_file:
