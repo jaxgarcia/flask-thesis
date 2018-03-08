@@ -1,172 +1,72 @@
-A Novel Authentication and Key Agreement 
+Sociality of Robots: Do Robots Construct or Collapse 
 
-Scheme for Implantable Medical Devices 
-
-Deployment 
+Human Relations? 
 
  
  
  
  
+ 
 
-Mohammad Wazid, Student Member, IEEE, Ashok Kumar Das, Member, IEEE, Neeraj Kumar, Member, IEEE, 
+Daisuke Sakamoto, Tetsuo Ono 
 
-Mauro Conti, Senior Member, IEEE, and  Athanasios V. Vasilakos, Senior Member, IEEE 
+Graduate School of System Information Science 
 
-Abstract—Implantable medical devices (IMDs) are man-made 
-devices,  which  can  be  implanted  in  the  human  body  to  improve 
-the  functioning  of  various  organs.  The  IMDs  monitor    and 
-treat  physiological  condition  of  the  human  being  (for  example, 
-monitoring  of  blood  glucose  level  by  insulin  pump).  The  ad- 
-vancement  of  information  and  communication  technology  (ICT) 
-enhances the communication capabilities of IMDs. In healthcare 
-applications,  after  mutual  authentication,  a  user  (for  example, 
-doctor)  can  access  the  health  data  from  the  IMDs  implanted 
-in  a  patient’s  body.  However,  in  this  kind  of  communication 
-environment,  there  are  always  security  and  privacy  issues  such 
-as  leakage  of  health  data  and  malfunctioning  of  IMDs  by  an 
-unauthorized access. 
+Future University-Hakodate 
 
-To mitigate these issues, in this paper, we propose a new secure 
-remote  user  authentication  scheme  for  IMDs  communication 
-environment  to  overcome  security  and  privacy  issues  in  existing 
-schemes.  We  provide  the  formal    security    verification    using 
-the  widely-accepted  Automated  Validation  of  Internet  Security 
-Protocols  and  Applications  (AVISPA)  tool.  We  also  provide  the 
-informal  security  analysis  of  the  proposed  scheme.  The  formal 
-security  verification  and  informal  security  analysis  prove  that 
-proposed  scheme  is  secure  against  known  attacks.  The  practical 
-demonstration  of  the  proposed  scheme  is  performed  using  the 
-broadly-accepted  NS2  simulation  tool.  The  computation  and 
-communication costs of the proposed scheme are also comparable 
-with  the  existing  schemes.  Moreover,  the  scheme  provides  addi- 
-tional  functionality  features  such  as  anonymity,  untraceability 
-and  dynamic implantable  medical  device  addition. 
+116-2 Kamedanakano, Hakodate 
 
-Index  Terms—Implantable  medical  devices,  user  authentica- 
-tion,  key  agreement,  security,  anonymity,  AVISPA,  NS2  simula- 
-tion. 
+Hokkaido 041-8655 Japan 
+
+{g2104017, tono}@fun.ac.jp 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ABSTRACT 
+With  developments  in  robotics,  robots  “living”  with  people  will 
+become  a  part  of  daily life in  the  near  future.  However, there  are 
+many  problems  with  social  robots.  In  particular,  the  behavior  of 
+robots  can  influence  human  relations,  and  societies  have  not  yet 
+clarified  this.  In  this  paper,  we  report  on  an  experiment  we 
+conducted  to  verify  the  influence  of  robot  behavior  on  human 
+relations using the “balance theory.” The results  show that  robots 
+can  have  both  good  and  bad  influence  on  human  relations.  One 
+person’s impression of another can  undergo  changes because of a 
+robot.  In  other  words,  robots  can  construct  or  collapse  human 
+relations. 
+
+Categories and Participant Descriptors 
+J.4 [SOCIAL AND BEHAVIORAL SCIENCES]: Psychology. 
+
+General Terms 
+Design, Experimentation, Human Factors. 
+
+Keywords 
+Robotic Social Psychology. 
 
 I. INTRODUCTION 
+Over 
+the  past  few  years,  many  robots  with  human-like 
+embodiment  have  been  developed.  Currently,  robots  that  “live” 
+with  humans  are  only  used  as  pets.  However,  we  must  consider 
+that humanoid  robots  will enter  our  daily lives in  the  near  future. 
+When  humanoid  robots  have  abilities  such  as  human-like 
+behaviors  and  utterances,  how  will  we  be  influenced  by  these 
+robots?  In  particular,  what  effects  will  they  have  on  emotional 
+aspects of human relations and societies? 
 
-Implantable  medical  devices  (IMDs)  monitor  and  treat 
-physiological conditions within the body of a patient. Different 
-types of  IMDs such as brain neurosimulator, pacemaker, gas- 
-tric implant and  cochlear implant  provide remote  monitoring 
-
-M. Wazid is with the Center for Security, Theory and Algorithmic Research, 
-International  Institute  of  Information  Technology,  Hyderabad  500  032,  India 
-(e-mail: mohammad.wazid@research.iiit.ac.in). 
-
-A. K. Das is with the Center for Security, Theory and Algorithmic Research, 
-International  Institute  of  Information  Technology,  Hyderabad  500  032,  India 
-(e-mail:  iitkgp.akdas@gmail.com,  ashok.das@iiit.ac.in).  (Corresponding  au- 
-thor: Ashok Kumar Das.) 
-
-N.  Kumar  is  with  the  Department  of  Computer  Science  and  Engineering, 
-Thapar University, Patiala 147 004, India (e-mail: neeraj.kumar@thapar.edu). 
-M.  Conti  is  with  the  Department  of  Mathematics,  University  of  Padua, 
-
-Padua 35122, Italy (e-mail: conti@math.unipd.it). 
-
-A. V. Vasilakos is with the Department of Computer Science, Electrical and 
-Space  Engineering,  Lulea  University  of  Technology,  Lulea  971  87,  Sweden 
-(e-mail: th.vasilakos@gmail.com). 
-
- 
- 
-
- 
-
-and treatment to patients with severe medical conditions. The 
-pervasiveness of  IMDs is growing continuously, for example, 
-25 million US citizens reliant on them for their day to day life 
-critical functions [1]. The global IMDs market was valued at 
-$72, 265 million in 2015, and is projected to reach $116, 300 
-million  by  2022,  registering  a  compound  annual  growth  rate 
-(CAGR)  of  7.1%  from  2016  to  2022  [2].  Information  and 
-communication  technology  (ICT)  facilitates  the  information 
-exchange  of  IMDs  and  provides  them  capabilities  to  com- 
-municate with each other.  IMDs  have  the  ability  to   send 
-the  collected  health  related  data  of  a  patient  to  the  nearby 
-controller  node  (CN )  using  the  communication  technologies 
-such  as   bluetooth,   zigbee   and   infrared   transmission.   CN 
-is  more  powerful  node  as  compared  to  IMDs    as    it    has 
-more  communication  range,  processing  power  and  storage 
-capability.  CN  is  connected  to  the  Internet  using  an  access 
-point. A user  (for  example,  a  doctor)  can  access  the  data 
-of  an  IMD  via  CN  after  successful  mutual  authentication. 
-However,  in  such  kind  of  communication  environment,  there 
-are  several  security  and  privacy  related  issues  such  as  replay 
-attack,  man-in-the  middle  attack,  impersonation  attacks  and 
-privileged-insider attack [3], [4], [5], [6]. 
-
- 
-
-A.  Motivation 
-
-An  attacker  can  exploit  the  vulnerabilities  in  the  IMDs, 
-which can cause negative medical effects on the health of the 
-patient.  Such  effects  are  commonly  known  as  adverse  events 
-[7]. According to the report available in [8], the vulnerability 
-in an implanted insulin pump could be exploited by a hacker (a 
-remote malicious user) which can cause an overdose of insulin 
-to  the  diabetic  patients.  The  overdose  of  insulin  could  then 
-cause hypoglycemia (low blood sugar level) which in extreme 
-case  becomes  a  diabetic  shock  to  the  patient.  Therefore, 
-security of IMDs becomes a serious concern so that an illegal 
-party  can not  attack  the  IMDs  implanted in  a patient’s  body. 
-Hence,  there  is  a  strong need  to  design  a  secure remote  user 
-authentication scheme for IMDs by which the controller node 
-of  a  patient’s  IMDs  and  a  user  (for  example,  a  doctor)  can 
-mutually  authenticate  each  other.  At  the  end,  both  entities 
-establish  a  secret  session  key  shared  between  them  for  their 
-future  secure  communications.  To  address  such  an  important 
-issue  for  IMDs  communication  environment,  we  propose  a 
-new  secure  remote  user  authentication  and  key  agreement 
-scheme. 
-
-B.  Main Contributions 
-
-The contribution of this paper is manyfold: 
-
-•  We  propose  a  new  lightweight  three-factor  remote  user 
-authentication  scheme  for  implantable  medical  devices 
-in  which  the  controller node  of  the  implantable  medical 
-devices of a patient and remote user can authenticate each 
-other. 
-
-•  The security analysis shows that the proposed scheme is 
-secure.  In  addition,  we  test  the  formal  security  verifica- 
-tion  of  the  proposed  scheme  using  the  widely-accepted 
-AVISPA tool to show the proposed scheme is also secure 
-against the replay and man-in-the middle attacks. 
-
-•  We  provide  the  practical  implementation  of  the  pro- 
-posed  scheme  using  the  widely-used  NS2    simulation 
-tool  to  measure  the  impact  of  the  scheme  on  network 
-performance  parameters  such  as  end-to-end  delay  and 
-throughput. 
-
-C.  System Models 
-
-The  following  two  models  are  considered  to  describe  and 
-
-analyze the proposed scheme in the paper. 
-
-1)  Network  Model:  The  network  model  for  the  (IMD)s 
-communication environment shown in Figure 1 is used in the 
-proposed scheme. In the given model, we have different types 
-of IMDs, such as brain neurosimulator and gastric simulator, 
-which are implanted in a patient’s body. There is a controller 
-node (CN ) which collects data from all IMDs using wireless 
-communication  technologies  (for  example,  bluetooth,  zigbee 
-and  infrared  transmission).  CN  is  connected  to  the  Internet 
-through an access point. The users can access  IMDs through 
-CN . Suppose there is a user (for example, a doctor) Ui  wants 
-to  access  the  data  from  the  controller  node  belonging  to  a 
-set  of  implantable  medical  devices.  In this  scenario,  we  need 
-authentication  between  Ui  and  CN . 
+We  consider  that  robots  can  collapse  human  relations  using  the 
+balance  theory  [1].  Concretely,  by  controlling  a  robot’s  behavior 
+and  utterances,  we  can  control  a  human’s  impression  of  another 
+human in group communication involving robots. 
 
  
 
@@ -174,2248 +74,249 @@ authentication  between  Ui  and  CN .
 
  
 
-Fig.  1.   Network  model  of  IMDs  communication  environment 
+ 
 
-2)  Threat Model:  The well-known Dolev-Yao threat model 
-(DY model) [9] is used in the proposed scheme. Under the DY 
-model, the communication takes place over insecure channels. 
-Any two communicating parties can communicate each other 
-using  a  public  channel  [10],  in  which  the  end-point  entities, 
-such as IMDl, CN , and Ui, are not considered as trusted. An 
-
-attacker A can then have the opportunity to eavesdrop, modify 
-or  delete  the  exchanged  messages  during  the  transmission  in 
-order to tamper the communicated data. A can also physically 
-capture  CN  and  can  extract  the  stored  information  by  using 
-the power analysis attacks [11], [12] as these devices are non- 
-tamper resistant. However, all IMDs are implanted inside the 
-body  of  a  patient,  and  hence,  there  is  a  rare  possibility  of 
-physical capturing of IMDs from a patient’s body. We further 
-assume  that  the  trusted  authority  (T A)  is  fully  trusted  party 
-in  the  network,  which  is  responsible  for  pre-deployment  of 
-IMDs and the user registration phase as described in Section 
-III. 
-
-D.  Structure of the Paper 
-
-The  rest  of  the  paper  is  organized  as  follows.  In  Section 
-II,  we  discuss  the  existing  related  authentication  schemes 
-proposed  for  IMDs.  The  various  phases  of  the  proposed 
-scheme  are  discussed  in  Section  III.  The  security  analysis  of 
-the  proposed  scheme  is  provided  in  Section  IV.  The  formal 
-security verification of the proposed scheme using the widely- 
-accepted AVISPA tool is given in Section V. The performance 
-comparison  of  the related  existing  schemes  and the  proposed 
-scheme is provided in Section VI. The practical demonstration 
-of  the  proposed  scheme  using  the  widely-accepted  NS2  sim- 
-ulation tool is also provided in Section VII. Finally, the paper 
-is concluded in Section VIII. 
+In  this  paper,  we  performed  an  experiment  to  verify  how  social 
+robots  influence  human  relations.  To  determine  this  effect,  we 
+tried  to  confirm  what  occurs  in  the  human-robot  relationship. 
+When robots take on sociality, these robots might easily construct 
+or collapse human relations. We will examine these possibilities. 
 
 II. RELATED WORKS 
 
-This section provides a brief review of the existing authen- 
-tication  schemes  proposed  for  IMD  communication  environ- 
-ment. 
+We  will  use  the  balance  theory  to  control  a  person’s  impressions 
+of  the  robot  and  a  third  person  in  group  communication.  The 
+balance theory was  formulated  by Heider.  It  assumes  that when  a 
+system  is  put  into  a  state  of  imbalance,  forces  arise  to  restore 
+balance.  For  example,  the  attitude  of  a  person,  P,  toward  another 
+person,  O,  is  positive.  And  the  attitude  of  another  person,  O, 
+toward  a  third  person,  X,  is  positive.  Then  person  P’s  attitude 
+toward the third person, X, will be positive. If P’s attitude toward 
+X  is  negative,  then  the  relationship  among  P,  O  and  X  is 
+imbalance.  In  this  case,  one  of  the  following  cases  will  be 
+occurred  to  balance  the  relationship.  The  person,  P,  changes 
+his/her attitude toward X  to positive. Either P’s attitude toward  O 
+or O’s attitude toward X will be changed to negative. 
 
-An  ultrasonic  distance-bounding  based  scheme  proposed 
-by  Rasmussen  et  al.  [13]  allows  an  IMD  to  give  secure 
-access  to  a  programmer  (reader)  within  a  proximity  range. 
-The programmer has no constraint on power or computational 
-ability. However their scheme did not provide non traceability 
-property,  session  key  security  and  also  vulnerable  to  replay 
-and  man-in-the  middle  attacks.  Ellouze  et  al.  [14]  presented 
-a  scheme  to  secure  cardiac  IMDs.    A    Wireless    Identifica- 
-tion  and  Sensing  Platform  (WISP)  is  used  in  their  scheme. 
-They  provided  a  solution  to  conserve  the  battery  life  of  the 
-IMD  by  harvesting  energy  using  radio  frequency    signals 
-from  an  UHF  RFID  reader  to  perform  the  key  generation 
-and  authentication.  Furthermore,  they  have  also  proposed  an 
-authentication  mechanism  using  biometric  keys  for  regular 
-and emergency cases which facilitates a secure communication 
-between the programmer and the WISP on the IMD. However 
-their  scheme  did  not  provide  anonymity  and  non  traceability 
-properties and also vulnerable to replay attack. 
+If  we  replace  person  P  with  the  robot,  we  consider  that  we  can 
+control the attitudes of O and X toward each other by controlling 
+the robot’s behaviors. We consider that the robot can have a good 
+or bad influence on the relationship between persons O and X. 
 
-Jang  et  al.  [3]  provided  a  hybrid    security    scheme    that 
-uses two heterogeneous cryptosystems: symmetric and asym- 
-metric.  The  heterogeneous  cryptosystems  used    to    facilitate 
-the  different  levels  of  security  required  by  applications  (for 
-example,  medical  versus  non-medical)  in  the  wireless  body 
-area networks  (WBANs).  Their  protocol  contains two  stages. 
-In the first stage, the global authentication between bio-sensor 
-
- 
-
- 
-
- 
-
- 
-
-node (BSN) and certificate authority (CA)/data server are per- 
-formed, whereas  in  the second  stage, the  local authentication 
-between  BSN  and  base  station  (BS)  is  executed.  However 
-their  scheme  did  not  provide  anonymity  property  and  some 
-functionality features such as dynamic controller node addition 
-and  IMD  addition. 
-
-Several  authentication  schemes  have  been  proposed  in  the 
-literature for the healthcare applications using radio-frequency 
-identification  (RFID),  wireless  medical  sensor  networks  and 
-wireless body area networks [15], [16], [17], [18], [19], [20], 
-[21], [22], [23], [24]. He and Zeadally [4] proposed an authen- 
-tication scheme by using the ambient intelligence, specifically 
-for  an  Ambient  Assisted  Living  (AAL)  system  that  helps  to 
-monitor  health  and  also  to  provide  tele-health  care  services. 
-Their  system  used  the  wearable  sensors  in  the  wireless  body 
-area networks (WBANs) and assistive robotics. The system has 
-three  levels  of  communications:  1)  Intra-BAN:  The  wireless 
-body  sensors  communicate  with  the  WBAN  controllers;  2) 
-Inter-BAN: The WBAN controllers communicate with external 
-devices  (for  example,  home  service  robots)  and  3)  Beyond- 
-
-BAN: The AAL server connects to the Internet. 
-
-Xu et al. [25] proposed a secure scheme for implantable car- 
-diac  devices,  called  IMDGuard.  It  provides  two  mechanisms 
-for  IMDs  protection:  the  first  one  is  an  electrocardiogram 
-sensor  (ECG)  based  key  establishment  without  prior  shared 
-secrets,  and  other  one  is  an  access  control  mechanism  to 
-protect  spoofing  attacks.  Rushanan  et  al.  [26]  provided  a 
-survey  of  existing  techniques,  which  improve  security  and 
-privacy  in  IMDs and health  BANs.  A  comprehensive  survey 
-of  security  and  privacy  issues  in  IMDs  is  also  provided  in 
-
-[7]. Moreover, Denning et al. [27] discussed the human values 
-and  security  issues  associated  with  the  IMDs. 
-
- 
+We  survey  related  works  briefly.  Nakanishi  et  al.  conducted  an 
+experiment  to  verify  the  balance 
+theory  in  agent-mediated 
+communication  [2].  One  agent  and  two  participants  joined  in  this 
+communication.  In  this  experiment,  they  confirmed  that  the 
+balance  theory  applied  in  cases  in  which  participants  could  not 
+talk  to  each  other.  However,  they  did  not  confirm  that  the  theory 
+did not apply in case in which participants could talk to each other. 
 
 III. PROPOSED METHOD 
 
- 
-
- 
- 
-
-In  this  section,  we  present  a    new    three-factor    remote 
-user  authentication  protocol  for  implantable  medical  devices 
-communication  environment,  which  uses  the  elliptic  curve 
-cryptography (ECC). 
-
-The  network  model  presented  in  Figure  1  is  followed  in 
-the  proposed  scheme,  in  which  there  is  a  user  (for  example, 
-a patient) whose  body is implanted with implantable medical 
-devices IMDs, such as pacemaker and insulin pump. All these 
-IMDs  monitor  the  patient’s  health.  IMDs  have  their  own 
-functionalities and give services to the patient on the basis of 
-his/her  symptoms.  IMDs  also  have  wireless  communication 
-feature (for example, bluetooth technology) using which they 
-can send the patient’s monitored data to the nearby controller 
-node,  say  CNj .  CNj  collects  the  sensed  information  securely 
-from  IMDls.  Suppose  there  is  a  user  (for  example,  a  doctor) 
-Ui  wants  to  access  the  real-time  data  from  a  particular  CNj 
-for  monitoring  and  diagnosis  of  the  patient  remotely.  In  this 
-scenario, we require authentication  between Ui  and CNj . Af- 
-ter mutual authentication between Ui  and CNj , they establish 
-a session key for the future secure communication. After this 
-
-successful  mutual  authentication  only,  Ui  can  access  the  live 
-
-data from the implanted IMDls in the patient’s body with the 
-
-In  this  work,  we  use  three  factors:  1)  mobile  device  MDi 
-of  a  user  Ui;  2)  password  PWi  of    Ui;    and    3)    biometrics 
-BIOi  of  Ui.  The  proposed  scheme  consists  of  the  following 
-seven  phases:  1)  pre-deployment; 2)  offline user registration; 
-3)  login;  4)  authentication  and  key  agreement;  5)  password 
-and  biometric  update;  6)  dynamic  controller  node  addition; 
-and  7)  dynamic  IMD  addition. 
-
-Table I contains the notations which are used for describing 
-and  analyzing  the  proposed  scheme.  We  have  used  random 
-nonces and current timestamps to protect against strong replay 
-attack against an active adversary. For this purpose, we assume 
-that all the network entities are synchronized with their clocks. 
-
-TABLE I 
-
-NOTATIONS  USED  IN  THIS  PAPER  
-
-  
-
- 
-
-Notation 
-
-Description 
-
-implantable  medical  device 
-
-ith user and his/her mobile device 
-jth controller node 
-th 
-l 
-Trusted  authority 
-
-Ui ,   MDi 
-CNj 
-IMDl 
-T A 
-ID i ,  P Wi,  BIO i  Ui ’s  identity,  password  and  biometric  information 
-IDT  A ,    ID CNj  
-Identities of trusted authority and controller node 
-Pseudo identities of Ui  and CNj 
-RIDi ,   RID CNj 
-1024-bit secret number of T A 
-N 
-160-bit random nonces of Ui and CNj 
-ri ,  rj 
-Registration timestamp of CNj 
-RT  SCNj  
-Ti 
-Generated  current  timestamp 
-∆T 
-Maximum transmission delay associated with a message 
-Gen(·) 
-Probabilistic generation procedure used in fuzzy extractor 
-Rep(·) 
-Deterministic reproduction procedure used in fuzzy extractor 
-σi 
-Biometric secret key of Ui 
-Public reproduction parameter of Ui 
-τi 
-t 
-Error  tolerance  threshold  used  in  fuzzy  extractor 
-A  non-singular  elliptic  curve:  y2
-Ep (a, b) 
-over  a  prime  finite  field  Zp  (Galois  field  GF (p))  with 
-a, b ∈ Z∗ are  constants  with  4a3
-Elliptic  curve  point  multiplication;  k ∈ Zp   &  P  ∈ Ep (a, b) 
-Collision-resistant  cryptographic  hash  function 
-Concatenation  and  bitwise  XOR  operations 
-
-  = x3
-
-  + ax + b  (mod p) 
-
-k.P 
-h(·) 
-||, ⊕ 
-
-p 
-
-  + 27b2
-
-  /= 0  (mod p) 
-∗ 
-
- 
-
- 
-
- 
-
-In  the  proposed  scheme,  we  use  the  elliptic  curve  point 
-multiplication operations. For better presentation of the paper, 
-in the following we present the basic properties of an elliptic 
-curve, and its two basic operations, such as point addition and 
-point  multiplication.  A  non-singular  elliptic  curve  y2 = x3  + 
-ax + b over a finite field GF (p) is denoted by the set Ep(a, b) 
-consisting of the solutions (x, y) ∈ Zp × Zp  to the congruence 
-y2  ≡ x3 + ax + b  (mod p). Here, a, b ∈ Zp  are constants with 
-the  condition  4a3  +27b2  /=  0  (mod  p),  together  with  a 
-special  point  O,  called  the  point  at  infinity  or  zero  point,  
-Zp    =  {0,  1,  . . . ,  p  − 1}  and  p  >  3  be  a  large  prime.  
-Ep(a, b)  forms an  abelian  group  (commutative  group)  under 
-addition modulo p operation [28] with the additive identity O 
-and  the  additive  inverse  −P  ∈  Ep(a, b)  of  a  point  P  ∈ 
-Ep(a, b)  such  that  if  P  =  (xP , yP ),  we  have  −P  =  (xP , 
-−yP ),  where  xP  and  yP denote  the  x  and  y  coordinates  of  
-the  point  P  ∈  Ep(a, b),  respectively.  If  we  consider  P  = 
-(xP , yP )  and  Q = (xQ, yQ) 
-as  two  points  on  an  elliptic  curve  Ep(a, b),  R  =  (xR, yR) 
-=  P  + Q  ∈  Ep(a, b)  is  computed  as  follows  [28]:  xR  = 
-(λ2 − xP − xQ)  (mod p), yR = (λ(xP − xR) − yP )  (mod p), 
-
-yQ −yP   
-2 +a 
-xQ −xP  
-
-(mod p), if P /= Q 
-
-( 
-
-where λ = 
-
-3xP 
-
-2yP 
-
-(mod p), if P = Q. 
-
-help  of  CNj . 
-
-In  elliptic  curve  cryptography  (ECC),  point  multiplication 
-
-(scalar  multiplication)  is  defined  as  the  repeated  point  ad- 
-ditions.  For  example,  if  P  ∈ Ep(a, b),  5P  is  computed  as 
-5P  = P  + P  + P  + P  + P . 
-
-Given a scalar k ∈ Zp and a point P ∈ Ep(a, b), computing 
-the scalar multiplication Q = k.P is relatively easy. However, 
-given P and Q in Ep(a, b), it is computationally infeasible to 
-compute the scalar k ∈ Zp, where Q = k.P . This problem is 
-called the elliptic curve discrete logarithm problem (ECDLP). 
-For  biometric  authentication,  we  use  the  fuzzy  extractor 
-technique  [29],  [30].  A  fuzzy  extractor  consists  of  the  fol- 
-lowing  two  procedures:  1)  probabilistic  generation  function 
-Gen(·)  and  2)  deterministic  reproduction  function  Rep(·). 
-Upon  input  as  a  user  personal  biometrics  BIOi,  Gen(·) 
-produces  output  consisting  of  a  secret  biometric  key  of  fixed 
-length,  say  η  bits,  σi  ∈  {0, 1}η  and  a  public  reproduction 
-parameter  τi.  On  the  other  hand,  Rep(·)  takes  the  current 
-biometrics  entered by the user, say  BIO′  and also the public 
-reproduction  parameter  τi  as  input,  provided  the  Hamming 
-distance between BIO′  and BIOi  is less than or equal to an 
-error tolerance threshold value, t. The output of Rep(·) is then 
-the original biometric key σi, that is, σi = Rep(BIO′ , τi). 
-
-i 
-
-i 
-
-i 
-
-A.  Pre-deployment Phase 
-
-In  this  phase,  a  trusted  authority  (T A)  is  responsible  for 
-registering  each  controller  node  CNj  and  each  implantable 
-medical  device  IMDl  prior  to  their  deployment  in  a  de- 
-ployment  field  (for  example,  a  hospital)  and  the    patient’s 
-body.  For  this  purpose,  the  TA  first  selects  a  unique  1024- 
-bit  secret  number  N  for  each  CNj  and  the  IMDs  attached 
-with  CNj ,  and  computes  its  pseudo  identity  using  its  own 
-identity  IDT A  as  RIDT A  =  h(IDT A||N ).  The  TA  then 
-chooses a unique identity IDCNj for each CNj , and calculates 
-its corresponding pseudo identity RIDCNj  = h(IDCNj ||N ) 
-and the temporary credential of CNj  using its registration 
-timestamp  RT SCNj  as TCCNj  = h(IDT A  ||RT SCNj  ||N ). 
-The TA finally  stores  the  information {RIDCNj , TCCN j , 
-RIDT A}  in  the  memory  of  CNj  and  deploys  it  in  the 
-deployment field. 
-
- n 
-
-For  the  pairwise  key  establishment  between    a    deployed 
-CNj  and  IMDls  in  a  patient’s  body,    we    use    the    ex- 
-isting  polynomial-based  key  distribution  protocol  proposed 
-by  Blundo  et  al.  [31].  For  each    CNj ,    the    TA  first    se- 
-lects  a  unique  symmetric  bivariate  polynomial  P(x, y)  = 
-  
-n 
-j=0 gi,j xiyj  ∈ GF (p)[x, y] of degree n over a finite 
-i=0 
-field  (Galois  field)  GF (p),  where  the  co-efficients  gi,j ’s  are 
-taken  from  GF (p).  Note  that  the  prime  p  is    chosen    as    a 
-large  number  and  n is  also  large,  which  is  much  larger  than 
-the  number  of  IMDs  deployed  in  a  patient’s  body  attached 
-with  CNj  in  order  to  preserve  unconditional  security  and  n- 
-collusion resistant property against IMD capture attack by an 
-attacker  [32].  For  example,  if  a  bivariate  polynomial  P(x, y) 
-= x4+ 3x3+ 2x2y2+ 3y3 + y4  over GF (5) is symmetric as 
-P(y, x) = y4+ 3y3+ 2y2x2+ 3x3+ x4  = P(x, y). 
-
-For  each  deployed  IMDl,  the  TA  generates  a  unique 
-identity IDIMD l , computes the corresponding pseudo identity 
-RIDIMDl      =  h(IDIMDl    ||N )  and  the  polynomial  share 
-P(RIDIMDl , y) which is a  univariate  polynomial  of  degree 
-
-n in GF (p), and stores this polynomial share and the pseudo 
-identity  RIDIMDl     in  the  memory   of  IMDl.   Note  that  to 
-store P(RIDIMDl , y),  the storage  space required  in IMDl 
-is (n + 1) log2(p) bits as the coefficients are from GF (p). In 
-a similar way, for CNj  the TA also computes the polynomial 
-share  P(RIDCNj , y)  which  is  a  univariate  polynomial  of 
-degree  n  in  GF (p),  and  stores  this  polynomial  share  in 
-the  memory  of  CNj  .  Finally,  the  information  {RIDCNj  , 
-TCCNj , RIDT A, P(RIDCNj , y)} are  stored  in  CNj ’s  mem- 
-ory. 
-
-The motivation behind the use of the Blundo et al.’s scheme 
-[31]  for  pairwise  key  establishment  between  a  deployed  CNj 
-and  IMDls  in  a  patient’s  body  is  as  follows.  If  an  adversary 
-A is able to compromise (n + 1) or more shares of P(x, y), 
-he/she  can  easily  reconstruct  the  original  P(x, y)  uniquely 
-using Lagrange’s interpolation [33]. Hence, the disclosure of 
-up to n shares  does not reveal P(x, y) to A, and thus, non- 
-compromised shared keys based on P(x, y) remain completely 
-secure. Since the degree n of P(x, y) is much larger than the 
-number of IMDs deployed in a patient’s body attached with 
-CNj ,  the  proposed  scheme  preserves  unconditional  security 
-and n-collusion resistant property [32], [34]. 
-
- 
-
-B.  Post-deployment Phase 
-
-Once  the  IMDs  and  CNj  are  deployed,  the  first  task  of 
-CNj  and  IMDs  is  to  establish  pairwise  secret  keys  using  the 
-pre-loaded information stored in their memory during the pre- 
-deployment phase described in Section III-A. 
-
-Suppose  deployed  IMDl  and  CNj want  to  establish  a 
-pairwise secret key between them. IMDl first sends its pseudo 
-identity RIDIMD l  to CNj .  In  a  similar  manner,  CNj  also 
-sends its pseudo identity RIDCNj  to IMDl. After that IMDl 
-computes the secret key shared with CNj using its own poly- 
-nomial share as SKIMD l,CN j  = P(RIDIMDl , RIDCNj ). On 
-the other hand, CNj also computes the same secret key shared 
-with IMDl  using its own polynomial share as SKCNj ,IMDl 
-=  P(RIDCNj , RIDIMD l )  =  P(RIDIMDl , RIDCNj )  (= 
-SKIMDl,CNj )  since  the  polynomial  P(x, y)  is  symmetric. 
-Hence, both IMDl and CNj will communicate securely in 
-order to  bring the information  sensed  by  the IMDl  to CNj 
-using  the  established  shared  key  SKIMD l,CNj . 
-
-C.  User Registration Phase 
-
-This  phase  discusses  the  registration  procedure  for  a  user 
-(for  example,  a  doctor)  Ui  to  access  the  information  from 
-the  controller  node  CNj  of  a  patient’s  implantable  medical 
-devices IMDs. For this purpose, Ui  requires to register at the 
-TA  securely  either  in  person  or  via  a  secure  channel.  This 
-procedure is performed by the TA and Ui  with the following 
-steps: 
-
-Step  REG1.  Ui  selects  an  identity  IDi  and  sends  it  to 
-the TA securely. After receiving registration request, the TA 
-computes  pseudo  identity  of  Ui  as  RIDi  =  h(IDi  ||N ) 
-using its corresponding secret number N and Ai = h(RIDT A 
-||IDi),  and  sends  the  registration  reply  message  (RIDi, Ai, 
-RIDT A) to  Ui  securely. 
-
-Step REG2. After receiving registration reply from the TA, 
-Ui  chooses a non-singular elliptic curve Ep(a, b): y2  = x3 + 
-ax+b (mod p) over a prime finite field Zp, where p is a large 
-prime and a, b ∈ Z∗  are constants such that 4a3 + 27b2  =/  0 
-(mod p). Ui  further chooses a base point P of order m over 
-Ep(a, b)  such  that  m.P  =  O,  where  O is  called  the  point 
-at infinity or zero point. Ui  then selects a private key k and 
-computes the corresponding public key Q = k.P , and makes 
-Q as public. 
-
-p 
-
-Step REG3. Ui  selects a password PWi  on his/her choice, 
-and  inputs  his/her  biometric  BIOi at  the  sensor  of  his/her 
-mobile  device,  say  MDi.  MDi  applies  the  fuzzy  extractor 
-probabilistic generation function Gen(·) to generate the secret 
-biometric  key σi  and the  corresponding  public  parameter τi 
-as  Gen(BIOi)  =  (σi,  τi)  as  provided  in  [35],  [36],  [30]. 
-The detailed information about the fuzzy extractor functions 
-Gen(·) and Rep(·) can be found in [30]. 
-
-Step  REG4.  MDi   calculates  RID′
-  = RIDi⊕ h(P Wi|| 
-i 
-σi),  masked  password  RPWi   =  h(P Wi  ||k),  Di   =  k⊕ 
-h(IDi   ||P Wi   ||σi),  RID′
-=  RIDT A   ⊕h(IDi   ||k  ||σi) 
-and  A′
-  =  Ai⊕  h(k  ||σi).  After  these  computations,  MDi 
-i 
-also  computes  the  parameters  Bi   =   h(Ai   ||RP Wi)  and 
-Ci  =  h(IDi  ||RIDT A  ||Bi  ||σi).  Finally,  MDi  stores  the 
-information  {RID′ , RID′
-, A′ , Ci, Di, τi, Gen(·), Rep(·), 
-
- 
-T A 
-
-i 
-
- 
-T A 
-
-i 
-
-h(·), t} in its memory, where t is the error tolerance threshold 
-value used in Rep(·) in order to recover the original biometric 
-key  σi. 
-
-D.  Login Phase 
-
-Ui  performs the following steps to execute the login phase: 
-Step L1. Ui  inputs his/her identity IDi  and password PWi 
-
-i 
-
-i 
-
-i 
-
-User (Ui)/Mobile device (MDi) 
-Input  IDi,  P Wi,  BIO ′. 
-i 
-Extract σ′ = Rep(BIO′ , τi). 
-Compute k′ = Di ⊕ h(IDi||P Wi ||σ′), 
-RP W ′  = h(P Wi  ||k′), 
-A∗  = A′ ⊕ h(k′  ||σ′), 
-i 
-i 
-B∗ 
-′ 
-i  = h(Ai   ||RP Wi ), 
-RID∗    = RID′     ⊕ h(IDi|| k′||σ′), 
-i 
-RID∗  = RID′ ⊕ h(P Wi  ||σ′), 
-i 
-C∗ = h(IDi||RID∗   ||B∗||σ′). 
-i     i 
-Check if C∗ = Ci? if so, 
-
-T A 
-
-T A 
-
-T A 
-
-i 
-
-i 
-
-∗ 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-choose T1, ri. Compute 
-ai = h(ri||T1||RID∗||RP W ′||σ′), 
-i    i 
-bi = h(RID∗  ||T1), M1 = ai.P , 
-M2 = ai + k′.bi  (mod p). 
-(M1, M2, T1) 
-−−−−−−−−−→ 
-(via open channel) 
-
-T A 
-
-2 
-
-Check if |T2 − T ∗| < ∆T ? 
-Compute k∗  = ai.M4  = (aicj ).P , 
-SK∗   = h(k∗  ||RID∗    ||T1||T2), 
-M6  = h(SK∗   ||T2). 
-
-T A 
-
-ij 
-
-ij 
-
-ij 
-
-ij 
-
-Check if M6  = M5? If so, choose T3. 
-Compute M7 = h(SK∗ ||T3). 
-
-Controller node (CNj ) 
-
-∗ 
-
-i 
-
-Check |T1 − T1 | < ∆T , if so 
-compute b′ = h(RIDT A||T1), 
-Verify if M2.P = M1 + b′ .Q? 
-i 
-If holds, choose T2  and rj . 
-Compute 
-cj  = h(rj ||T2   ||RIDCNj   ||T CCNj ), 
-M4   = cj .P , 
-kij  = cj .M1   = (aicj ).P , 
-SKij = h(kij ||RIDT A ||T1||T2), 
-M5  = h(SKij  ||T2). 
-
-(M4, M5,  T2) 
-←−−−−−−−−− 
-(via open channel) 
-
-Check  if |T3 − T ∗| < ∆T ? 
-
-3 
-
-Compute M8  = h(SKij ||T3). 
-Check  if  M8  = M7? 
-
-ij 
-
-(M7,  T3) 
-−−−−−−→ 
-(via open channel) 
-
-Both Ui  and  CNj  store session key  SKij  (= SK∗  ). 
-
-ij 
-
-Fig. 2.   Summary of login, and authentication and key agreement phases 
-
-i 
-
-i 
-
-transmission delay. If timeliness matches, CNj computes b′ = 
-h(RIDT A ||T1) and verifies the signature by the condition 
-M2.P   =  M1+  b′ .Q.  Note  that  M2.P   =  (ai  + k.bi).P 
-= ai.P + k.bi.P = M1 + bi.Q = M1 + b′ .Q. If verification 
-matches,  CNj  chooses  current  timestamp  T2  and  160-bit 
-random  nonce  rj ,  and  computes  cj   =  h(rj  ||T2  ||RIDCNj 
-, M4  = cj .P , kij  = cj .M1  = (aicj ).P .  After  these 
-||T CC Nj ) 
-computations, CNj  computes the session key SKij  = h(kij 
-||RIDT A  ||T1||T2) shared  with Ui  and M5  = h(SKij  ||T2). 
-
-i 
-
-′ 
-
-i 
-
-i 
-
-i 
-
-Then,  CNj  sends  the  authentication reply  (M4, M5, T2) to  Ui 
-via a public channel. 
-
-into the interface of MDi, and also imprints his/her biometrics 
-BIO′  at the sensor of MDi. MDi then extracts biometric key 
-σ′ 
-i = Rep(BIOi, τi) provided that the Hamming distance be- 
-tween the original biometrics BIOi at the time of registration 
-and the recent entered BIO′ is less than the error tolerance 
-Step    AKE2.   After   receiving   the   authentication   reply 
-threshold  value t.  Then, MDi  computes k′  = Di⊕ h(IDi 
-(M4, M5, T2) from CNj  at time T ∗, Ui  checks the timeliness 
-||P Wi ||σ′), RPW ′ = h(P Wi ||k′), A∗ = A′ ⊕h(k′ ||σ′), B∗
- 
-i 
-= h(A∗ ||RP W ′), RID∗
-  ⊕h(IDi|| k′||σ′) and 
-of  T2   by  the  verification  condition  |T2  − T2 |  <  ∆T .  If 
-T A 
-RID∗  =  RID′  ⊕h(P Wi  ||σ′)  and  C∗   =  h(IDi  ||RID∗
-it  does  not  hold,  Ui  immediately  terminates  the  connection. 
-||B∗ ||σ′). After computing these values, MDi checks whether  Otherwise, Ui computes kij = ai.M4 = (aicj ).P and session 
-the  condition  C∗
-key  SKij   =  h(kij  ||RIDT A  ||T1||T2)  shared  with  Ui,  and 
-  =  Ci  holds  or  not.  If  it  holds,  Ui  passes 
-i 
-M6  = h(SK∗  ||T2). Ui  then  checks  whether the  condition 
-both password and biometric verification. Otherwise, the login 
-M6  =   M5    holds.   If   it   is   so,   CNj    is   authenticated   by 
-process is terminated immediately. 
-Ui. Furthermore, Ui  generates the current timestamp T3  and 
-computes  M7  = h(SK∗  ||T3) and  sends  acknowledgment 
-
-  = RID′
-T A 
-
-∗ 
-∗ 
-
- 
-T A 
-
-∗ 
-
-ij 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-∗ 
-
-∗ 
-
-2 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-ij 
-
-||T1), M1  = ai.P and  message (M7, T3) to CNj  via an open channel. 
-
-Step L2. M Di generates the current timestamp T1 and 160- 
-bit  random  nonce  ri.  MDi   then  computes  ai   =  h(ri  ||T1 
-||RID∗ ||RP W ′ ||σ′), bi  = h(RID∗
-the ElGamal type signature M2 = ai+k′.bi  (mod p). Finally, 
-MDi  sends the login request message (M1, M2, T1) to CNj 
-via a public channel. 
-
- 
-T A 
-
-i 
-
-i 
-
-i 
-
-E.  Authentication and Key Agreement Phase 
-
-After  receiving  the  login  request  (M1, M2, T1) from  Ui  at 
-time T ∗  by CNj , the following steps are executed for mutual 
-authentication  and  key  establishment  between  Ui  and  CNj : 
-
-1 
-
-Step  AKE1. CNj  first checks the timeliness of T1  by the 
-condition  |T1  − T ∗|  <  ∆T ,  where  ∆T  is  the  maximum 
-
-1 
-
-3 
-
-3 
-
-Step  AKE3. After receiving the message (M7, T3) from Ui 
-at time T ∗, CNj  checks the timeliness of T3  by the condition 
-|T3 − T ∗| < ∆T .  If  this  condition  holds,  CNj  calculates  M8 
-= h(SKij  ||T3) and  checks if M8  = M7  holds. If it  does not 
-match, it immediately terminates the connection. Otherwise, 
-it is considered that the calculated session key SK∗   by  Ui 
-is  correct,  and  both  Ui  and  CNj  stores  the  same  session  key 
-SKij = (SK∗ ) for future secure communication. 
-
-ij 
-
-ij 
-
-The login, and authentication and key agreement phases of 
-
-the proposed scheme are summarized in Figure 2. 
-
- 
-
- 
-
-F.  Password and Biometric Update Phase 
-
-User (Ui) 
-
-Mobile device (MDi) 
-
-In this phase, we provide the password & biometric update 
-facility  in  which  a  legitimate  user  Ui  can  change  his/her 
-password as well as biometrics at any time without involving 
-the TA for security reasons. The following steps are required 
-for this phase: 
-
-i 
-
-i 
-
-Step  PB1.  Ui  inputs  his/her  identity  IDi,  old  password 
-to the interface of MDi, and also imprints his/her 
-PW old 
-old   biometrics   BIOold
-  to  the  sensor  of  MDi.  MDi   then 
-i 
-extracts  biometric   key  σold
-  = Rep(BIOold, τi) provided 
-i 
-that  the  Hamming  distance  between  the  original  biometrics 
-BIOi  at  the  time  of  registration  and  the  entered  BIOold  is 
-less  than  the  error  tolerance  threshold  value  t.  In  addition, 
-MDi calculates k = Di⊕ h(IDi ||P W old ||σold), RPW old
- 
-i 
-= h(P W old  ||k), Aold  = A′ ⊕ h(k ||σold), Bold  = h(Aold
- 
-i 
-i 
-||RP W old), RIDT A  = RID′
-  ⊕ h(IDi||  k||σold),  RIDi 
-i 
-T A 
-=  RID′
-= h(IDi ||RIDT A 
-||Bold 
-
-  ⊕h(P W old
- 
-i i 
-old 
-
-i   ||σi   ). After computing these values, MDi checks the 
-condition  Cold  =  Ci.  If  it  holds,  Ui  is  treated  as  an  actual 
-user who passes both password and biometric verification, and 
-he/she  can  proceed  for  the  password  and  biometric  update 
-procedure.  Otherwise,  the  password  and  biometric  update 
-process is terminated immediately. 
-
-||σold)  and  Cold
- 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-Step  PB2.  Ui  provides  a   new   password   PW new ,   and 
-also  imprints  new  biometrics  BIOnew  ,  if  Ui  is  desired  to 
-change BIOold. It  is  also  noted  that  if  Ui   does  not  want 
-to  change  his/her  biometrics,  he/she  still  can  keep  the  same 
-old   biometrics   BIOold,   and   in   this   situation,   BIOnew    is 
-
-i 
-
-i 
-
-i 
-
- 
- 
- 
- 
- 
-
- 
- 
-
-i 
-
-i 
-
-i 
-
-old 
-
-new 
-
-new 
-
-considered  as  BIOold.  After  these  inputs,  MDi   computes 
-σnew 
-||k), 
-= Rep(BIOi 
-new 
-Anew 
-=  Ai  ⊕h(k ||σi 
-), 
-  = RIDT A  ⊕h(IDi|| k|| σnew ), RID′′ = RIDi⊕ 
-RID′′
-T A 
-h(P W new ||σnew ), Cnew = h(IDi ||RID′′
-||Bnew  ||σnew ) 
-and D′′ = k⊕ h(IDi  ||P W new  ||σnew ). 
-
-||RP Wi 
-i 
-
-=  h(Ai 
-i 
-
-= h(P Wi 
-new 
-
-), RPWi 
-
-,  τi 
-new 
-
-),  Bi 
-
- 
-T A 
-
-new 
-
-new 
-
-new 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-Step  PB3.  Finally,  MDi  replaces  RID′,  RID′
-
-Input identity IDi, 
-old  password  PW old,  and 
-imprint  biometrics  BIOold. 
-
-i 
-
-i 
-
-Input  new  password  P W  new . 
-Imprint new BIOne w . 
-
-i 
-
-i 
-
-′ 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i    = Ai⊕ h(k ||σi    ), 
-
-Extract σold  = Rep(BIOold, τi). 
-i 
-Calculate 
-k = Di⊕ h(IDi  ||PW old  ||σold), 
-RPW old  = h(PW old  ||k), 
-Aold 
-Bold = h(Aold ||RPW old), 
-RIDT A  = RID′     ⊕ h(IDi|| k||σold), 
-RIDi = RID′  ⊕h(PW old  ||σold) 
-Cold = h(IDi ||RIDT A ||Bold ||σold). 
-Check if Cold  = Ci? 
-
-T A 
-
-old 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-i 
-
-If  so,  ask  Ui  to  enter  new  password 
-and  imprint  new  biometrics. 
-
-i 
-
-i 
-
-), 
-
-new 
-
-new 
-
-new 
-
-= h(Ai 
-
-||RPWi 
-
-i 
-||k), 
-
-i 
-= h(PWi 
-old 
-
-i  = Ai      ⊕h(k ||σi      ), 
-new 
-i 
-
-Calculate σnew = Rep(BIOnew , τ new ), 
- 
-RPW new 
-Anew 
-Bnew 
-RID′′    = RID T A  ⊕h(IDi|| k|| σnew ), 
-RID′′ 
-Cne w 
-i 
-D′′ 
-new 
-||σi      ). 
-i  = k⊕ h(IDi  ||PWi 
-Replace RID′,  RID′    ,  A′ ,  Ci, Di 
-T A 
-and  τi  with  RID′′,  RID′′   ,  Anew , 
-Cne w 
-
-T A 
-i  = RIDi⊕ h(PWi 
-
-= h(IDi ||RIDT A ||Bi 
-
-i 
-new 
-i     , Di   and τi 
-
-||σi     ), 
-new 
-
-, respectively. 
-
-i 
-new 
-
-new 
-
-new 
-
-new 
-
-T A 
-
-′′ 
-
-′′ 
-
-i 
-
-i 
-
-i 
-
-||σi     ), 
-
-Fig. 3.   Summary  of password and biometric update phase 
-
-H.  Dynamic IMD Addition Phase 
-
-To  deploy  a  new  IMD  or  to  replace  an  existing  IMD  by 
-another new IMD, say  IMD′,  the TA executes the following 
-steps: 
-
-l 
-
-Step 1. The TA generates a unique identity IDIM Dl 
-
-′ 
-, and 
-computes  the  corresponding  pseudo  identity  RID′ 
-= 
-h(ID′
-, y). 
- 
-IMD l 
-′ 
-
-||N ) and the polynomial share P(RID′
-
-Step 2. The TA then stores P(RIDIMDl  , y) and RIDIMDl
-
- 
-IMD l 
-
-IMD l 
-
-′ 
-
- 
-
-′ 
-in the  memory  of IMDl. 
-
-Di and τi with RID′′, RID′′
-respectively. 
-
-i 
-
- 
-
-T A 
-
-We  summarize  the  password  and  biometric  update  phase 
-
-related to the proposed scheme in Figure 3. 
-
-i 
-
-i 
-
-i 
-
-i 
-
- 
-T A 
-
-,  A′ ,  Ci, 
-
-Note  that there  is no need  to  update any  polynomial  share 
-in CNj . The TA only needs to inform CNj  about the deploy- 
-,  Anew ,  Cnew ,  D′′  and  τ new ,  ment  of  IMDl.  After  deployment  of  IMDl,  it  can  establish 
-pairwise  key  with  CNj   as  SKIMD′  
-=   P(RIDIMD ′  , 
-RIDCNj )  = P(RIDCNj ,  RIDIMD′  )  and  start  secure  com- 
-munication  using  the  established  key  SKIMD′  
-with  the 
-help of the post-deployment phase given in Section III-B. 
-
-l,CN j 
-
-l,CN j 
-
-′ 
-
-i 
-
-i 
-
-′ 
-
-i 
-
-l 
-
-l 
-
- 
- 
-
-G.  Dynamic Controller Node Addition Phase 
-
- 
-
-SECURITY ANALYSIS 
-
-In this section, we show that the proposed scheme is secure 
-
-against the following possible known attacks: 
-
-This  phase  is  required to  deploy  a new  controller  scheme, 
-  in  the  existing  network.  The  TA  performs  the 
-
-j 
-
-say  CN new
-following steps for the dynamic controller node addition: 
-
-Replay  attack:  In  the  proposed  scheme,  during  the  login, 
-and  authentication  and  key  agreement  phases,  the  messages 
-Step  1. The TA first assigns a new unique identity IDnew ,  Msg  = (M  , M  , T  ), Msg  = (M , M  , T ) and Msg  = 
-
-C Nj 
-which is different from the identities of the already deployed 
-(M7,  T3) are  exchanged  between  a  user  Ui  and  a  controller 
-controller nodes. The  TA then  computes  the  pseudo  identity 
-node  CNj .  These  messages  involve  different  current  times- 
-for  CN new
-  ||N )  and  TCnew    = 
-tamps  T1,  T2  and  T3.  If  an  adversary  A  intercepts  these 
-h(IDT A|| RT Snew   ||N ), where RT Snew   is newly generated  messages and tries to replay these messages later, the validity 
-CNj 
-registration timestamp for CN new . TA also computes polyno- 
-mial  share  P(RIDnew , y),  which  is  a  univariate  polynomial 
-in  GF (p). 
-
-of  timestamps  in  these  messages  will  fail,  and  as  a  result, 
-the messages  will be treated as the old messages. Hence, our 
-scheme provides protection against replay attack. 
-
-  = h(IDnew
-C Nj 
-
-  as  RIDnew
-C Nj 
-
-C Nj 
-
-C Nj 
-
-C Nj 
-
-3 
-
-4 
-
-1 
-
-2 
-
-2 
-
-1 
-
-2 
-
-5 
-
-1 
-
-j 
-
-j 
-
-TCnew 
-
-Step  2.  Finally,  the  TA  stores  the  credentials  {RIDnew , 
-C Nj 
-CNj ,  RIDT A,  P(RIDCNj , y)}  into   the   memory   of 
-j 
-
-prior to its deployment. 
-
-new 
-
-CN new 
-
-Man-in-the-middle  attack:  Suppose  A intercepts  the  mes- 
-sage  Msg1  and  attempts  to  modify  this  message  to  create  a 
-valid login message. For  creating  the  valid  login message, A 
-
-1 
-
-i 
-
-i 
-
-i 
-
-i 
-
-can generate a random nonce ria and current timestamp T1a. 
-Then, A is not able to compute M ′ = aia.P , aia = h(rai ||T1a 
-||RID∗ ||RP W ′ ||σi) because A does not know the values of 
-RID∗, RPW ′  and the biometric secret key σi  of the user Ui. 
-Similarly, if A tries to compute the signature M ′ = aia +k.b′
- 
-i 
-2 
-(mod p), he/she needs  aia  and  b′  = h(RID′
-||T1a). A can 
-not  also  compute  M ′  because  he/she  does  not  know  RID′
- 
-T A 
-and k, which is the secret key of Ui. Therefore, A is not able 
-to  modify  Msg1.  In  a  similar  way,  A can  not  modify  other 
-messages  Msg2  and  Msg3.  Therefore,  our  scheme  provides 
-protection against man-in-the-middle attack. 
-
- 
-T A 
-
-2 
-
-i 
-
-Privileged-insider and offline password guessing attacks: A 
-privileged user  of the  TA,  who may  be an  internal  adversary 
-A,  can  obtain  RIDi  during  the  user  Ui’s  registration  phase. 
-In  addition,  suppose  the  mobile  device  MDi   of  Ui   is  lost 
-or  stolen  by  A after  the registration process  is  finished.  MDi 
-contains information {RID′ , RID′
-, A′ , Ci, Di, τi, Gen(·), 
-
-i 
-
- 
-T A 
-
-i 
-
-one-way hash function h(·). Moreover, without the knowledge 
-of  short  term  secrets  such  as  random  nonces  ri  and  rj ,  and 
-long term secrets, such as identities RIDT A, RIDi, RIDCN 
-and TCCN   , A can not compute session key SKij . Therefore, 
-due to  the use  of these  short term and long term secrets, and 
-also the collision resistance property of h(·), the computation 
-of SKij  is computationally infeasible for A. As a result, the 
-
-j 
-
-j 
-
-proposed scheme provides session key security. 
-
-Anonymity  and  untraceability:  Suppose  an  adversary  A 
-intercepts  the  messages  Msg1  =  (M1, M2,  T1),  Msg2  = 
-(M4, M5, T2) and Msg3  = (M7, T3) during the login and au- 
-thentication & key agreement phases. Due to usage of random 
-nonces  ri,  rj  and  current  timestamps,  each  of  ai,  bi,  cj and 
-kij  becomes dynamic and “unique” in all messages for each 
-session. Moreover, none of these messages directly includes 
-IDi  and IDCNj . Hence, the proposed scheme preserves both 
-anonymity and untraceability properties. 
-
-Rep(·), h(·), t}. Even by retrieving all stored information from 
-Resilience against controller node physical capture attack: 
-As in [37], [38], the resilience against controller node physical 
-MDi  using  the  power  analysis  attacks  [11],  [12],  A can  not 
-capture attack of the proposed scheme in the IMD communi- 
-guess the correct password PWi  because he/she does not know 
-cation  environment  is  as  follows.  Assume  that  c controller 
-the private key k of Ui  and his/her secret biometric key σi  from 
-Ci  and  Di.  Therefore,  the  correct  guess  of  PWi  will  not  be 
-nodes  are physically  captured  by  an adversary A. It  is then 
-successful by A. Hence, the proposed scheme is secure against 
-measured as the total secure communications compromised 
-both privileged-insider and offline password guessing attacks. 
-by  a  capture  of  c controller  nodes  not  including  the  com- 
-munication in  which the compromised controller nodes are 
-User impersonation  attack:  Suppose  A intercepts  the  mes- 
-sage Msg1 = (M1, M2, T1) during the login phase, and tries 
-directly  involved.  Let  Pe(c)  denote  the  probability  that  A 
-to  impersonate  as  a  legal  user  Ui  by  sending  a  valid  login 
-can decrypt the secure communication between a user Ui and 
-request message to CNj . A can not compute the secret ai from 
-a non-compromised controller node CNj  when c controller 
-M1 = ai.P due to hardness of the ECDLP problem (discussed 
-nodes are already compromised. If Pe(c) = 0, a user authen- 
-in Section III). In order to perform user impersonation attack, 
-tication  scheme is  known  as unconditionally  secure against 
-A can generate the current timestamp T ′ and a random nonce 
-controller node capture attack. By physically capturing a con- 
-ria. To generate valid login request message, say Msg′  = 
-troller  node  CN ′ ,  A can  extract  the  information  {RIDCN  , 
-(M ′ , M ′ , T ′), A requires to compute M ′  = aia.P and M ′  =  TCCN  , RIDT A,  P(RIDCN  , y)}  from  its   memory  using 
-aia+ k.bia   (mod p), where aia  = h(ria ||T ′ ||RID∗ ||RP W ′
-power  analysis  attacks  [11],  [12].  Note  that   all  RIDCN  , 
- 
-i 
-||T ′).  A can  not  compute  Msg′
-||σi) and bia  = h(RID∗
-  TCCN  and  P(RIDCN  , y)  are  distinct  for  all  the  controller 
-1 
-as he/she  does  not  know  RID∗,  RID∗
-, RPW ′, σi  and the 
-nodes,  and  these  are  generated  by  the  T A.  Therefore,  by 
-
- 
-T A 
-
-j 
-
-i 
-
-1 
-
-1 
-
-1 
-
-2 
-
-1 
-
-1 
-
-2 
-
-1 
-
-1 
-
-j 
-
-j 
-
-j 
-
-j 
-
-j 
-
-j 
-
-i 
-
- 
-T A 
-
-i 
-
-secret  key  k  of  Ui.  Therefore,  the  user  impersonation  attack 
-is protected in our scheme. 
-
-Controller node impersonation attack: Suppose A intercepts 
-the message Msg2  = (M4, M5, T2) during the authentication 
-and  key  establishment  phase, and tries to impersonate  as a 
-controller node CNj by sending a valid authentication reply 
-message to Ui. A can not compute the secret cj  from M4 = 
-cj .P due to hardness of the ECDLP problem. A can generate 
-the current timestamp T ′ , and random nonces ria and rja. To 
-generate a valid message, say Msg′  = (M ′ , M ′ , T ′), A needs 
-to compute M ′  = cja.P , M ′  = h(SK′
-  ||T ′),  where  cja  = 
-ij 
-h(rja  ||T ′  ||RIDCN  ||T CCN  ), k′
-  = cja.M ′ = (aiacja).P , 
-ij 
-  = h(k′
-aia  = h(ria  ||T1|| RID∗  ||RP W ′  ||σi), and SK′
- 
-ij 
-ij 
-||RIDT A ||T1 ||T ′). A can not compute Msg′  as he/she does 
-
-1 
-
-i 
-
-i 
-
-2 
-
-2 
-
-4 
-
-5 
-
-2 
-
-2 
-
-4 
-
-5 
-
-2 
-
-j 
-
-j 
-
-2 
-
-∗ 
-
-∗ 
-
-2 
-
-′ 
-
-not  know  RIDCNj ,  TCCN j ,  RIDi ,  RIDT A,  RPWi   and  σi. 
-Thus, our scheme is secure against such an attack. 
-
-j 
-
-j 
-
-capturing  CN ′ ,  A  can  only  compromise  the  session  key 
-between that the user Ui  and CN ′ . However, the session keys 
-between  that  user  Ui  and  other  non-compromised  controller 
-nodes CNj s can not be compromised by A. Then, compromise 
-of  a  controller  node  does  not  lead  to  compromise  secure 
-communications  among  the  user  and  other non-compromised 
-controller nodes. Hence, our scheme is unconditionally secure 
-against controller node physical capture attack. 
-
-Denial-of-service  attack  (DoS):  Even  if  a  legal  user  Ui 
-enters  incorrect  IDi   and/or  P Wi   during  login  phase,  it  is 
-locally  checked  through  the  verification  C∗
-  = Ci  (Step  L1 
-i 
-in  Section  III-D).  The  login  request  of  the  user  Ui   is  sent 
-to  the  controller node  only  after  successful  verification.  As a 
-result, the proposed scheme is secure against such DoS attack. 
-
-Stolen  mobile  device  attack:  Suppose  the  mobile  device 
-MDi   of  a  legal  user  Ui   is  lost  or  stolen  by  an  attacker  A. 
-, A′ , Ci, 
-
-i 
-
- 
-T A 
-
-i 
-
-Session key security: During the login and authentication &  A can  then  extract  all  information  {RID′ , RID′
-
-session  key  agreement  phases,  Ui  sends  the  message  Msg1 
-=  (M1, M2,  T1)  to  CNj .  Then  CNj  replies  to  Ui  with 
-the message Msg2  = (M4, M5, T2). Further, Ui  sends the 
-acknowledgment message Msg3  = (M7, T3) to CNj . In all 
-these messages session key SKij (= SK∗ ) is protected by the 
-
-ij 
-
-Di, τi,  Gen(·),  Rep(·),  h(·),  t}  stored  in  MDi   using  the 
-power analysis attacks. To correctly guess IDi and PWi  from 
-the  extracted information Ci  and  Di, A needs to  know  both 
-the  secrets  k and  σi.  Thus,  it  is  computationally  infeasible 
-for A to  correctly  guess  both IDi  and P Wi.  Therefore,  the 
-
-proposed scheme is secure against stolen mobile device attack. 
-
-COMPARATIVE STUDY 
-
- 
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
- 
-
-FORMAL SECURITY VERIFICATION USING AVISPA 
-
-In  this  section,  we  provide  the  formal  security  verification 
-of  the  proposed  scheme  using  the  widely-accepted  AVISPA 
-tool [39], [40]. 
-
-In  AVISPA,  we  first  implement  the  security  protocol  in 
-the  role-based  expressive  formal  language,  called  the  High 
-Level  Protocol  Specification  Language  (HLPSL).  HLPSL  is 
-translated into the intermediate format (IF) using the translator, 
-called  HLPSL2IF.  IF  is  a  lower-level  language  than  HLPSL 
-and  is  read  directly  by  the  back-ends  to  the  AVISPA  tool. 
-There are four backends in AVISPA tool: 1) On-the-fly Model- 
-Checker (OFMC); 2) Constraint-Logic-based Attack Searcher 
-(CL-AtSe);  3)  SAT-based  Model-Checker  (SATMC)  and  4) 
-Tree  Automata  based  on  Automatic  Approximations  for  the 
-Analysis of Security Protocols (TA4SP). Finally, the backends 
-produce the output format (OF), which precisely tells whether 
-the protocol is safe or unsafe. If it is unsafe, the OF also lists 
-the  attack  trace.  In  AVISPA,  the  communication  channel  is 
-
-public and it is modeled using the Dolev-Yao threat model [9]. 
-Thus,  the  intruder  (which  is  always  denoted  by  i in  HLPSL) 
-can also take a legitimate role in the protocol run. The detailed 
-description of the AVISPA tool and the HLPSL is available in 
-[39], [40]. 
-
-% OFMC 
-% Version of 2006/02/13 
-SUMMARY 
-
-SAFE 
-
-DETAILS 
-
-SUMMARY 
-SAFE 
-DETAILS 
-
-BOUNDED_NUMBER_OF_SESSIONS 
-TYPED_MODEL 
-
-BOUNDED_NUMBER_OF_SESSIONS 
-
-PROTOCOL 
-
-PROTOCOL 
-
-C:\progra~1\SPAN\testsuite 
-
-\results\auth_imd.if 
-
-GOAL 
-
-as_specified 
-
-BACKEND 
-OFMC 
-COMMENTS 
-STATISTICS 
-
-parseTime: 0.00s 
-searchTime: 21.09s 
-visitedNodes: 315 nodes 
-depth: 12 plies 
-
-C:\progra~1\SPAN\testsuite 
-
-\results\auth_imd.if 
-
-GOAL 
-
-As Specified 
-
-BACKEND 
-CL−AtSe 
- 
-STATISTICS 
- 
-
-Analysed   : 1111 states 
-Reachable  : 1108 states 
-Translation: 0.13 seconds 
-Computation: 8.69 seconds 
-
-Fig. 4.   The result of the analysis using OFMC and CL-AtSe backends 
-
-In HLPSL, each entity in the network (user Ui, the TA and 
-controller  node  CNj )  is  implemented  in  a  role.  Apart  from 
-these  basic  roles,  we  have  other  two  mandatory  roles,  called 
-session, and goal and environment. Each role contains global 
-constants  and  a  composition  of  one  or  more  sessions,  where 
-the  intruder  may  play  some  roles  as  legitimate  user.  For  the 
-replay attack checking, OFMC checks  whether the legitimate 
-agents  can  execute  the  specified  protocol  by  performing  a 
-search of a passive intruder.  For the Dolev-Yao  model check, 
-this  back-end  also  checks  whether  there  is  any  man-in-the- 
-middle attack possible by the intruder. We have simulated the 
-proposed  scheme  using  the  Security  Protocol  ANimator  for 
-AVISPA (SPAN) [41] for the OFMC and CL-AtSe back-ends 
-since  these  backends  supports  bitwise  XOR  operation.  The 
-simulation  results  of  the  analysis  provided  in  Figure  4  show 
-that  the  proposed  scheme  is  secure  against  replay  and  man- 
-in-the-middle attacks. 
-
- 
-
- 
-
-In this section, we compare the computation and communi- 
-cation costs, and functionality features of the proposed scheme 
-with  other  related  existing  schemes,  such  as  the  schemes  of 
-Rasmussen et al. [13], Ellouze et al. [14], Jang et al. [3] and 
-He-Zeadally [4]. 
-
-The  comparison  of  functionality  features  of  the  existing 
-schemes  and  our  scheme  is  given  in  Table  II.  It  is  evident 
-from the table that Rasmussen et al.’s scheme does not provide 
-FNF3,  FNF5,  FNF8,  FNF9,  FNF14   and  FNF17;  Jang  et 
-al.’s  scheme  does  not  provide  the  features  FNF2,  FNF13, 
-FNF14 and FNF17;  Ellouze  et  al.’s  scheme  does  not  provide 
-FNF2,   FNF3,   FNF8,   FNF14,   FNF15    and   FNF17;   and 
-He-Zeadally’s  scheme  does  not  also  provide  FNF13,  FNF14 
-and FNF17. On the other hand, the proposed scheme provides 
-all the functionality features listed in the table. 
-
-COMPARISON   OF  FUNC TIONALI TY  FEATUR ES  
-
-TABLE II 
-
-Feature 
-
-Rasmussen 
-
-Jang 
-
-Ellouze 
-
-He- 
-
-Our 
-
- 
-
-  
-
- 
-
-F NF1  
-F NF2  
-F NF3  
-F NF4  
-F NF5  
-F NF6  
-F NF7  
-F NF8  
-F NF9  
-F N F10 
-F N F11 
-F N F12 
-F N F13 
-F N F14 
-F N F15 
-F N F16 
-
- 
-   F N F17  
-
-et al. 
-  
-  
-× 
-  
-× 
-  
-  
-× 
-× 
-N/A 
-N/A 
-N/A 
-N/A 
-× 
-  
-  
-
-×  
+An  experiment  was  conducted  to  verify  the  effects  of  the  robot’s 
+sociality using the balance theory. 
 
-et al. 
-  
-× 
-  
-  
-  
-  
-  
-  
-  
-N/A 
-N/A 
-N/A 
-× 
-× 
-N/A 
-  
+A robot talked to two participants simultaneously. In this situation, 
+we  tried  to  determine  how  the  robot’s  behavior  would  influence 
+the  impressions  of  (A)  one  participant  to  the  robot,  (B)  another 
+participant  to  the  robot  and  (C)  one  participant  to  the  other 
+participant. 
 
-×  
+ 
 
-et al. 
-  
-× 
-× 
-  
-  
-  
-  
-× 
-  
-N/A 
-N/A 
-N/A 
-N/A 
-× 
-× 
-  
-
-×  
-
-Zeadally 
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-N/A 
-N/A 
-× 
-× 
-  
-  
-
-×  
-
- 
-
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-
-   
-
-Note:  F NF1:  mutual  authentication;  F NF2:  anonymity;  F NF3:  non- 
-traceability;  F NF4:  session-key  agreement;  F NF5:  session  key  security; 
-F NF6:   confidentiality;   F NF7:   integrity;   F NF8:   strong   replay   attack; 
-F NF9:  man-in-the-middle  attack;  F NF10:  efficient  login  phase;  F NF11: 
-password  update  phase;  F NF12:  biometric  update  phase;  F NF13:  dynamic 
-controller  node  addition;  F NF14:  dynamic  IMD  addition;  F NF15:  pro- 
-tection  against  stolen  mobile  device/programmer  attack;  F NF16:  protection 
-against  impersonation  attack;  F  NF17:  formal  security  verification  using 
-AVISPA  tool. 
-×:  a  scheme  is  insecure  against  a  particular  attack  or  does  not  support  a 
-particular feature;    : a scheme is secure against a particular attack or supports 
-a particular  feature; N/A: not applicable in a scheme. 
-
-For  computation  costs  comparison,  we  have  listed  the  ap- 
-proximate  time  needed  for  various  cryptographic  operations 
-in  Table  III.  We  use  the  existing  experimental    results    for 
-these operations [42]. The comparison of computation costs of 
-existing related schemes [13], [14] (for regular mode), [3] (for 
-global authentication), [4] and the proposed scheme is given in 
-Table IV. Though the computation cost of our scheme is more 
-than that for the  schemes  of Rasmussen et al. and  Ellouze et 
-al., it can be considered as our scheme provides more security 
-and functionality features as compared to those schemes. 
-
-For  communication  costs  comparison,  we  have  taken  the 
-timestamp,  sequence  number  or  random  nonce  is  of  32  bits 
-each.  If  the  SHA-1  [43]  hash  function  is  used,  the  size  of 
-
-APPROXIMATE  TIME  R EQUIR ED  FOR   VARIOUS  OPER ATIONS  [42] 
-
-TABLE III 
-
-we  have  used  widely  accepted  NS2  2.35  simulator  [46],  [47] 
-on Ubuntu 14.04 LTS platform. 
-
- 
-
- 
- 
-
- 
-
- 
- 
-
- 
-
- 
- 
-
- 
- 
  
 
-Notation 
-
-Th 
-Tecm 
-Teca 
-Tsenc 
-Tsdec 
-Tme 
-Tfe  ≈ Tecm  [42] 
-
-Description 
-(time to compute) 
-One-way hash function 
-ECC point multiplication 
-ECC point addition 
-Symmetric encryption 
-Symmetric decryption 
-Modular exponentiation 
-Fuzzy extractor function 
-
-Approx. computation 
-time (seconds) 
-0.00032 
-0.0171 
-0.0044 
-0.0056 
-0.0056 
-0.0192 
-0.0171 
-
-TABLE IV 
-
-COMPUTATION  C OSTS  C OMPAR ISON  
-
-Scheme 
-Rasmussen et al. 
-Jang et al. 
-Ellouze et al. 
-He-Zeadally 
-Proposed scheme 
-
-Computation cost 
-2Tme  + 1Th  ≈ 0.03872s 
-25Tecm + 15Teca + 5Th  ≈ 0.4951s 
-6Th + 2Tsenc/Tsdec  ≈ 0.01312s 
-6Tecm  + 8Tsenc/Tsdec+ 4Th  ≈ 0.1487s 
-Tfe  + 6Tecm  + 17Th  ≈ 0.12514s 
-
- 
-
- 
-
-hash  digest  is  160 bits.  All identities  are assumed to  be  160 
-bits each. We further assume that the 1024-bit Diffie-Hellman 
-key  is  used  in  Rasmussen  et  al.’s  protocol,  since  an  160-bit 
-ECC cryptosystem provides the same security as 1024-bit RSA 
-cryptosystem [44]. Thus, each elliptic curve point of the form 
-P  =  (xP , yP )  requires  (160 + 160)  =  320  bits.  The  public 
-key  cryptosystem  used  in  Jang  et  al.’s  [3]  hybrid  protocol  is 
-considered  as  ECC.  Therefore,  in  that  case  ECC  encryption 
-of  a  plaintext,  which  is  an  ECC  point  Pm,  using  the  public 
-key  produces  the  ciphertext  (C1, C2),  where  both  C1  and  C2 
-are ECC points and the ciphertext requires (320 + 320) = 640 
-bits. Additionally, symmetric encryption/decryption is of 128 
-bits  (if  we  apply  the  Advanced  Encryption  Standard  (AES) 
-[45]). Table V shows the comparison of communication costs 
-of  the related  existing  schemes  [13], [14]  (for regular mode), 
-[3]  (for  global  authentication),  [4]  and  our  scheme  in  terms 
-of the number of messages and number of bits. The results in 
-this table show that though the communication cost of Ellouze 
-et al.’s scheme is less than our scheme, but it can be accepted 
-as our scheme provides more security and more functionality 
-features as compared to other schemes. 
-
-COMMUNIC ATION  OVER HEADS   C OMPAR ISON  
-
-TABLE V 
-
-Scheme 
-Rasmussen et al. 
-Jang et al. 
-Ellouze et al. 
-He-Zeadally 
-
  
-   Proposed scheme 
 
-No. of messages  No.  of bits 
-
-6 
-8 
-3 
-4 
-3 
-
-2210 
-5920 
-961 
-3232 
-1216  
-
- 
-
-VII.  PRACTICAL PERSPECTIVE: NS2 SIMULATION STUDY 
-
-In  this  section,  to  measure  the  impact  of  the  proposed 
-scheme on the network performance parameters, such as end- 
-to-end delay (in seconds) and throughput (in bits per second), 
-
- 
-
- 
-
- 
-
  
 
- 
  
 
-A.  Simulation Parameters 
+Interactive Humanoid Robot “Robovie” 
 
-The  parameters  used  in  the  NS2  simulation  are  given  in 
-Table VI. The network coverage area is taken as 80 × 80 m2. 
-The  communication  ranges  of  implantable  medical  devices 
-and  controller  nodes  are  taken  as  25  meters  and  50  meters, 
-respectively.  The  medium  access  control  type  is  the  standard 
-IEEE 802.15.4 and the network was simulated for the duration 
-of  1800  seconds  (30  minutes).  Apart  from  these,  all  other 
-standard parameters are considered for the simulation. 
+We  used  the  interactive  humanoid  robot  “Robovie,”  which  is 
+characterized  by  its  human-like  bodily  expressions  and  various 
+sensors  [3].  The  body  consists  of  eyes,  a  head,  and  arms,  which 
+generate 
+for 
+communication. 
 
-B.  Simulation Environment 
+complex  bodily  movements 
 
-We have  considered the following three network scenarios, 
-in  which  there  are  three  controller  nodes  CNj  s  and  three 
-patients  implanted  with  five  IMDj s  each.  Hence,  there  are 
-a  total  of  15  IMDj s  are  deployed  in  the  simulation. 
+required 
 
-•  Scenario  1.  In  this  scenario,  there  are  three  users  (Uis), 
+the 
 
-three  controller  nodes  (CNj s)  and  15  IMDj s. 
+Conditions 
 
-•  Scenario 2. Under this scenario, we have taken five users 
+This  experiment  has  three  conditions.  One  is  an  Agreement 
+condition.  This  condition  states  that  the  robot  agrees  to  each 
+participant’s  opinions.  Next  is    a    Disagreement  condition.  The 
+robot  in  this  condition  disagrees  with each participant’s  opinions. 
+In  these  two  conditions,  the  robot  agrees  or  disagrees  with 
+participant’s  opinion  without  distinction.  On  the  other  hand,  the 
+robot  in  an Unfairness  condition agrees to  only one participant’s 
+opinion. In this condition, the robot behaves unequally. 
 
-(Uis), three  controller nodes  (CNj s) and  15 IMDj s. 
+Participants 
 
-•  Scenario 3. Here, there are nine users (Uis), three con- 
+Forty-six university  students  participated  in  the experiment.  They 
+do not have contact with robots on a daily basis. 
 
-troller  nodes  (CNj s) and  15 IMDj s. 
+Procedure 
 
-In  each  scenario,  we  have  considered  the  three  messages: 
-{M1, M2, T1}  from  Ui  to  CNj ,  {M4, M5, T2}  from  CNj  to 
-Ui,  and  {M7, T3}  from  Ui to  CNj ,  which  are  of  sizes  512 
-bits, 512 bits, 192 bits, respectively. 
+Before  starting 
+the  experiment,  each  participant  answered 
+questions about  their  likes and  dislikes.  These answers  were  used 
+to  control  the  behavior  of  the  robot  during  the  experiment.  The 
+robot acted to use the results of questions appropriately. 
 
-TABLE VI 
+Two  participants  interacted  with  the  robot  at  the  same  time.  This 
+interaction  is  exchanging  questions  and  answers.  After  the 
+experiment,  each  participant  answered  questionnaires.  The 
+experimenter  asked  them  some  questions,  which  participants 
+answered  concurrently  to  confirm  their  impressions  of  the  robot 
+and each  other. Finally,  participants answered  questions  about  (a) 
+their  impressions  of  the  robot,  (b)  the  other  participant’s 
+impressions  of  the  robot,  and  (c)  their  impressions  of  the  other 
+participant.  From  analysis  of  the  responses,  we  tried  to  confirm 
+whether 
+robot-mediated 
+communication. 
 
-VARIOUS  SIMULATION  PAR AMETERS  
+theory  applied 
 
-   Parameter 
+the  balance 
 
-Platform 
-Network scenarios 
-Number of users 
-Number of controller nodes 
-Number of implantable medical devices 
-Simulation time 
+to 
 
-Description  
-Ubuntu 14.04 LTS 
-1, 2 and 3 
-3, 5, 9 for scenarios 1, 2, 3 
-3 for all scenarios 
-15 for all scenarios 
-1800 seconds 
+Evaluation 
 
- 
-
- 
+We  evaluated  this  experiment  with  questionnaires  containing  6 
+items. These items are rated on a 1-to-5 scale, where 5 is the most 
+positive. 
 
 IV. RESULTS AND DISCUSSION 
+The  results  of  the  experiment  were  determined  by  analyzing  the 
+questionnaire  responses.  Figure  1  illustrates  the  result  of  the 
+participants’  impressions  of  the  other  participants  in  unfairness 
+condition.  We  distributed  three  conditions  to  the  plus  and  minus 
+group  based  on  the  forecast  of  the  balance  theory.  We  consider 
+that  participants  who  were  agreed  with  the  robot  on  the  opinion 
+will  have  good  impression  to  the  robot.  In  the  reverse  case,  they 
+will have bad impression to the robot. In  analogy with above two 
+cases,  the  participants  in  clash  of  opinion  will  not  have  good 
+impression  to  each  other.  From  this  forecast,  the  plus  group 
+consists of participants in the Agree and Disagree conditions.  The 
+robot  in  this  condition  agrees  or  disagrees  with  the  participants 
 
-In order to measure the impact of the proposed scheme, we 
-have  calculated the network performance parameters, such as 
-end-to-end delay and throughput. 
+like * 
 
-i 
+at t ract iveness * * 
 
-i=1 
+agreement  * * 
 
-1)  Impact  on  End-to-end  Delay:  The  end-to-end  delay 
-(EED)  is  formulated  as  the  average  time  taken  by  the  data 
-packets (messages) to arrive at the destination from the source. 
-npkt (Trec  — Tsendi )/npkt, 
-The EED is then  calculated as     
-where Treci   and Tsendi   are the receiving and sending time of a 
-packet i, respectively, and npkt  is the total number of packets. 
-The  EEDs  of  the  proposed  scheme  for  different  scenarios 
-are  provided  in  Fig.  5(a). The  values  of  EEDs  are  0.02719, 
-0.03188 and  0.06765 seconds  for  the  scenarios  1,  2 and 3, 
-respectively.  Note  that  the  value  of  EED  increases  with  the 
-increasing number of users. The increment in number of users 
-results  more  number  of  exchanged  messages,  which  further 
-incurs congestion, and therefore, EED increases in scenarios 
-2 and 3. 
+5.00 
 
-2)  Impact  on  Throughput:  The  throughput  is  measured  as 
-the  number  of  bits  transmitted  per  unit  time.  The  network 
-throughput  (in  bps)  of  the  proposed  scheme  under  different 
-network scenarios is provided in Fig. 5(b). The throughput is 
-formulated as nr ×|pkt| 
-, where Td is the total time (in seconds), 
-|pkt| the size of a packet and nr  the total number of received 
-packets.  Note  that  the  simulation  time  as  1800s,  which  is 
-considered as the total time. The throughput values are 4.98, 
-9.10 and 10.99 bps for the scenarios 1, 2 and 3, receptively. 
-The throughput also increases in scenarios 2 and 3. 
+4.00 
 
-T 
-d 
+3.00 
+
+2.00 
+
+1.00 
+
+0.00 
 
  
-)
-s
-p
-b
-(
- 
-t
-u
-p
-h
-g
-u
-o
-r
-h
-t
-
-16 
-14 
-12 
-10 
-8 
-6 
-4 
-2 
-0 
 
  
- 
- 
- 
- 
- 
- 
- 
-
-1 
-
-2 
-
-3 
-
-scenarios 
 
  
-)
-c
-e
-s
-(
- 
-y
-a
-l
-e
-d
- 
-d
-n
-e
--
-o
-t
--
-d
-n
-e
-
-0.1 
-
-0.08 
-
-0.06 
-
-0.04 
-
-0.02 
-
-0 
 
  
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+
  
 
-1 
+ 
 
-2 
+ 
 
-3 
+empat hy * * 
 
-scenarios 
+affinit y * * 
 
-Fig. 5.   Network performance: (a) throughput and (b) end-to-end delay 
+good feeling * 
+
+plus 
+
+minus 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+Figure 1: Questionnaire’s result of Unfairness Condition 
+
+without  distinction.  And  the  minus  group  consists  of  participants 
+in  the  Unfairness  condition.  The  robot  in  this  condition  agrees 
+with one participant. The ANOVA shows that there are significant 
+differences  in  every  question.  This  means  that  participants  in  the 
+unfairness  condition  do  not  show  goodwill  toward  each  other. 
+From these results, we confirmed the balance theory being applied 
+in robot-mediated communication. 
+
+Our  results  show  the  possibility  of  the  balance    theory    in 
+group  communication  being  applied  by  two  humans  and  a 
+humanoid  robot.  Previous  research  [2]  confirmed  that  the 
+balance  theory  applied  by  disallowing  participants  to  talk  each 
+other.  However,  when  participants  were  allowed  to  talk  to  each 
+other, they did not confirm  that the  balance  theory  did  not  apply. 
+In  our  experiment,  we  allowed  participants  to  talk  each  other  in 
+the  conversation  with  robot.    In    this    situation,    the    balance 
+theory  was  applied.  We  consider  that  the  existence  and  the 
+embodiment are important for the social conversation with robot. 
 
 V. CONCLUSION 
+In  this  paper,  we  conducted  an  experiment  to  verify  whether  the 
+balance  theory  applied  to  robot-mediated  communication.  Our 
+results  show  the  balance  theory  being  applied  in  robot-mediated 
+communication. From these results, we confirmed that robots may 
+have  good  or  bad  influence  on  human  relations.  In  other  words, 
+robots can construct or collapse human relations. 
 
-The  use  of  IMDs  facilitates  the  remote  monitoring  of  the 
-health of a patient. The IMDs specially improve the quality of 
-life of elderly people, who  other has problem to move easily. 
-A  doctor  can  provide  them  remote  consultation  on  the  basis 
-of  their health  data,  which  is collected  by the  help  of IMDs. 
-However, wireless communication raises serious threats in the 
-IMD  deployment.  In  this  paper,  we  proposed  a  remote  user 
-authentication  scheme  through  which  a  user  (a  doctor)  and 
-a  controller  node  can  mutually  authenticate  each  other  and 
-establish a session key for their future secure communication. 
-Apart  from  that  the  pairwise  key  establishment  between  a 
-controller node and its IMDs is also provided in the proposed 
-scheme  for  the  secure  communication  between  them.  The 
-computation and communication costs of the proposed scheme 
-are comparable with the existing related schemes. In addition, 
-the  proposed  scheme  also  provides  better  security  and  more 
-functionality features, such as password and biometric update 
-phase, dynamic controller node and IMD addition phases, as 
-compared to other existing related schemes. 
+ 
+ 
+ 
+ 
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
 
  
 
@@ -2427,362 +328,20 @@ compared to other existing related schemes.
  
 
 REFERENCES 
+[1]   Heider, F. The Psychology of Interpersonal Relations, Wiley, 
 
-[1]  D. Halperin, T. S. Heydt-Benjamin, K.  Fu, T. Kohno, and W. H. Maisel, 
-“Security and Privacy for Implantable Medical Devices,” IEEE Pervasive 
-Computing, vol. 7, no. 1, pp. 30–39, 2008. 
+1958. 
 
-[2]  R.   Thakur,   “Implantable    Medical    Devices    Market    is    Expected 
-to   Reach   $116, 300  Million   by   2022,   Globally   -   Allied   Market 
-Research,” 
-http://www.prnewswire.com/news-releases/implantable- 
-medical-devices-market-is-expected-to-reach-116300-million-by-2022- 
-globally—allied-market-research-613835833.html. 
+[2]   Nakanishi, H., Nakazawa, S., Ishida, T., Takanashi, K., and 
 
-[3]  C.  S.  Jang,  D.  G.  Lee,  J.-w.  Han,  and  J.  H.  Park,  “Hybrid  Security 
-Protocol  for  Wireless  Body  Area  Networks,”  Wireless  Communications 
-and Mobile Computing, vol. 11, no. 2, pp. 277–288, 2011. 
+Isbister, K. Can Software Agents Influence Human 
+Relations? – Balance Theory in Agent-mediated 
+Communications -, Int. Joint Conf. on Autonomous Agents 
+and Multiagent Systems (AAMAS2003), pp. 717-724, 2003. 
 
-[4]  D. He and  S. Zeadally, “Authentication  protocol  for an ambient assisted 
-living  system,”  IEEE  Communications  Magazine,  vol.  53,  no.  1,  pp. 
-71–77, 2015. 
+[3]   Ishiguro, H., Ono, T., Imai, M., Kanda, T., Development of 
 
-[5]  K. B. Rasmussen, C. Castelluccia, T. S. Heydt-Benjamin, and S. Capkun, 
-“Proximity-based  Access  Control  for  Implantable  Medical  Devices,”  in 
-Proceedings of the  16th ACM Conference  on Computer and Communi- 
-cations Security (CCS 2009), Chicago, USA, 2009, pp. 410–419. 
-
-[6]  N.  Ellouze,  M.  Allouche,  H.  Ben  Ahmed,  S.  Rekhis,  and  N.  Boudriga, 
-“Securing  Implantable  Cardiac  Medical  Devices:  Use  of  Radio  Fre- 
-quency  Energy  Harvesting,”  in  3rd  International  Workshop  on  Trust- 
-worthy Embedded Devices, Berlin, Germany, 2013, pp. 35–42. 
-
-[7]  C. Camara, P. P. Lopez, and J. E. Tapiador, “Security and privacy issues 
-in  implantable  medical  devices:  A  comprehensive  survey,”  Journal  of 
-Biomedical Informatics, vol. 55, pp. 272 – 289, 2015. 
-
-[8]  J.  Finkle,  “J  &  J  warns  diabetic  patients:  Insulin  pump  vulnerable 
-to  hacking,”  http://www.reuters.com/article/us-johnson-johnson-cyber- 
-insulin-pumps-e-idUSKCN12411L. Accessed on February 2017. 
-
-[9]  D.  Dolev  and  A.  C.  Yao,  “On  the  security  of  public  key  protocols,” 
-IEEE  Transactions on Information Theory, vol. 29, no. 2,  pp. 198–208, 
-1983. 
-
-[10]  M. L. Das, “Two-factor user authentication in wireless sensor networks,” 
-IEEE Transactions on Wireless Communications, vol. 8, no. 3, pp. 1086– 
-1090, 2009. 
-
-[11]  T. S. Messerges, E. A. Dabbish, and R. H. Sloan, “Examining smart-card 
-security under the threat of power analysis attacks,” IEEE Transactions 
-on Computers, vol. 51, no. 5, pp. 541–552, 2002. 
-
-[12]  P.  Kocher,  J.  Jaffe,  and  B.  Jun,  “Differential  Power  Analysis,”  in  Pro- 
-ceedings of 19th Annual International Cryptology Conference (CRYPTO 
-1999), LNCS, vol. 1666, Santa Barbara, California, USA, 1999, pp. 388– 
-397. 
-
-[13]  K. B. Rasmussen, C. Castelluccia, T. S. Heydt-Benjamin, and S. Capkun, 
-“Proximity-based  Access  Control  for  Implantable  Medical  Devices,”  in 
-Proceedings of the  16th ACM Conference  on Computer and Communi- 
-cations Security (CCS 2009), Chicago, USA, 2009, pp. 410–419. 
-
-[14]  N.  Ellouze,  M.  Allouche,  H.  Ben  Ahmed,  S.  Rekhis,  and  N.  Boudriga, 
-“Securing  Implantable  Cardiac  Medical  Devices:  Use  of  Radio  Fre- 
-quency  Energy  Harvesting,”  in  Proceedings  of  the  3rd  International 
-Workshop  on  Trustworthy  Embedded  Devices,  Berlin,  Germany,  2013, 
-pp. 35–42. 
-
-[15]  D.  He  and  S.  Zeadally,  “An  Analysis  of  RFID  Authentication  Schemes 
-for  Internet  of  Things  in  Healthcare  Environment  Using  Elliptic  Curve 
-Cryptography,”  IEEE  Internet  of  Things  Journal,  vol.  2,  no.  1,  pp.  72– 
-83, 2015. 
-
-[16]  D.  He,  N.  Kumar,  J.  Chen,  C.  C.  Lee,  N.  Chilamkurti,  and  S.  S.  Yeo, 
-“Robust anonymous authentication protocol for health-care applications 
-using  wireless  medical  sensor  networks,”  Multimedia  Systems,  vol.  21, 
-no. 1,  pp. 49–60, 2015. 
-
-[17]  D.  He,  S.  Zeadally,  N.  Kumar,  and  J.  H.  Lee,  “Anonymous  Authentica- 
-tion  for  Wireless  Body  Area  Networks  With  Provable  Security,”  IEEE 
-Systems Journal, pp. 1–12, 2016, DOI: 10.1109/JSYST.2016.2544805. 
-
-[18]  X.  Li,  J.  Niu,  S.  Kumari,  F.  Wu,  and  K.  K.  R.  Choo,  “A  robust 
-biometrics based three-factor authentication scheme for Global Mobility 
-Networks  in  smart  city,”  Future  Generation  Computer  Systems,  2017, 
-DOI: 10.1016/j.future.2017.04.012. 
-
-[19]  X. Li, M. H. Ibrahim, S. Kumari, A. K. Sangaiah, V. Gupta, and K. K. R. 
-Choo, “Anonymous mutual authentication and key agreement scheme for 
-wearable sensors in  wireless  body area  networks,” Computer Networks, 
-2017, DOI: 10.1016/j.comnet.2017.03.013. 
-
-[20]  X.  Li,  J.  Peng,  S.  Kumari,  F.  Wu,  M.  Karuppiah,  and  K.  K.  R.  Choo, 
-“An  enhanced  1-round  authentication  protocol  for  wireless  body  area 
-networks  with  user  anonymity,”  Computers  &  Electrical  Engineering, 
-2017, DOI: 10.1016/j.compeleceng.2017.02.011. 
-
-[21]  X.  Li,  J.  Niu,  M.  K.  Khan,  J.  Liao,  and  X.  Zhao,  “Robust  three-factor 
-remote  user  authentication  scheme  with  key  agreement  for  multimedia 
-systems,”  Security  and  Communication  Networks,  vol.  9,  no.  13,  pp. 
-1916–1927, 2016. 
-
-[22]  D. He, C. Chen,  S.  Chan, J. Bu, and  A.  V.  Vasilakos, “ReTrust:  Attack- 
-Resistant  and  Lightweight  Trust  Management  for  Medical  Sensor  Net- 
-works,”  IEEE  Transactions  on  Information  Technology  in  Biomedicine, 
-vol. 16, no. 4, pp. 623–632, 2012. 
-
-[23]  Z.  Zhang,  H.  Wang,  A.  V.  Vasilakos,  and  H.  Fang,  “ECG-Cryptography 
-and  Authentication  in  Body  Area  Networks,”  IEEE  Transactions  on 
-Information Technology in Biomedicine, vol. 16,  no. 6, pp. 1070–1078, 
-2012. 
-
-[24]  J.   Zhou,   Z.   Cao,   X.   Dong,   N.   Xiong,   and   A.   V.   Vasilakos,   “4S: 
-A  secure  and  privacy-preserving  key  management  scheme  for  cloud- 
-
-assisted  wireless  body  area  network  in  m-healthcare  social  networks,” 
-Information Sciences, vol. 314, pp. 255–276, 2015. 
-
-http://csrc.nist.gov/publications/fips/fips197/fips-197.pdf. 
-on April 2016. 
-
-Accessed 
-
- 
- 
- 
- 
- 
- 
- 
-
- 
- 
- 
- 
- 
- 
-
-[25]  F.  Xu,  Z.  Qin,  C.  C.  Tan,  B.  Wang,  and  Q.  Li,  “IMDGuard:  Securing 
-implantable  medical  devices  with  the  external  wearable  guardian,”  in 
-IEEE INFOCOM, Shanghai, China, 2011, pp. 1862–1870. 
-
-[26]  M.  Rushanan,  A.  D.  Rubin,  D.  F.  Kune,  and  C.  M.  Swanson,  “SoK: 
-Security  and  Privacy  in  Implantable  Medical  Devices  and  Body  Area 
-Networks,” in IEEE Symposium on Security and Privacy, San Jose, USA, 
-2014, pp. 524–539. 
-
-[27]  T.  Denning,  A.  Borning,  B.  Friedman,  B.  T.  Gill,  T.  Kohno,  and  W.  H. 
-Maisel,  “Patients,  Pacemakers,  and  Implantable  Defibrillators:  Human 
-Values  and  Security  for  Wireless  Implantable  Medical  Devices,”  in 
-SIGCHI Conference on Human Factors in Computing Systems, ser. CHI 
-’10.    Atlanta, Georgia,  USA: ACM, 2010, pp. 917–926. 
-
-[28]  N. Koblitz,  A. Menezes, and S.  A.  Vanstone, “The  state of elliptic curve 
-cryptography,”  Designs,  Codes  and  Cryptography,  vol.  19,  no.  2-3,  pp. 
-173–193, 2000. 
-
-[29]  Y.  Dodis,  L.  Reyzin,  and  A.  Smith,  “Fuzzy  extractors:  How  to  generate 
-strong  keys  from  biometrics  and  other  noisy  data,”  in  Advances  in 
-cryptology-Eurocrypt  2004.     Interlaken,  Switzerland:  Springer,  2004, 
-pp. 523–540. 
-
-[30]  V.  Odelu,  A.  K.  Das,  and  A.  Goswami,  “A  secure  biometrics-based 
-multi-server  authentication  protocol  using  smart  cards,”  IEEE  Transac- 
-tions  on  Information  Forensics  and  Security,  vol.  10,  no.  9,  pp.  1953– 
-1966, 2015. 
-
-[31]  C.  Blundo,  A.  D.  Santis,  A.  Herzberg,  S.  Kutten,  U.  Vaccaro,  and 
-M. Yung, “Perfectly-Secure Key Distribution for Dynamic Conferences,” 
-in  Proceedings  of  12th  Annual  International  Cryptology  Conference 
-(CRYPTO’92),  Lecture  Notes  in  Computer  Science,  vol.  740,  Santa 
-Barbara, California, USA, 1993, pp. 471–486. 
-
-[32]  A.  K.  Das  and  I.  Sengupta,  “An  effective  group-based  key  establish- 
-ment  scheme  for  large-scale  wireless  sensor  networks  using  bivariate 
-polynomials,” in 3rd IEEE International Conference on Communication 
-Systems  Software  and  Middleware  (COMSWARE  2008),  Bangalore, 
-India, 2008, pp. 9–16. 
-
-[33]  H.  Wang  and  Y.  Zhang,  “Cryptanalysis  of  an  Efficient  Threshold  Self- 
-Healing  Key  Distribution  Scheme,”  IEEE  Transactions  on  Wireless 
-Communications, vol. 10, no. 1, pp. 1–4, 2011. 
-
-[34]  D.  Liu,  P.  Ning,  and  R.  Li,  “Establishing  Pairwise  Keys  in  Distributed 
-Sensor Networks,” ACM Transactions on Information and System Secu- 
-rity, vol. 8, no. 1,  pp. 41–77, 2005. 
-
-[35]  A.  K.  Das,  “A  secure  and  robust  temporal  credential-based  three-factor 
-user  authentication  scheme  for  wireless  sensor  networks,”  Peer-to-Peer 
-Networking and Applications, vol. 9, no. 1, pp. 223–244, 2016. 
-
-[36]  V.  Odelu,  A.  K.  Das,  and  A.  Goswami,  “SEAP:  Secure  and  efficient 
-authentication  protocol  for NFC applications using  pseudonyms,” IEEE 
-Transactions on Consumer Electronics, vol. 62, no. 1, pp. 30–38, 2016. 
-[37]  A.  K.  Das,  P.  Sharma,  S.  Chatterjee,  and  J.  K.  Sing,  “A  dynamic 
-password-based  user  authentication  scheme  for  hierarchical  wireless 
-sensor  networks,”  Journal  of  Network    and    Computer    Applications, 
-vol. 35, no. 5,  pp. 1646 – 1656, 2012. 
-
-[38]  S. Kumari, A. K. Das, M. Wazid, X. Li, F. Wu, K.-K. R. Choo, and M. K. 
-Khan, “On the design of a secure user authentication and key agreement 
-scheme  for  wireless  sensor  networks,”  Concurrency  and  Computation: 
-Practice and Experience, 2016, DOI: 10.1002/cpe.3930. 
-
-[39]  AVISPA,  “Automated  Validation  of  Internet  Security  Protocols  and 
-Applications,” http://www.avispa-project.org/. Accessed on April 2016. 
-[40]  A.  Armando  et  al.,  “The  AVISPA  Tool  for  the  Automated  Validation 
-of  Internet  Security  Protocols  and  Applications,”  in  17th  International 
-Conference  on  Computer  Aided  Verification  (CAV’05),  Lecture  Notes 
-in  Computer  Science  (LNCS),  Springer-Verlag,  vol.  3576,  Edinburgh, 
-Scotland, UK, 2005, pp. 281–285. 
-
- 
- 
- 
- 
- 
- 
- 
-
-[41]  AVISPA,  “SPAN,  the  Security  Protocol  ANimator  for  AVISPA,” 
-
-http://www.avispa-project.org. Accessed on April 2017. 
-
-[42]  D.  He,  N.  Kumar,  J.  H.  Lee,  and  R.  S.  Sherratt,  “Enhanced  three- 
-factor security protocol  for consumer  USB mass  storage devices,” IEEE 
-Transactions on Consumer Electronics, vol. 60, no. 1, pp. 30–37, 2014. 
-[43]  “Secure  Hash  Standard,”  FIPS  PUB  180-1,  National  Institute  of  Stan- 
-dards  and  Technology  (NIST),  U.S.  Department  of  Commerce,  April 
-1995.  Available  at  http://csrc.nist.gov/publications/fips/fips180-4/fips- 
-180-4.pdf. Accessed on September 2015. 
-
-[44]  S.  Vanstone,  “Responses  to  NIST’s  proposal,”  Communications  of  the 
-
-ACM, vol. 35, no. 7, pp. 50–52, 1992. 
-
-[45]   “Advanced      Encryption        Standard       (AES),”       FIPS        PUB 
-197,        National        Institute        of        Standards        and          Technology 
-(NIST),     U.S.     Department     of     Commerce,     November     2001. 
-
-[46]  “The Network Simulator-ns-2,” http://www.isi.edu/nsnam/ns/. Accessed 
-
-on January 2017. 
-
-[47]  J.  Wang,  “NS-2  Tutorial,”  http://www.cs.virginia.edu/  c˜s757/slidespdf/ 
-
-cs757-ns2-tutorial1.pdf. Accessed on April 2016. 
-
-Mohammad Wazid (S’17) received the M.Tech. de- 
-gree in computer network engineering from Graphic 
-Era  University,  Dehradun,  India.  He  also  received 
-his Ph.D. degree in Computer Science and Engineer- 
-ing  from  the  International  Institute  of  Information 
-Technology,  Hyderabad,  India,  in  2017.  His    cur- 
-rent  research  interests  include  security,  remote  user 
-authentication,  Internet  of  things  (IoT)  and  cloud 
-computing. He has published more than 40 papers in 
-international  journals  and  conferences  in  the  above 
-areas.  He  was  a  recipient  of  the  University  Gold 
-Medal and the Young Scientist Award by UCOST, Department of Science and 
-Technology,  Government  of  Uttarakhand,  India.  He  is  the  member  of  IEEE 
-Engineering  in  Medicine  and  Biology  Society  (EMBS),  IEEE  Cybersecurity 
-Community, IEEE  Cloud Computing  Community and  European  Alliance  for 
-Innovation (EAI). 
-
-Ashok  Kumar  Das  (M’17)  received  the  Ph.D. 
-degree  in  computer  science  and  engineering,  the 
-M.Tech.  degree  in  computer  science  and  data  pro- 
-cessing,  and  the  M.Sc.  degree  in  mathematics  from 
-IIT  Kharagpur,  India.  He  is  currently  an  Assistant 
-Professor  with  the  Center  for  Security,  Theory  and 
-Algorithmic  Research,  International  Institute  of  In- 
-formation  Technology,  Hyderabad,  India.  His  cur- 
-rent research interests include cryptography, wireless 
-sensor  network  security,  hierarchical  access  control, 
-data mining,  security in vehicular ad hoc networks, 
-smart  grid  and  cloud  computing,  and  remote  user  authentication.  He  has 
-authored  over  135  papers  in  international  journals  and  conferences  in  the 
-above  areas.  He  was  a  recipient  of  the  Institute  Silver  Medal  from  IIT 
-Kharagpur. He  is in  the  editorial  board  of  KSII  Transactions  on  Internet and 
-Information Systems, and the International Journal of Internet Technology and 
-Secured  Transactions  (Inderscience),  and  a  Guest  Editor  for  the  Computers 
-& Electrical  Engineering (Elsevier)  for the  special issue on Big data and IoT 
-in  e-healthcare,  and  has  served  as  a  Program  Committee  Member  in  many 
-international conferences. 
-
-Neeraj Kumar (M’16) received the Ph.D. degree in 
-computer  science  and  engineering  from  Shri  Mata 
-Vaishno  Devi  University,  Katra  (J&K),  India,  in 
-2009.  He  was  a  Post-Doctoral  Research  Fellow  at 
-Coventry University, Coventry,  U.K. He is currently 
-an Associate Professor with the Department of Com- 
-puter  Science  and  Engineering,  Thapar  University, 
-Patiala, India. He  has authored  more than 160 tech- 
-nical  research  papers  published  in  leading  journals 
-and  conferences  from the IEEE, Elsevier, Springer, 
-John  Wiley,  etc.  Some  of  his  research  findings  are 
-published  in  top  cited  journals  such  as  the  IEEE  Transactions  on  Industrial 
-Electronics, IEEE Transactions  on Dependable and  Secure Computing, IEEE 
-Transactions  on  Intelligent  Transportation  Systems,  IEEE  Transactions  on 
-Consumer Electronics, IEEE Network, IEEE Communications, IEEE Wireless 
-Communications, IEEE Internet of Things Journal and IEEE Systems Journal. 
-He has guided many research scholars leading to Ph.D. and M.E./M.Tech. 
-
-2168-2194 (c) 2017 IEEE. Personal use is permitted, but republication/redistribution requires IEEE permission. See http://www.ieee.org/publications_standards/publications/rights/index.html for more information. 
-
-Mauro  Conti  (SM’14)  is an  Associate Professor at 
-the University of Padua, Italy. He obtained his Ph.D. 
-from  Sapienza  University  of  Rome,  Italy,  in  2009. 
-After  his  Ph.D.,  he  was  a  Post-Doc  Researcher  at 
-Vrije  Universiteit  Amsterdam,  The  Netherlands.  In 
-2011 he joined as Assistant Professor the University 
-of  Padua,  where  he  became  Associate  Professor  in 
-2015.  He  has  been  Visiting  Researcher  at  GMU 
-(2008), UCLA (2010), UCI (2012, 2013, and 2014), 
-and  TU  Darmstadt  (2013).  He  has  been  awarded 
-with  a  Marie  Curie  Fellowship  (2012)  by  the  Eu- 
-ropean  Commission,  and  with  a  Fellowship  by  the  German  DAAD  (2013). 
-His  main  research  interest  is  in  the  area  of  security  and  privacy.  In  this 
-area,  he  published  more  than  170  papers  in  topmost  international  peer- 
-reviewed journals and conferences. He is Associate Editor for several journals, 
-including IEEE Communications Surveys & Tutorials and IEEE Transactions 
-on  Information  Forensics  and  Security.  He  was  Program  Chair  for  TRUST 
-2015  and  ICISS  2016,  and  General  Chair  for  SecureComm  2012  and  ACM 
-SACMAT 2013. He is Senior Member of the IEEE. 
-
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-
-Athanasios  V.  Vasilakos  is  recently  Professor  with 
-the  Lulea  University  of  Technology,  Sweden.  He 
-served or is  serving as an Editor  for  many technical 
-journals, such as the IEEE Transactions on Network 
-and  Service  management,  IEEE  Transactions  on 
-Cloud  Computing,  IEEE  Transactions  on  Informa- 
-tion  Forensics  and  Security,  IEEE  Transactions  on 
-Cybernetics,  IEEE  Transactions  on  Nanobioscience, 
-IEEE  Transactions  on  Information  Technology  in 
-Biomedicine, IEEE Transactions on Cloud Comput- 
-ing,  IEEE  Communication  Magazine,  ACM  Trans- 
-actions  on  Autonomous  and  Adaptive  Systems,  IEEE  Journal  on  Selected 
-Areas  in  Communications,  ACM  Transactions  on  Autonomous  and  Adaptive 
-Systems,  etc. He  has published over 500 technical research  papers  in  leading 
-journals  and  conferences  in  his  areas  of  research.  He  is  also  General  Chair 
-of the European Alliances for Innovation (http://www.eai.eu). 
+interactive humanoid root “Robovie.” IEEE Int. Conf. on 
+Robotics and Automation, pp. 1848-1855, 2003 
 
 

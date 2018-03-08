@@ -54,34 +54,34 @@ def tfisf(exDict, scoreDict, title, reDict):
                     sentenceTemp.append(currentWordT)
                 exDict[sentenceKey] = sentenceTemp
 
-        for sentenceKey3, experimentalSentence3 in exDict.items():
-            currentSentence2 = exDict[sentenceKey3]
-            isf = 0
-            tf = 0
-            tfisf = 0
-            aveTfisf = 0
-            listTemp = []
-            length = len(currentSentence2)
-            for word3 in currentSentence2:
-                currentWordL2 = list(word3)
-                frequency2 = currentWordL2[2]
-                isf += frequency2
+    for sentenceKey3, experimentalSentence3 in exDict.items():
+        currentSentence2 = exDict[sentenceKey3]
+        isf = 0
+        tf = 0
+        tfisf = 0
+        aveTfisf = 0
+        listTemp = []
+        length = len(currentSentence2)
+        for word3 in currentSentence2:
+            currentWordL2 = list(word3)
+            frequency2 = currentWordL2[2]
+            isf += frequency2
 
-            for word4 in currentSentence2:
-                currentWordL3 = list(word4)
-                tf = currentWordL3[2]
-                if(isf > 0):
-                    tfisf += (math.log10(isf) * tf)/length
-                else:
-                    tfisf += 0
-
-            if(length > 0):
-                aveTfisf = round(tfisf/length, 3)
+        for word4 in currentSentence2:
+            currentWordL3 = list(word4)
+            tf = currentWordL3[2]
+            if(isf > 0):
+                tfisf += (math.log10(isf) * tf)/length
             else:
-                aveTfisf = 0
+                tfisf += 0
 
-            listTemp.append(aveTfisf)
-            scoreDict[sentenceKey3] = listTemp
+        if(length > 0):
+            aveTfisf = round(tfisf/length, 3)
+        else:
+            aveTfisf = 0
+
+        listTemp.append(aveTfisf)
+        scoreDict[sentenceKey3] = listTemp
 
     with open('experimentaldictionary2.txt', 'w', encoding='utf-8') as text_file:
         print(exDict, file=text_file)

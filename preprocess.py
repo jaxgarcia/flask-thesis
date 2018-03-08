@@ -17,7 +17,7 @@ def preprocessInitialize(outputExtracted):
 
     extractedTxt = open(outputExtracted, 'r', encoding='utf-8')
     extractedStr = extractedTxt.read()
-    extractedList = extractedStr.split('.')
+    extractedList = extractedStr.split('. ')
 
     with open('output.txt', 'r', encoding='utf-8') as rawOutput:
         title = [next(rawOutput) for x in range(3)]
@@ -41,7 +41,7 @@ def preprocessInitialize(outputExtracted):
         if(sentence != extractedList[lastIndex]):
             sentenceTokenize = word_tokenize(sentence)
             if(len(sentenceTokenize) >= 10 and len(sentenceTokenize) <= 50):
-                sentence = re.sub('\d+,|\[|\d+]|\[d+]', '', sentence)
+                sentence = re.sub('\d+,|\[|\d+]|\[d+]|[d+],', '', sentence)
                 sentence = sentence.rstrip()
                 referenceSentence = sentence.replace('\n', ' ')
                 experimentalSentence = sentence.lower().replace('\n', ' ')
